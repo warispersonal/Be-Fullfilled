@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','profile','phone_number', 'city', 'zipcode', 'street_address'
+        'name', 'email', 'password', 'profile', 'phone_number', 'city', 'zipcode', 'street_address'
     ];
 
     /**
@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function journals()
+    {
+        return $this->hasMany(Journal::class);
+    }
 }
