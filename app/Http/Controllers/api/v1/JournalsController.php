@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JournalRequest;
+use App\Http\Resources\JournalResource;
 use App\Journal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,25 +30,14 @@ class JournalsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JournalRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title_notes' => 'required |max:255',
-            'notes_description' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return response(['errors' => $validator->errors()->all()], 422);
-        }
-
         $journal = new Journal();
         $journal['title_notes'] = $request['title_notes'];
         $journal['notes_description'] = $request['notes_description'];
 
-
         Auth::user()->journals()->save($journal);
-        return response(['message' => 'Created', 'data' => $journal], 200);
-
-
+        return response(['message' => 'Created', 'data' => new JournalResource($journal)], 200);
     }
 
     /**
