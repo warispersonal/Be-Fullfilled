@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\JournalRequest;
-use App\Http\Resources\JournalResource;
-use App\Journal;
+use App\Http\Requests\NotesRequest;
+use App\Http\Resources\NotesResource;
+use App\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 
-class JournalsController extends Controller
+class NotesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +18,8 @@ class JournalsController extends Controller
      */
     public function index()
     {
-        $journals = Auth::user()->journals()->get();
-        return response($journals, 200);
+        $notes = Auth::user()->notes()->get();
+        return response($notes, 200);
     }
 
 
@@ -30,14 +29,14 @@ class JournalsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(JournalRequest $request)
+    public function store(NotesRequest $request)
     {
-        $journal = new Journal();
-        $journal['title_notes'] = $request['title_notes'];
-        $journal['notes_description'] = $request['notes_description'];
+        $note = new Notes();
+        $note['title_notes'] = $request['title_notes'];
+        $note['notes_description'] = $request['notes_description'];
 
-        Auth::user()->journals()->save($journal);
-        return response(['message' => 'Created', 'data' => new JournalResource($journal)], 200);
+        Auth::user()->notes()->save($note);
+        return response(['message' => 'Created', 'data' => new NotesResource($note)], 200);
     }
 
     /**

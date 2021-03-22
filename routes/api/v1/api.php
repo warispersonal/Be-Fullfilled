@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\JournalsController;
 use App\Http\Controllers\api\v1\LoginController;
+use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\RegisterController;
 
 use Illuminate\Support\Facades\Route;
@@ -52,16 +53,13 @@ Route::middleware('auth:api')->group(function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Route for Journal
+    | Route for Notes
     |--------------------------------------------------------------------------
     */
 
-    Route::prefix('/journal')->group(function (){
-        Route::get('/', [JournalsController::class, 'index']);
-        Route::post('/create', [JournalsController::class, 'store']);
-        Route::post('{id}/show', [JournalsController::class, 'show']);
-        Route::post('{id}/edit', [JournalsController::class, 'update']);
-        Route::delete('{id}/delete', [JournalsController::class, 'destroy']);
+    Route::prefix('/notes')->group(function (){
+        Route::get('/', [NotesController::class, 'index']);
+        Route::post('/create', [NotesController::class, 'store']);
     });
 });
 
