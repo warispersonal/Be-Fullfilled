@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\JournalsController;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
@@ -72,6 +73,18 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('/goals')->group(function (){
         Route::get('/', [WeeklyGoalsController::class, 'index']);
         Route::post('/create', [WeeklyGoalsController::class, 'store']);
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for Daily Questions
+    |--------------------------------------------------------------------------
+    */
+
+    Route::prefix('/questions')->group(function (){
+        Route::get('/', [DailyQuestionController::class, 'index']);
+        Route::post('/create', [DailyQuestionController::class, 'store']);
     });
 });
 
