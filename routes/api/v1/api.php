@@ -7,6 +7,7 @@ use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\RegisterController;
 
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
+use App\Http\Controllers\api\v1\YourDayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,6 +86,18 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('/questions')->group(function (){
         Route::get('/', [DailyQuestionController::class, 'index']);
         Route::post('/create', [DailyQuestionController::class, 'store']);
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for Your Day
+    |--------------------------------------------------------------------------
+    */
+
+    Route::prefix('/day')->group(function (){
+        Route::get('/', [YourDayController::class, 'index']);
+        Route::post('/create', [YourDayController::class, 'store']);
     });
 });
 
