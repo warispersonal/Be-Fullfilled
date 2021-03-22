@@ -5,6 +5,7 @@ use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\RegisterController;
 
+use App\Http\Controllers\api\v1\WeeklyGoalsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,6 +61,17 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('/notes')->group(function (){
         Route::get('/', [NotesController::class, 'index']);
         Route::post('/create', [NotesController::class, 'store']);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for Weekly Goals
+    |--------------------------------------------------------------------------
+    */
+
+    Route::prefix('/goals')->group(function (){
+        Route::get('/', [WeeklyGoalsController::class, 'index']);
+        Route::post('/create', [WeeklyGoalsController::class, 'store']);
     });
 });
 
