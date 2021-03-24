@@ -9,4 +9,8 @@ class DailyQuestion extends Model
     protected $guarded = [
         'question'
     ];
+
+    public function yourDays(){
+        return $this->hasMany(YourDay::class);
+    }
 }

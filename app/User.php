@@ -53,5 +53,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(WeeklyGoal::class);
     }
+    public function yourDays(){
+        return $this->hasMany(YourDay::class);
+    }
 
 }

@@ -24,7 +24,7 @@ class YourDayRequest extends FormRequest
     public function rules()
     {
         return [
-            'daily_question_id' => 'required',
+            'daily_question_id' => 'required|exists:daily_questions,id',
             'answer' => 'required'
         ];
     }

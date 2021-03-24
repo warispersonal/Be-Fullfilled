@@ -4,7 +4,10 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\YourDayRequest;
+use App\Http\Resources\YourDayResource;
+use App\YourDay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class YourDayController extends Controller
 {
@@ -15,18 +18,10 @@ class YourDayController extends Controller
      */
     public function index()
     {
-        //
+        $yourDays = Auth::user()->yourDays()->get();
+        return response($yourDays, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +31,12 @@ class YourDayController extends Controller
      */
     public function store(YourDayRequest $request)
     {
-        //
+        $yourDay = new YourDay();
+        $yourDay['daily_question_id'] = $request['daily_question_id'];
+        $yourDay['answer'] = $request['answer'];
+        Auth::user()->yourDays()->save($yourDay);
+        return response(new YourDayResource($yourDay), 200);
+
     }
 
     /**
