@@ -14,6 +14,10 @@ class WeeklyGoalsResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id'=> $this->id,
+            'day'=> $this->day,
+            'goal'=> $this->goal,
+        ];
     }
 }

@@ -15,9 +15,9 @@ class NotesResource extends JsonResource
     public function toArray($request)
     {
       return [
+          "id" => $this->id,
           "title_notes" => $this->title_notes ,
           "notes_description" => $this->notes_description ,
-          "user_id" => $this->user_id ,
       ];
     }
 }

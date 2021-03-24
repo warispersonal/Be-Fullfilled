@@ -19,7 +19,7 @@ class YourDayController extends Controller
     public function index()
     {
         $yourDays = Auth::user()->yourDays()->get();
-        return response($yourDays, 200);
+        return response(YourDayResource::collection($yourDays), 200);
     }
 
 

@@ -19,7 +19,7 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Auth::user()->notes()->get();
-        return response($notes, 200);
+        return response(NotesResource::collection($notes), 200);
     }
 
 

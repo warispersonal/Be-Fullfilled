@@ -19,7 +19,7 @@ class WeeklyGoalsController extends Controller
     public function index()
     {
         $goals = Auth::user()->weeklyGoals()->get();
-        return response($goals, 200);
+        return response(WeeklyGoalsResource::collection($goals), 200);
 
     }
 
