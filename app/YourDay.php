@@ -16,6 +16,6 @@ class YourDay extends Model
         return $this->belongsTo(User::class);
     }
     public function question(){
-        return $this->belongsTo(DailyQuestion::class);
+        return $this->belongsTo(DailyQuestion::class, 'daily_question_id','id');
     }
 }

@@ -18,7 +18,7 @@ class DailyQuestionController extends Controller
     public function index()
     {
         $question = DailyQuestion::all();
-        return response($question, 200);
+        return response(DailyQuestionResource::collection($question), 200);
 
     }
 
@@ -34,8 +34,7 @@ class DailyQuestionController extends Controller
         $question = new DailyQuestion();
         $question['question'] = $request->question;
         $question->save();
-
-        return response(['message' => 'Created', 'data' => new DailyQuestionResource($question)], 200);
+        return response(['data' => new DailyQuestionResource($question)], 200);
 
     }
 

@@ -17,7 +17,7 @@ class YourDayResource extends JsonResource
         return [
             'id' => $this->id,
             'answer' => $this->answer,
-            'daily_question_id' => $this->daily_question_id,
+            'question' => $this->question,
         ];
     }
 }
