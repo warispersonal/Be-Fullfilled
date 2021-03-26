@@ -11,6 +11,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
+use Storage;
 use Str;
 use Validator;
 
@@ -19,8 +20,23 @@ class RegisterController extends Controller
 
     public function register(UserRequest $request)
     {
+        $image_64 = $request->profile; //your base64 encoded data
+
+        $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+
+        $replace = substr($image_64, 0, strpos($image_64, ',')+1);
+
+        $image = str_replace($replace, '', $image_64);
+
+        $image = str_replace(' ', '+', $image);
+
+        $imageName = Str::random(10).'.'.$extension;
+
+        Storage::disk('public')->put($imageName, base64_decode($image));
+
         $request['password'] = Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
+        $request['profile'] = $imageName;
         $user = User::create($request->toArray());
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $response = ['token' => $token];

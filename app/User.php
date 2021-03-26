@@ -49,12 +49,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(Notes::class);
     }
+
     public function weeklyGoals()
     {
         return $this->hasMany(WeeklyGoal::class);
     }
-    public function yourDays(){
+
+    public function yourDays()
+    {
         return $this->hasMany(YourDay::class);
+    }
+
+    public function getProfileAttribute($profile)
+    {
+        return url('storage/'.$profile);
     }
 
 }
