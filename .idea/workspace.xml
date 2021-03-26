@@ -20,13 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Practice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Traits/RespondsWithHttpStatus.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/v1/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/DailyQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/DailyQuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/NotesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/NotesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/WeeklyGoalsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/WeeklyGoalsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/YourDayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/YourDayController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +183,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\Practice\routes\api\v1" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers" />
       <recent name="C:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
       <recent name="D:\laragon\www\Be-Fullfilled" />
       <recent name="D:\laragon\www\ApiAuthentication" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
+      <recent name="D:\laragon\www\Practice\routes\api\v1" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,7 +221,8 @@
       <workItem from="1616406783292" duration="6112000" />
       <workItem from="1616583182757" duration="3361000" />
       <workItem from="1616676554361" duration="1619000" />
-      <workItem from="1616738055642" duration="1956000" />
+      <workItem from="1616738055642" duration="3250000" />
+      <workItem from="1616741573431" duration="2936000" />
     </task>
     <servers />
   </component>
@@ -266,6 +271,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="501" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1615892748191" />
+    <state x="2714" y="451" key="NewPhpFileDialog" timestamp="1616742378605">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2714" y="451" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616742378605" />
     <state x="2451" y="236" key="run.anything.popup" timestamp="1616152522533">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -275,16 +284,5 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616152448286" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/api/v1/LoginController.php</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

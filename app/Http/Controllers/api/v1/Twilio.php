@@ -22,7 +22,7 @@ class Twilio extends Controller
         $six_digit_random_number = mt_rand(100000, 999999);
         $message = "Your Befullfill verification code is " . $six_digit_random_number;
         $client->messages->create($request->phone, ['from' => $twilio_number, 'body' => $message] );
-        return response(['code' => $six_digit_random_number ], 200);
+        return $this->success('Code send successfully',['code' => $six_digit_random_number ]);
 
     }
 }

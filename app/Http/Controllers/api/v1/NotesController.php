@@ -19,7 +19,7 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Auth::user()->notes()->get();
-        return response(NotesResource::collection($notes), 200);
+        return $this->success("Notes List",NotesResource::collection($notes));
     }
 
 
@@ -36,7 +36,7 @@ class NotesController extends Controller
         $note['notes_description'] = $request['notes_description'];
 
         Auth::user()->notes()->save($note);
-        return response(['message' => 'Created', 'data' => new NotesResource($note)], 200);
+        return $this->success("Created", new NotesResource($note));
     }
 
     /**

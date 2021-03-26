@@ -19,7 +19,7 @@ class WeeklyGoalsController extends Controller
     public function index()
     {
         $goals = Auth::user()->weeklyGoals()->get();
-        return response(WeeklyGoalsResource::collection($goals), 200);
+        return $this->success('Goals list' , WeeklyGoalsResource::collection($goals));
 
     }
 
@@ -46,7 +46,7 @@ class WeeklyGoalsController extends Controller
         $weeklyGoals['goal'] = $request['goal'];
 
         Auth::user()->weeklyGoals()->save($weeklyGoals);
-        return response(['message' => 'Created', 'data' => new WeeklyGoalsResource($weeklyGoals)], 200);
+        return $this->success("Created", new WeeklyGoalsResource($weeklyGoals));
     }
 
     /**

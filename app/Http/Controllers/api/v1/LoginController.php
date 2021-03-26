@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Validator;
 
 class LoginController extends Controller
 {
@@ -17,20 +16,16 @@ class LoginController extends Controller
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
-                return response($response, 200);
+                return $this->success('Login Successful', $response);
             } else {
-                $response = ["message" => "Password mismatch"];
-                return response($response, 422);
+                return $this->failure('Password mismatch');
             }
         } else {
-            $response = ["message" => 'User does not exist'];
-            return response($response, 422);
+            return $this->failure('User does not exist');
         }
     }
-
     public function unauthorized()
     {
-        $response = ["message" => 'Un-authorized'];
-        return response($response, 422);
+        return $this->failure('Un-authorized');
     }
 }

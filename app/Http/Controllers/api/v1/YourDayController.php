@@ -19,7 +19,7 @@ class YourDayController extends Controller
     public function index()
     {
         $yourDays = Auth::user()->yourDays()->get();
-        return response(YourDayResource::collection($yourDays), 200);
+        return $this->success("Your days list",YourDayResource::collection($yourDays));
     }
 
 
@@ -35,7 +35,7 @@ class YourDayController extends Controller
         $yourDay['daily_question_id'] = $request['daily_question_id'];
         $yourDay['answer'] = $request['answer'];
         Auth::user()->yourDays()->save($yourDay);
-        return response(new YourDayResource($yourDay), 200);
+        return $this->success('Created',new YourDayResource($yourDay));
 
     }
 
