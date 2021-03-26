@@ -6,6 +6,7 @@ use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\RegisterController;
 
+use App\Http\Controllers\api\v1\Twilio;
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
 use App\Http\Controllers\api\v1\YourDayController;
 use Illuminate\Support\Facades\Route;
@@ -103,3 +104,5 @@ Route::middleware('auth:api')->group(function () {
 
 
 
+
+Route::post('/send/sms', [Twilio::class, 'sendConfirmationMessage']);
