@@ -35,7 +35,7 @@ class Twilio extends Controller
     public function sendResetPasswordOnMobile(Request $request)
     {
         $request->validate([
-            'phone_number' => 'required|min:13|max:13'
+            'phone_number' => 'required'
         ]);
         if (RecordExistsController::isCellNoExists($request->phone_number)) {
             $account_sid = getenv("TWILIO_SID");
@@ -50,7 +50,6 @@ class Twilio extends Controller
             } catch (TwilioException  $e) {
                 return $this->failure('This is not valid phone number');
             }
-
         } else {
             return $this->failure('Sorry, This user is not exist in our system', 404);
         }
