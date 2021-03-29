@@ -22,4 +22,12 @@ class RecordExistsController extends Controller
         }
         return false;
     }
+    public static function isUserEmailCellExists($user){
+        if(self::isCellNoExists($user) || self::isEmailExists($user)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

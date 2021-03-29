@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/EmailSendController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/GenericController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RecordExistsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/ResetPasswordCode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/resetPasswordCode.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Old_RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GenericController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RecordExistsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RecordExistsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ResetPasswordRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ResetPasswordRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/v1/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,20 +174,21 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api/v1" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
+      <recent name="D:\laragon\www\Practice\routes\api\v1" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers" />
       <recent name="C:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
       <recent name="D:\laragon\www\Be-Fullfilled" />
       <recent name="D:\laragon\www\ApiAuthentication" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
-      <recent name="D:\laragon\www\Practice\routes\api\v1" />
     </key>
   </component>
   <component name="RunManager">
@@ -222,7 +220,7 @@
       <workItem from="1616676554361" duration="1619000" />
       <workItem from="1616738055642" duration="3250000" />
       <workItem from="1616741573431" duration="3228000" />
-      <workItem from="1617011676305" duration="3028000" />
+      <workItem from="1617011676305" duration="4431000" />
     </task>
     <servers />
   </component>

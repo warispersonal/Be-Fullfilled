@@ -48,6 +48,34 @@ class RegisterController extends Controller
         return $this->success('User Profile',new UserResource($user));
     }
 
+    public function logout(Request $request)
+    {
+        $token = $request->user()->token();
+        $token->revoke();
+        return $this->success('You have been successfully logged out!');
+    }
+
+    public function forgot()
+    {
+        $credentials = request()->validate(['email' => 'required|email']);
+        Password::sendResetLink($credentials);
+        return $this->success('Reset password link sent on your email id.');
+    }
+
+    public function reset(ResetPasswordRequest $request)
+    {
+        $reset_password_status = Password::reset($request->validated(), function ($user, $password) {
+            $user->password = Hash::make($password);
+            $user->save();
+        });
+
+        if ($reset_password_status == Password::INVALID_TOKEN) {
+            return $this->failure('Token invalid');
+        }
+        return $this->success('Password has been successfully changed');
+    }
+
+
     public function resetPassword(ResetPasswordRequest $request)
     {
         if(RecordExistsController::isUserEmailCellExists($request->user)){
@@ -60,13 +88,4 @@ class RegisterController extends Controller
             return $this->failure('Sorry, This user is not exist in our system', 404);
         }
     }
-
-    public function logout(Request $request)
-    {
-        $token = $request->user()->token();
-        $token->revoke();
-        return $this->success('You have been successfully logged out!');
-    }
-
-
 }

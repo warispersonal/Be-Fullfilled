@@ -38,8 +38,8 @@ Route::prefix('/user')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::post('forgot-password', [RegisterController::class,'forgot']);
-Route::post('password/reset', [RegisterController::class,'reset']);
+//Route::post('forgot-password', [RegisterController::class,'forgot']);
+//Route::post('password/reset', [RegisterController::class,'reset']);
 
 
 Route::middleware('auth:api')->group(function () {
@@ -113,5 +113,4 @@ Route::middleware('auth:api')->group(function () {
 Route::post('send/sms', [Twilio::class, 'sendConfirmationMessage']);
 Route::post('reset/password/sms', [Twilio::class, 'sendResetPasswordOnMobile']);
 Route::post('reset/password/email', [EmailSendController::class, 'sendResetPasswordOnEmail']);
-
-
+Route::post('password/reset', [RegisterController::class,'resetPassword']);
