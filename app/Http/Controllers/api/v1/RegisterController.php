@@ -20,43 +20,50 @@ class RegisterController extends Controller
 
     public function register(UserRequest $request)
     {
-        $image_64 = $request->profile; //your base64 encoded data
+        if ($request->profile) {
+            $image_64 = $request->profile;
 
-        $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+            $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
 
-        $replace = substr($image_64, 0, strpos($image_64, ',')+1);
+            if ($extension != "jpeg" || $extension != "jpg" || $extension != "png") {
+                $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
 
-        $image = str_replace($replace, '', $image_64);
+                $image = str_replace($replace, '', $image_64);
 
-        $image = str_replace(' ', '+', $image);
+                $image = str_replace(' ', '+', $image);
 
-        $imageName = Str::random(10).'.'.$extension;
+                $imageName = Str::random(10) . '.' . $extension;
 
-        Storage::disk('public')->put($imageName, base64_decode($image));
-        $request['password'] = Hash::make($request['password']);
-        $request['remember_token'] = Str::random(10);
-        $request['profile'] = $imageName;
-        $user = User::create($request->toArray());
-        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = ['token' => $token];
-        return $this->success("Registration successfull" , $response);
+                Storage::disk('public')->put($imageName, base64_decode($image));
+
+                $request['password'] = Hash::make($request['password']);
+                $request['remember_token'] = Str::random(10);
+                $request['profile'] = $imageName;
+                $user = User::create($request->toArray());
+                $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+                $response = ['token' => $token];
+                return $this->success("Registration successful", $response);
+            } else {
+                return $this->failure('Only jpeg, jpg, png file required', 404);
+            }
+
+        }
     }
 
     public function profile()
     {
         $user = Auth::user();
-        return $this->success('User Profile',new UserResource($user));
+        return $this->success('User Profile', new UserResource($user));
     }
 
     public function resetPassword(ResetPasswordRequest $request)
     {
-        if(RecordExistsController::isUserEmailCellExists($request->user)){
+        if (RecordExistsController::isUserEmailCellExists($request->user)) {
             $user = User::where('email', $request->user)->orWhere('phone_number', $request->user)->get()->first();
             $user->password = Hash::make($request->password);
             $user->save();
             return $this->success('Password has been successfully changed');
-        }
-        else{
+        } else {
             return $this->failure('Sorry, This user is not exist in our system', 404);
         }
     }

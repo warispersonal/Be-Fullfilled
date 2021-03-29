@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'profile' => 'required',
             'city' => 'required',
             'street_address' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|min:13|max:13',
         ];
     }
 }
