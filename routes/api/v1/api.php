@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\v1\DailyQuestionController;
+use App\Http\Controllers\api\v1\EmailSendController;
 use App\Http\Controllers\api\v1\JournalsController;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
@@ -103,6 +104,14 @@ Route::middleware('auth:api')->group(function () {
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| Route for Register Reset Password on Email & Mobile
+|--------------------------------------------------------------------------
+*/
+
+Route::post('send/sms', [Twilio::class, 'sendConfirmationMessage']);
+Route::post('reset/password/sms', [Twilio::class, 'sendResetPasswordOnMobile']);
+Route::post('reset/password/email', [EmailSendController::class, 'sendResetPasswordOnEmail']);
 
 
-Route::post('/send/sms', [Twilio::class, 'sendConfirmationMessage']);
