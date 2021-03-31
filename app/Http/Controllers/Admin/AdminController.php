@@ -10,4 +10,7 @@ class AdminController extends Controller
     public function index(){
         return view('admin.index');
     }
+    public function add_content_to_the_library(){
+        return view('admin.add_content_to_the_library');
+    }
 }
