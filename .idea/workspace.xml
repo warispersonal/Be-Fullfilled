@@ -20,20 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/all-orders.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/manage-store.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/podcast.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/store-add-product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/upload-new-podcast.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/upload-new.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/user-profile-detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content-library.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/all-orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/all-orders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/content-library.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content-library.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/manage-store.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/manage-store.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/podcast.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/podcast.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/user-profile-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user-profile-detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation/side-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,7 +233,7 @@
       <workItem from="1617021524030" duration="667000" />
       <workItem from="1617108612785" duration="1436000" />
       <workItem from="1617174714568" duration="4508000" />
-      <workItem from="1617179467476" duration="1457000" />
+      <workItem from="1617179467476" duration="3694000" />
     </task>
     <servers />
   </component>
@@ -291,6 +288,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2714" y="451" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616742378605" />
+    <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1617183899356">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="145" width="579" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1617183899356" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1617176796020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

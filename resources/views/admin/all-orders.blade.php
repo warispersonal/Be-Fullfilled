@@ -44,7 +44,7 @@
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img src="assets/images/Kristin Watson.png" alt=""/>
+                                <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
                             </div>
 
                             <div class="headeright">
@@ -71,7 +71,7 @@
 
                     <td>Pending</td>
 
-                    <td><img src="assets/images/table-dotted.svg" alt=""/></td>
+                    <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 
                 </tr>
 
@@ -84,7 +84,7 @@
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img src="assets/images/Kristin Watson.png" alt=""/>
+                                <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
                             </div>
 
                             <div class="headeright">
@@ -111,7 +111,7 @@
 
                     <td>Pending</td>
 
-                    <td><img src="assets/images/table-dotted.svg" alt=""/></td>
+                    <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 
                 </tr>
 
@@ -124,7 +124,7 @@
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img src="assets/images/Kristin Watson.png" alt=""/>
+                                <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
                             </div>
 
                             <div class="headeright">
@@ -151,7 +151,7 @@
 
                     <td>Pending</td>
 
-                    <td><img src="assets/images/table-dotted.svg" alt=""/></td>
+                    <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 
                 </tr>
 
@@ -164,7 +164,7 @@
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img src="assets/images/Kristin Watson.png" alt=""/>
+                                <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
                             </div>
 
                             <div class="headeright">
@@ -191,7 +191,7 @@
 
                     <td>Pending</td>
 
-                    <td><img src="assets/images/table-dotted.svg" alt=""/></td>
+                    <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 
                 </tr>
 

@@ -7,7 +7,9 @@
         <div class="FlipSwitch-Con">
             <div class="FlipLeft-Head"><h1>Filp The Switch</h1></div>
             <div class="FlipRight-Head">
-                <button>Upload New</button>
+                <a href="{{route('upload_new')}}">
+                    <button>Upload New</button>
+                </a>
             </div>
         </div>
 
@@ -16,7 +18,7 @@
             <div class="FlipThumb-Left">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/Podcast_1.png" alt=""/>
+                    <img src="{{asset('assets/images/Podcast_1.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>
@@ -36,7 +38,7 @@
             <div class="FlipThumb-Right">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/Podcast_1.png" alt=""/>
+                    <img src="{{asset('assets/images/Podcast_1.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>
@@ -56,7 +58,7 @@
             <div class="FlipThumb-Left">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/Podcast_1.png" alt=""/>
+                    <img src="{{asset('assets/images/Podcast_1.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>

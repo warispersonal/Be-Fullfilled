@@ -15,7 +15,7 @@
             <div class="FlipThumb-Left">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/podcast-img.png" alt=""/>
+                    <img src="{{asset('assets/images/podcast-img.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>
@@ -35,7 +35,7 @@
             <div class="FlipThumb-Right">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/podcast-img.png" alt=""/>
+                    <img src="{{asset('assets/images/podcast-img.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>
@@ -55,7 +55,7 @@
             <div class="FlipThumb-Left">
                 <div class="FlipSwitch-Thum">
 
-                    <img src="assets/images/podcast-img.png" alt=""/>
+                    <img src="{{asset('assets/images/podcast-img.png')}}" alt=""/>
 
                     <div class="FlipInner-Head">
                         <h2>September 24, 2017</h2>
