@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/add_content_to_the_library.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/default.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/add-new-faq.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +224,7 @@
       <workItem from="1617011676305" duration="7055000" />
       <workItem from="1617021524030" duration="667000" />
       <workItem from="1617108612785" duration="1436000" />
-      <workItem from="1617174714568" duration="4078000" />
+      <workItem from="1617174714568" duration="4409000" />
     </task>
     <servers />
   </component>
