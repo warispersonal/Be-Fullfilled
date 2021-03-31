@@ -20,9 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/add-new-faq.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/all-orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/manage-store.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/podcast.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/store-add-product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/upload-new-podcast.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/upload-new.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/user-profile-detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/content-library.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,23 +184,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\layouts" />
+      <recent name="D:\laragon\www\Be-Fullfilled\public" />
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
       <recent name="D:\laragon\www\Be-Fullfilled\resources\views\components\navigation" />
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
       <recent name="D:\laragon\www\Practice\routes\api\v1" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\layouts" />
-      <recent name="D:\laragon\www\Be-Fullfilled\public" />
-      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
-      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers" />
-      <recent name="C:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
     </key>
   </component>
   <component name="RunManager">
@@ -224,7 +235,8 @@
       <workItem from="1617011676305" duration="7055000" />
       <workItem from="1617021524030" duration="667000" />
       <workItem from="1617108612785" duration="1436000" />
-      <workItem from="1617174714568" duration="4409000" />
+      <workItem from="1617174714568" duration="4508000" />
+      <workItem from="1617179467476" duration="1457000" />
     </task>
     <servers />
   </component>
@@ -296,6 +308,11 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/api/v1/RegisterController.php</url>
           <line>39</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/all-orders.blade.php</url>
+          <line>104</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
