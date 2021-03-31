@@ -1,0 +1,68 @@
+.swal2-height-auto{
+    .swal2-popup{
+        .swal2-actions{
+            margin: 0 !important;
+            .swal2-styled{
+                padding: 11px 20px;
+                background: #b6b6b6 !important;
+                border: none !important;
+                border-radius: 3px !important;
+                font-weight: 500 !important;
+                font-size: 13px !important;
+                -webkit-transition: all 0.3s ease-in-out !important;
+                transition: all 0.3s ease-in-out !important;
+                color: #fff !important;
+                &:focus{
+                    box-shadow: none !important;
+                }
+                &:hover{
+                    background: $base-color !important;
+                }
+            }
+        }
+    }
+    .swal2-header{
+        .swal2-icon{
+            width: 50px !important;
+            height: 50px !important;
+            border-width: 3px !important;
+            line-height: 45px !important;
+            margin: 0 !important;
+            &.swal2-question{
+                &:before{
+                    display: inline-block;
+                    line-height: 55px;
+                }
+            }
+            &.swal2-warning{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900 !important;
+                border-color: $base-color !important;
+                color: $base-color !important;
+                &:before{
+                    content: '\F12A' !important;
+                }
+            }
+            &:before{
+                font-size: 20px !important;
+                height: 100% !important;
+            }
+            &.swal2-error{
+                [class^=swal2-x-mark-line]{
+                    width: 17px !important;
+                    height: 3px !important;
+                    top: 24px !important;
+                }
+            }
+        }
+        .swal2-title{
+            font-size: 17px;
+            line-height: 20px;
+            color: #8c8c8c;
+            font-family: $poppins-500;
+            font-weight: normal;
+            margin-top: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+    }
+}

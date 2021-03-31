@@ -20,8 +20,264 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Bold.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Bold.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Bold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Light.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Light.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Light.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Medium.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Medium.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Medium.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-SemiBold.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-SemiBold.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/Poppins-SemiBold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/animation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/fontello-codes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/fontello-embedded.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/fontello-ie7-codes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/fontello-ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/css/fontello.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/font/fontello.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/font/fontello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/font/fontello.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/font/fontello.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontello/font/fontello.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/BeFulfilled_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/Kristin Watson.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/Podcast_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/library-img-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/library-img-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/library-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/podcast-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/pr-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/store-img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/table-dotted.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/app-dist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/component/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/vendor/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/vendor/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/vendor/popover.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/vendor/popper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/abstracts/_breakpoints.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/abstracts/_functions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/abstracts/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/abstracts/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/base/_base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/base/_fonts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/base/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/base/_helpers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/base/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_alert.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_badge.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_breadcrumb.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_button-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_carousel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_close.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_code.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_custom-forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_dropdown.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_functions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_images.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_input-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_jumbotron.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_list-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_media.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_modal.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_popover.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_print.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_progress.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_reboot.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_root.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_spinners.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_toasts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_tooltip.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_transitions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_type.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_utilities.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/bootstrap-grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/bootstrap-reboot.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/bootstrap.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_alert.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_background-variant.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_badge.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_border-radius.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_caret.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_clearfix.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_deprecate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_float.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_gradients.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_grid-framework.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_hover.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_image.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_list-group.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_lists.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_nav-divider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_reset-text.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_resize.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_size.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_table-row.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_text-emphasis.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_text-hide.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_transition.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/mixins/_visibility.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_align.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_background.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_borders.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_clearfix.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_display.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_embed.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_flex.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_float.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_overflow.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_position.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_screenreaders.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_shadows.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_sizing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_spacing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_stretched-link.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_text.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/utilities/_visibility.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/bootstrap/vendor/_rfs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_action.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_banner.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_breadcrumbs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_carousel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_content-right-sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_dropzone.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_dynamic-popup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_icon.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_inner-banners.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_loader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_popup.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_progress.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_selectize.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_side-bar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_status.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_steps.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_switcher.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_tabs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/components/_tooltips.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_shims.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/brands.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/fontawesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/regular.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/solid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/fontawesome/v4-shims.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_body.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_container.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_form.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_layout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_page.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_section.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/layouts/_side-menu.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/pages/_home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/pages/inner-pages.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/selectpicker/_bootstrap-select.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/selectpicker/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_animate.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_custom-calendar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_dataTables.bootstrap4.min.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_datepicker.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_dropzone.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_fcal_daygridmain.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_fcal_main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_jquery-ui.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_jquery-ui.theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_normalize.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_owl.carousel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/sass/vendor/_responsive-calendar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/navigation/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/navigation/side-bar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/admin/_footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/admin/_head.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Practice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Practice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Twilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +412,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/passport" />
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
       <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ppKLJquIu0vqFTRoENGXaDFr2H" />
@@ -170,21 +427,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/api/v1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\components\navigation" />
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
       <recent name="D:\laragon\www\Practice\routes\api\v1" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\layouts" />
+      <recent name="D:\laragon\www\Be-Fullfilled\public" />
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
       <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers" />
       <recent name="C:\laragon\www\Be-Fullfilled\app\Http\Controllers\api\v1" />
-      <recent name="D:\laragon\www\Be-Fullfilled" />
-      <recent name="D:\laragon\www\ApiAuthentication" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,7 +476,9 @@
       <workItem from="1616738055642" duration="3250000" />
       <workItem from="1616741573431" duration="3228000" />
       <workItem from="1617011676305" duration="7055000" />
-      <workItem from="1617021524030" duration="23000" />
+      <workItem from="1617021524030" duration="667000" />
+      <workItem from="1617108612785" duration="1436000" />
+      <workItem from="1617174714568" duration="3534000" />
     </task>
     <servers />
   </component>
@@ -240,10 +501,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616046041736">
+    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617176653420">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616046041736" />
+    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1617176653420" />
     <state x="448" y="45" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616409472287">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -271,11 +533,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2714" y="451" key="NewPhpFileDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616742378605" />
-    <state x="2451" y="236" key="run.anything.popup" timestamp="1616152522533">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1617176796020">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="2451" y="236" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1616152522533" />
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1615890921246" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1617176796020" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1616152448286">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

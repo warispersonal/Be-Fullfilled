@@ -1,0 +1,8 @@
+.body {
+    &-fixed {
+        position: fixed;
+    }
+}
+body{
+	background-color: $theme-color-6 !important;
+}

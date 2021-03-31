@@ -1,0 +1,124 @@
+.main-container{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	
+	 .SideMenu-Left{
+		 margin: 0;
+		 padding: 18px 0 0 0;
+		 background: $white-color;
+		 max-width: 280px;
+		 width: 100%;
+		 position: fixed;
+		 left: 0;
+		 top: 82px;
+		 z-index: 99;
+		 border-right: 1px solid $theme-color-3;
+		 height: 100vh;
+		 
+		  .aside-menu{
+		      margin: 0;
+			  padding: 0;
+			  
+			  .spriter-line{
+				  background: $theme-color-3;
+				  height: 1px;
+				  width: 217px;
+				  margin: 0 auto;
+				  text-align: center;
+				  margin-top: 48px;
+    			  margin-bottom: 35px;
+			  }
+			  
+			  ul{
+				  margin: 0;
+				  padding: 0;
+				  
+				  li.active a{
+					 background: $theme-color-1;
+					 color: $white-color;
+				  }
+				  
+				  li{
+					  margin: 0 0 10px 0;
+					  padding: 0;
+					  list-style: none;
+					  
+					  a{
+						  margin: 0;
+						  padding: 10px 10px 10px 30px;
+						  font-family: $poppins-400;
+						  font-size: 18px;
+						  color: $theme-color-2;
+						  text-align: left;
+						  text-decoration: none;
+						  outline: none;
+						  display: block;
+						  background: transparent;
+						  @include transition(all 0.5s ease-in-out);
+						  &:hover,
+						  &:active{
+							  background: $theme-color-1;
+							  color: $white-color;
+						  }
+						   i{
+							   margin: 0;
+							   padding: 0 12px 0 0px;
+							   color: $theme-color-5;
+							   font-size: 20px;
+							   text-align: left;
+							   text-decoration: none;
+						  }
+					  }
+				  }
+			  }
+		  }
+		 
+		 
+		 .LogoutHead{
+			 margin: 0;
+			 padding: 0 0 0 30px;
+			 
+			 h6{
+				 margin: 0;
+				 padding: 0;
+				 font-family: $poppins-300;
+				 font-style: normal;
+				 font-weight: 300;
+				 font-size: 12px;
+				 line-height: 18px;
+				 text-transform: capitalize;
+				 color: $theme-color-5;
+			 }
+			 a{
+				 margin: 21px 0 0 0;
+				 padding: 0;
+				 font-family: $poppins-400;
+				 color: $theme-color-5;
+				 font-style: normal;
+				 font-weight: normal;
+				 font-size: 12px;
+				 line-height: 18px;
+				 text-transform: capitalize;
+				 text-align: left;
+				 text-decoration: none;
+				 display: block;
+				  
+				 i{
+					 margin: 0 6px 0 0px;
+					 padding: 0;
+					 text-align: left;
+					 color: $theme-color-5;
+					 font-size: 14px;
+				 }
+			 }
+			 
+		 }
+		 
+		 		 
+	 }
+	
+	
+	
+	
+}

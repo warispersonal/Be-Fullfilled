@@ -1,0 +1,1132 @@
+.AllUser-Dashboard{
+	margin: 0;
+	padding: 0;
+	box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.27);
+	@include radius(10px);
+	background: $white-color;
+	position: relative;
+    left: 300px;
+    top: 103px;
+	z-index: 99;
+    width: 78%;
+}
+
+
+/***** All User Css3 Start  *****/
+
+.AllUser-Head{
+		margin: 0 22px 0 30px;
+		padding: 27px 0px 17px 0px;
+		border-bottom: 1px solid #E9E6E6;
+	
+	&:after{
+		clear: both;
+		display: table;
+		content: '';
+	}
+	
+	
+	.UserLeft{
+		float: left;
+		
+		
+		h1{
+			margin: 0;
+			padding: 0;
+			font-family: $poppins-500;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 36px;
+			text-transform: capitalize;
+			color: $theme-color-1;
+			
+			 span{
+				 font-family: $poppins-300;
+				 color: $theme-color-5;
+			 }
+			
+		}
+		
+		
+	}
+	
+	
+	.Userright{
+		float: right;
+		margin-top: 8px;
+		
+		a{
+			margin: 0;
+			padding: 0;
+			font-family: $poppins-500;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 21px;
+			text-align: right;
+			text-decoration: none;
+			text-transform: capitalize;
+			color: $theme-color-2;
+			outline: none;
+			@include transition(all 0.5s ease-in-out);
+			i{
+				color: $theme-color-5;
+				font-size: 18px;
+				text-align: right;
+				margin-left: 6px;
+			}
+		}
+		
+	}
+	
+	
+}
+
+.main-Table{
+		margin: 0 22px 0 20px;
+		padding: 0;
+	
+	   .Main-Head{
+		   margin: 20px 0 15px 10px;
+		   padding: 0;
+		   
+		   h1{
+			    font-style: normal;
+			    font-family: $poppins-500;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 21px;
+			    letter-spacing: 0.09em;
+				text-transform: uppercase;
+			    text-align: left;
+			    text-decoration: none;
+			    color: $theme-color-2;
+		   }
+		   
+		}
+	    
+	   &:after{
+		   clear: both;
+		   display: table;
+		   content: '';
+	   }
+	     .table{
+			 margin-bottom: 0;
+	   }
+	   
+	     .table thead th {
+			 vertical-align: bottom;
+			 border-bottom: none;
+			 font-family: $poppins-500;
+			 font-style: normal;
+			 font-weight: 500;
+			 font-size: 14px;
+			 line-height: 21px;
+			 color: $theme-color-5;
+			 text-transform: uppercase;
+			 text-decoration: none;
+			 text-align: left;
+		 }
+	    .table th, .table td {
+			 vertical-align: middle;
+			 border-top: none;
+		}
+	    .table-border {
+		    border-bottom: 1px solid $theme-color-3;
+	    }
+	    tr td{
+		    font-style: normal;
+		    font-weight: 500;
+		    font-size: 14px;
+		    line-height: 21px;
+		    font-family: $poppins-500;
+		    color: $theme-color-2;
+		    text-align: left;
+		    text-decoration: none;
+			padding-bottom: 30px;
+			padding-top: 24px;
+			
+			img{
+				margin: 0;
+				padding: 0;
+				max-width: 100%;
+				height: auto;
+			}
+			
+	    }
+	   .UserName-Head{
+		   margin: 0;
+		   padding: 0;
+		   
+		   .headeleft{
+			   float: left;
+			   
+			   img{
+			     margin: 0;
+			     padding: 0;
+			     max-width: $width;
+			     height: auto;
+			     @include radius(50px);
+			     display: inline-block;
+		   }
+			   
+		   }
+		   
+		   .headeright{
+			   float: left;
+			   margin-left: 14px;
+			   
+			   h2,
+		       h3{
+			   margin: 0;
+			   padding: 0;
+			   font-style: normal;
+			   font-weight: 500;
+			   font-size: 16px;
+			   line-height: 24px;
+			   font-family: $poppins-500;
+			   color: $theme-color-2;
+			   text-align: left;
+			   text-decoration: none;
+		      }
+		      h3{
+			   font-size: 14px;
+			   line-height: 21px;
+			   color: $theme-color-5;
+				  margin-top: 2px;
+		      }
+		     }
+		   
+		   
+		   
+		   
+	   }
+	   
+	   
+	}
+
+/***** All User Css3 End  *****/
+
+
+/***** User Profile Details Css3 Start  *****/
+
+.main-tab{
+	margin: 0;
+	padding: 0;
+	background: rgba(249, 249, 249, 0.92);
+	@include radius(0px 0px 10px 10px);
+	 
+	.tablist{
+		margin: 0 auto 20px auto;
+		padding: 0;
+		text-align: center;
+		display: table;
+		
+		 a{
+			margin: 0 15px;
+			padding: 20px 25px;
+			font-family: $poppins-500;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			text-align: center;
+			text-decoration: none;
+			color: $theme-color-5;
+			border-bottom: 2px solid transparent;
+			outline: none;
+			display: inline-block;
+			@include transition(all 0.5s ease-in-out);
+		}
+		.active{
+		    border-bottom: 2px solid $theme-color-2;
+		    color: $theme-color-2;
+	    }	
+	}	
+}
+.ViewActivity-Con{
+	margin: 0;
+	padding: 0;
+	
+	&::after{
+		clear: both;
+		display: table;
+		content: '';
+	}
+	
+	.ViewLeft-Con,
+	.ViewRight-Con{
+		margin: 0;
+		padding: 30px;
+		float: left;
+		box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.43);
+		background: $white-color;
+		@include radius(12px);
+		width: 45%;
+	}
+	.ViewRight-Con{
+		float: right;
+		width: 53%;
+	}
+	
+	
+}
+.activitybg{
+	box-shadow: none;
+	background: none;
+}
+
+
+/***** User Profile Details Css3 end  *****/
+
+
+/***** Flip The Switch Css3 Start  *****/
+
+.MainFlip-Container{
+    position: relative;
+    left: 330px;
+    top: 130px;
+    z-index: 99;
+    width: 76%;
+}
+
+.FlipSwitch-Con{
+	margin: 0;
+	padding: 0 0 21px 0;
+	border-bottom: 1px solid $theme-color-3;
+	
+	&::after{
+		clear: both;
+		display: table;
+		content: '';
+	}
+	
+	.FlipLeft-Head{
+		margin: 16px 0 0 0;
+		padding: 0;
+		float: left;
+		
+		h1{
+			font-family: $poppins-500;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 36px;
+			text-align: left;
+			text-decoration: none;
+			text-transform: capitalize;
+			color: $theme-color-1;
+		}
+		
+	}
+	
+	.FlipRight-Head{
+		margin: 0;
+		padding: 0;
+		float: right;
+		
+		a,
+		button{
+			margin: 0;
+			padding: 0;
+			font-family: $poppins-500;
+			background: $theme-color-1;
+			@include radius(25px);
+			border: none;
+			outline: none;
+			color: $white-color;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			text-align: center;
+			text-decoration: none;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			width: 217px;
+			height: 50px;
+		}
+	}
+	
+	
+}
+.FlipThumb-Con{
+	margin: 20px 0 0 0;
+	padding: 0;
+	max-width: 765px;
+	width: 100%;
+	
+	.FlipThumb-Left,
+	.FlipThumb-Right{
+		margin: 0;
+		padding: 0;
+		float: left;
+	}
+	.FlipThumb-Right{
+		float: right;
+	}
+	
+	
+	.FlipSwitch-Thum{
+		margin: 0 0 20px 0;
+		padding: 15px;
+		background: $white-color;
+		box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.35);
+		@include radius(12px);
+		
+		img{
+			margin: 0;
+			padding: 0;
+			max-width: 100%;
+			height: auto;
+			@include radius(12px);
+		}
+		.FlipInner-Head{
+			margin: 0;
+			padding: 20px 0 20px 0px;
+			border-bottom: 1px solid #E9E6E6;
+			
+			h2,
+			h3{
+				font-style: normal;
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 21px;
+				letter-spacing: -0.3px;
+				text-transform: uppercase;
+				color: $theme-color-5;
+				text-align: left;
+				text-decoration: none;
+				font-family: $poppins-400;
+			}
+			h3{
+				font-family: $poppins-500;
+				color: $theme-color-1;
+				text-transform: none;
+				margin-top: 6px;
+			}
+			
+		}
+		
+	}
+	
+	.Auto-Container{
+		margin: 15px 0 0 0;
+		padding: 0;
+		
+		audio{
+			height: 35px;
+		}
+		audio::-webkit-media-controls-panel, 
+		video::-webkit-media-controls-panel {
+            background-color: $white-color;
+			height: 35px;
+		}
+		audio::-webkit-media-controls-toggle-closed-captions-button,
+		audio::-webkit-media-controls-play-button{
+		    background-color: $theme-color-1;
+			color: $white-color;
+			@include radius(50px);
+		}
+	}
+	.VideoCon{
+		margin: 0;
+		padding: 0;
+		
+		.holder-prod{
+		   @include radius(12px);
+			overflow: hidden;
+			height: 153px;
+		}
+	}
+	
+	
+}
+
+
+/***** Flip The Switch Css3 End  *****/
+
+
+
+/***** Upload New Page Css3 Start  *****/
+
+
+.UploadNew-Container{
+	margin: 24px 0 30px 0;
+	padding: 30px;
+	box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.27);
+	@include radius(10px);
+	background: $white-color;
+	max-width: 480px;
+	width: 100%;
+	
+	.UploadTab{
+		margin: 0;
+		padding: 0;
+		
+		 .nav-tabs .nav-link.active, 
+		 .nav-tabs .nav-item.show .nav-link {
+			color: $theme-color-1;
+			background-color: #fff;
+			border-bottom: $theme-color-1 3px solid;
+			 
+		}
+		.nav-tabs .nav-link {
+			border: none;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+		.nav-tabs {
+    		border-bottom: none;
+			margin: 0 auto 47px auto;
+			text-align: center;
+			display: table;
+			border-bottom: 1px solid $theme-color-3;
+			padding-bottom: 25px;
+			width: $width;
+		}
+		.nav-tabs .nav-item {
+			margin-bottom: 0px;
+			display: inline-block;
+			position: relative;
+		}
+		.nav-link {
+			display: block;
+			padding: 0px 0 10px 0;
+			margin: 0px 24px;
+			font-family: $poppins-400;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 27px;
+			color: $theme-color-2;
+			text-decoration: none;
+			text-align: center;
+			text-transform: capitalize;
+		}		
+	}
+	
+	.datainfo{
+		margin: 0 0 30px 0;
+		padding: 0;
+		position: relative;
+		
+		label{
+			margin: 0 0 5px 0;
+			padding: 0;
+			font-family: $poppins-400;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 27px;
+			color: $theme-color-2;
+			text-align: left;
+			text-decoration: none;
+		}
+		
+		input,
+		textarea{
+			margin: 0;
+			padding: 0 0 0 27px;
+			background: $white-color;
+			border: 1px solid $theme-color-3;
+			outline: none;
+			@include radius(25px);
+			width: $width;
+			height: 50px;
+			font-family: $poppins-400;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 16px;
+			color: $theme-color-5;
+			
+		}
+		textarea{
+		    height: 77px;
+			padding-top: 15px;
+			resize: none;
+		}
+		i{
+			margin: 0;
+			padding: 0;
+			color: $theme-color-5;
+			font-size: 20px;
+			text-align: right;
+			position: absolute;
+			right: 22px;
+			top: 44px;
+			z-index: 99;
+		}
+		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  		color: $theme-color-5;
+		}
+		::-moz-placeholder { /* Firefox 19+ */
+	  		color: $theme-color-5;
+		}
+		:-ms-input-placeholder { /* IE 10+ */
+	  		color: $theme-color-5;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+	  		color: $theme-color-5;
+		}
+		
+	}
+	
+	.UploadContainer{
+		margin: 0;
+		padding: 0;
+		
+		label{
+			margin: 0 0 12px 0;
+			padding: 0;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			font-family: $poppins-500;
+			color: $theme-color-2;
+			text-decoration: none;
+			text-align: left;
+		}
+		
+		.upload-btn-wrapper {
+		    position: relative;
+		    overflow: hidden;
+		    display: block;
+		}
+		.btn {
+		    color: $theme-color-2;
+		    background-color: $theme-color-6;
+		    padding: 0;
+		    @include radius(25px);
+			border: 1px dashed $theme-color-5;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 18px;
+			font-family: $poppins-500;
+			height: 50px;
+			width: $width;
+			cursor: pointer;
+			i{
+				color: $theme-color-2;
+				font-size: 18px;
+				text-align: center;
+				margin: 0 6px;
+			}
+		}
+		.upload-btn-wrapper input[type=file] {
+		    font-size: 100px;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    opacity: 0;
+		}
+	}
+	
+	.SaveBtn{
+		margin: 43px 0 0 0;
+		padding: 0;
+		
+		button{
+			margin: 0;
+			padding: 0;
+			background: $theme-color-1;
+			@include radius(25px);
+			border: none;
+			outline: none;
+			font-family: $poppins-500;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			height: 50px;
+			width: $width;
+			color: $theme-color-6;
+			line-height: 50px;
+		}
+	}
+	
+	.SpriteLine{
+		background: $theme-color-3;
+		height: 1px;
+		width: $width;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+	.AddTag-List{
+		margin: 20px 0 0px 0;
+		padding: 0;
+		&::after{
+			clear: both;
+			display: table;
+			content: '';
+		}
+		h5{
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			letter-spacing: 0.06em;
+			font-family: $poppins-500;
+			color: $theme-color-2;
+			text-align: left;
+			text-decoration: none;
+			margin-bottom: 8px;
+		}
+		ul,
+		li{
+			margin: 0 5px 0 0px;
+			padding: 0;
+			list-style: none;
+			float: left;
+			
+			a{
+				background: $theme-color-5;
+				font-family: $poppins-500;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 12px;
+				line-height: 18px;
+				letter-spacing: 1.7px;
+				text-transform: uppercase;
+				text-align: center;
+				text-decoration: none;
+				color: $theme-color-1;
+				padding: 4px 10px;
+				outline: none;
+				@include transition(all 0.5s ease-in-out);
+				&:hover{
+					background: $theme-color-1;
+					color: $white-color;
+				}
+			}
+		}
+	}
+	
+}
+
+/***** Upload New Page Css3 End  *****/
+
+
+/***** Content Library Page Css3 Start  *****/
+
+
+.LibraryThum-Container{
+	margin: 20px 0 0 0;
+	padding: 0;
+	max-width: 768px;
+	width: $width;
+	
+	&::after{
+		clear: both;
+		display: table;
+		content: '';
+	}
+	
+	.Thumb-margin{
+		margin-right: 20px !important;
+		margin-bottom: 20px !important;
+	}
+	
+	.LibraryCon{
+		margin: 0;
+		padding: 0;
+		
+		.LibraryLeft,
+		.LibraryRight{
+			margin: 0;
+			padding: 0;
+			float: left;
+		}
+		.LibraryRight{
+			float: right;
+		}
+	}
+	
+	.MainThumb{
+		margin: 0;
+		padding: 0;
+		background: $white-color;
+		overflow: hidden;
+		@include radius(12px);
+		max-width: 374px;
+		width: $width;
+		box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.35);
+		
+		img{
+			margin: 0;
+			padding: 0;
+			max-width: $width;
+			height: auto;
+		}
+		.Mainhead-Btm{
+			margin: 0;
+			padding: 27px 20px 20px 20px;
+			position: relative;
+			
+			.FreeCon{
+				background: $theme-color-1;
+				display: inline-block;
+				position: absolute;
+				top: -14px;
+				z-index: 99;
+				
+				h1{
+					font-style: normal;
+					font-weight: 500;
+					font-size: 12px;
+					line-height: 18px;
+					letter-spacing: 1.7px;
+					text-transform: uppercase;
+					color: $white-color;
+					text-align: center;
+					text-decoration: none;
+					font-family: $poppins-500;
+					padding: 3px 10px;
+				}
+			}
+			
+			h1{
+				margin: 0;
+				padding: 0;
+				font-family: $poppins-500;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				text-align: left;
+				text-decoration: none;
+				color: $theme-color-1;
+				img{
+					max-width: $width;
+					height: auto;
+					float: right;
+					margin-top: 10px;
+				}
+			}
+			p{
+				font-style: normal;
+				font-weight: 300;
+				font-size: 14px;
+				line-height: 21px;
+				font-family: $poppins-300;
+				color: $theme-color-2;
+				text-align: left;
+				text-decoration: none;
+				margin-top: 14px;
+    			margin-bottom: 14px;
+			}
+			h2{
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 21px;
+				font-family: $poppins-500;
+				color: $theme-color-5;
+				text-align: left;
+				text-decoration: none;
+				margin-bottom: 10px;
+			}
+			
+			
+		}
+	}
+	
+	
+	
+	
+}
+
+
+/***** Content Library Page Css3 End  *****/
+
+
+/***** Mange Store Page Css3 Start  *****/
+
+.mainstore{
+	
+	margin: 20px 0 0 0;
+	padding: 0;
+	
+	.MangeStore{
+		margin: 0 20px 0 0px;
+		padding: 12px;
+		box-shadow: 0px 10px 30px rgba(218, 218, 218, 0.43);
+		background: $white-color;
+		@include radius(12px);
+		max-width: 180px;
+		width: 100%;
+		float: left;
+
+		.imgtop{
+			margin: 0 auto;
+			padding: 0;
+			text-align: center;
+			position: relative;
+			border-bottom: 1px solid $theme-color-6;
+			img{
+				max-width: 100%;
+				height: auto;
+				padding-bottom: 14px;
+			}
+			.dotted{
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				top: 0px;
+				right: 0;
+				z-index: 99;
+				img{
+					max-width: 100%;
+					height: auto;
+				}
+			}
+		}
+		
+		.ManageHead-Btm{
+			margin: 14px 0 6px 0;
+			padding: 0;
+			
+			h1{
+				font-style: normal;
+				font-weight: 500;
+				font-size: 15px;
+				font-family: $poppins-500;
+				line-height: 22px;
+				text-align: left;
+				text-decoration: none;
+				color: $theme-color-1;
+				text-transform: uppercase;
+				margin-bottom: 6px;
+			}
+			h2{
+				font-style: normal;
+				font-weight: 500;
+				font-family: $poppins-500;
+				font-size: 12px;
+				line-height: 18px;
+				color: $theme-color-5;
+				text-align: left;
+				text-decoration: none;
+				text-transform: uppercase;
+				margin-bottom: 6px;
+			}
+			p{
+				font-style: normal;
+				font-weight: 300;
+				font-family: $poppins-300;
+				font-size: 10px;
+				line-height: 15px;
+				text-align: left;
+				text-decoration: none;
+				color: $theme-color-2;
+			}
+		}
+	}
+}
+
+.Store-AddNew{
+	margin: 24px 0 0 0;
+	padding: 35px;
+	background: $white-color;
+	@include radius(10px);
+	
+	&::after{
+		clear: both;
+		display: table;
+		content: '';
+	}
+	
+	.ProdLeft{
+		float: left;
+		width: 40%;
+		border-right: 1px solid $theme-color-3;
+		padding-right: 35px;
+			
+		.prodInput{
+			margin: 0 0 24px 0;
+			padding: 0;
+			
+			label{
+				font-style: normal;
+				font-weight: normal;
+				font-size: 18px;
+				line-height: 27px;
+				color: $theme-color-2;
+				font-family: $poppins-400;
+				text-align: left;
+				text-decoration: none;
+				margin-bottom: 5px;
+			}
+			.divinput{
+				width: 161px;
+				display: block;
+			}
+			input,
+			textarea{
+				margin: 0;
+				padding: 0 15px;
+				background: $white-color;
+				@include radius(25px);
+				border: 1px solid $theme-color-3;
+				outline: none;
+				color: $theme-color-2;
+				font-family: $poppins-400;
+				text-align: left;
+				text-decoration: none;
+				width: $width;
+				height: 50px;
+			}
+			textarea{
+				height: 126px;
+				padding-top: 15px;
+			}
+			
+		}	
+			
+			
+	}
+	
+	.ProdRight{
+		float: left;
+		width: 48%;
+		background: none;
+		box-shadow: none;
+		margin: 0;
+		padding: 0 0 0 35px;
+	}
+	
+}
+
+
+/***** Mange Store Page Css3 End  *****/
+
+
+/***** All Question Page Css3 Start  *****/
+
+.Question-Section{
+	margin: 0;
+	padding: 0;
+	
+	.FaqThum{
+		margin: 0;
+		padding: 0;
+		border-bottom: 1px solid $theme-color-3;
+		
+		h1{
+			font-style: normal;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 20px;
+			font-family: $poppins-500;
+			text-align: left;
+			text-decoration: none;
+			color: $theme-color-1;
+			letter-spacing: -0.24px;
+			margin-bottom: 20px;
+    		margin-top: 30px;
+			img{
+				max-width: 100%;
+				height: auto;
+				float: right;
+			}
+		}
+		p{
+			font-style: normal;
+			font-weight: 300;
+			font-size: 13px;
+			font-family: $poppins-300;
+			text-align: left;
+			text-decoration: none;
+			color: $theme-color-2;
+			line-height: 20px;
+			width: 70%;
+			padding-bottom: 37px;
+		}
+	}
+	
+}
+
+.AdFaq-Container{
+	margin: 20px 0 0 0;
+	padding: 49px 34px;
+	box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.27);
+	background: $white-color;
+	@include radius(12px);
+	max-width: 480px;
+	width: 100%;
+	
+	.FaqInput{
+		margin: 0 0 30px 0;
+		padding: 0;
+		
+		label{
+			font-style: normal;
+			font-weight: normal;
+			font-family: $poppins-400;
+			font-size: 18px;
+			line-height: 27px;
+			text-align: left;
+			text-decoration: none;
+			color: $theme-color-2;
+			margin-bottom: 5px;
+		}
+		input,
+		textarea{
+			background: $white-color;
+			@include radius(25px);
+			border: 1px solid $theme-color-3;
+			outline: none;
+			font-family: $poppins-400;
+			font-size: 18px;
+			font-style: normal;
+			font-weight: normal;
+			color: $theme-color-2;
+			text-align: left;
+			text-decoration: none;
+			width: $width;
+			height: 50px;
+			padding-left: 20px;
+		}
+		textarea{
+			padding-top: 15px;
+			height: 125px;
+		}
+		button{
+			background: $theme-color-1;
+			@include radius(25px);
+			outline: none;
+			border: none;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 50px;
+			text-align: center;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: $theme-color-6;
+			width: $width;
+			height: 50px;
+		}
+		
+	}
+	
+}
+
+
+
+
+/***** All Question Page Css3 End  *****/
+
+
+
+
+
+
+
+
+
