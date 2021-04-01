@@ -21,9 +21,15 @@
 
             <div class="LogoutHead">
                 <h6>Powered by the App guys<br/> Be Fulfilled © 2021 *</h6>
-                <a href="javascript:void(0)"><i class="icon-logout"></i> Log Out</a>
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();"><i class="icon-logout"></i> Log Out</a>
             </div>
 
         </ul>
     </div>
 </div>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>
