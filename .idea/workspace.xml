@@ -20,13 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/FlipTheSwitch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GenericController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Media.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054449_create_media_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054719_create_images_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054855_create_flip_the_switches_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/thumbnail/thumbnail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_admins_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/navigation/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navigation/side-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/upload-new.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,23 +187,24 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images/thumbnail" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
-      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\components\navigation" />
-      <recent name="D:\laragon\www\Be-Fullfilled\app\Http" />
-      <recent name="D:\laragon\www\Practice\routes\api\v1" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\public\images\thumbnail" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\components" />
       <recent name="D:\laragon\www\Be-Fullfilled\app" />
       <recent name="D:\laragon\www\Be-Fullfilled\database\migrations" />
       <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
-      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\layouts" />
-      <recent name="D:\laragon\www\Be-Fullfilled\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin\flip_the_switch" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin\index" />
+      <recent name="D:\laragon\www\Be-Fullfilled\app\Http\Controllers\Admin" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\admin" />
+      <recent name="D:\laragon\www\Be-Fullfilled\resources\views\components\navigation" />
     </key>
   </component>
   <component name="RunManager">
@@ -231,7 +242,9 @@
       <workItem from="1617174714568" duration="4508000" />
       <workItem from="1617179467476" duration="4787000" />
       <workItem from="1617256390180" duration="3022000" />
-      <workItem from="1617272029356" duration="2239000" />
+      <workItem from="1617272029356" duration="4027000" />
+      <workItem from="1617281902942" duration="786000" />
+      <workItem from="1617341874325" duration="7068000" />
     </task>
     <servers />
   </component>

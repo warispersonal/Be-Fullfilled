@@ -31,10 +31,6 @@ class AdminController extends Controller
         return view('admin.faq');
     }
 
-    public function flip_the_switch(){
-        return view('admin.flip-the-switch');
-    }
-
     public function manage_store(){
         return view('admin.manage-store');
     }
@@ -45,10 +41,6 @@ class AdminController extends Controller
 
     public function store_add_product(){
         return view('admin.store-add-product');
-    }
-
-    public function upload_new(){
-        return view('admin.upload-new');
     }
 
     public function upload_new_podcast(){
