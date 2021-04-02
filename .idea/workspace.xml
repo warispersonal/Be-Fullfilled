@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/FlipTheScreenRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/generic/_errors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/FlipTheSwitch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/FlipTheSwitch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +228,7 @@
       <workItem from="1617256390180" duration="3022000" />
       <workItem from="1617272029356" duration="4027000" />
       <workItem from="1617281902942" duration="786000" />
-      <workItem from="1617341874325" duration="8960000" />
+      <workItem from="1617341874325" duration="10176000" />
     </task>
     <servers />
   </component>
