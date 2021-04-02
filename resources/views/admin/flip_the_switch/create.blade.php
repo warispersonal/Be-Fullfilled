@@ -7,6 +7,7 @@
         </div>
         <form method="post" enctype="multipart/form-data" action="{{route('upload_new_post')}}">
             @csrf
+            @include('partials.generic._errors')
             <div class="UploadNew-Container">
                 <div class="UploadTab">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -23,12 +24,12 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="datainfo">
                                 <label>Select Date</label>
-                                <input type="date" id="" name="date" placeholder="December 2, 2018">
+                                <input type="date" id="" name="date" value="{{old('date')}}" placeholder="December 2, 2018">
                                 <i class="icon-calendar"></i>
                             </div>
                             <div class="datainfo">
                                 <label>Podcast Title</label>
-                                <input type="text" id="" name="title" placeholder="">
+                                <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                             </div>
                             <div class="UploadContainer">
                                 <label>Upload Thumbnail Picture</label>

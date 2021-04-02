@@ -4,6 +4,7 @@ namespace App;
 
 use App\Http\Controllers\GenericController;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class FlipTheSwitch extends Model
 {
@@ -46,5 +47,13 @@ class FlipTheSwitch extends Model
             return $media->type;
         }
         return  null;
+    }
+
+    public function getCustomizeDatesAttribute(){
+        $timestamp = strtotime($this->date);
+
+        $day = date('F d, Y', $timestamp);
+
+        return $day;
     }
 }

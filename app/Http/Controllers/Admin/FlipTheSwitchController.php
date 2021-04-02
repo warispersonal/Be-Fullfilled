@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
+use App\Http\Requests\FlipTheScreenRequest;
 use Illuminate\Http\Request;
 
 class FlipTheSwitchController extends Controller
@@ -36,15 +37,15 @@ class FlipTheSwitchController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FlipTheScreenRequest $request)
     {
         $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
         $media = GenericController::saveAudioFile($request,'link', env('FLIP_THE_SWITCH_MEDIA'));
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
         $flipTheSwitch->date = $request->date;
-        $flipTheSwitch->image_id = $image->id;
-        $flipTheSwitch->media_id = $media->id;
+        $flipTheSwitch->image_id = $image->id ?? null;
+        $flipTheSwitch->media_id = $media->id ?? null;
         $flipTheSwitch->save();
 
         return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully created.');

@@ -20,24 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e6d52e2-0d0f-40d4-aaa3-2bfa8ce613af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/FlipTheSwitch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/GenericController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Media.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054449_create_media_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054719_create_images_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_02_054855_create_flip_the_switches_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/thumbnail/thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/FlipTheScreenRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/generic/_errors.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip-the-switch.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/upload-new.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/FlipTheSwitch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/FlipTheSwitch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FlipTheSwitchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/flip_the_switch/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +234,7 @@
       <workItem from="1617256390180" duration="3022000" />
       <workItem from="1617272029356" duration="4027000" />
       <workItem from="1617281902942" duration="786000" />
-      <workItem from="1617341874325" duration="7068000" />
+      <workItem from="1617341874325" duration="8960000" />
     </task>
     <servers />
   </component>
@@ -267,11 +257,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617176653420">
+    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617349795311">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1616046041736" />
-    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1617176653420" />
+    <state x="532" y="222" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1617349795311" />
     <state x="448" y="45" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616409472287">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -325,6 +315,15 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/all-orders.blade.php</url>
           <line>104</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/FlipTheSwitch.php</url>
+          <line>38</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/partials/generic/_errors.blade.php</url>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

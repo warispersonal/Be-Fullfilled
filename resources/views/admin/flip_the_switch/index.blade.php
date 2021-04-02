@@ -19,7 +19,7 @@
                         <img src="{{$flipTheSwitch->image}}" class="flip-the-switch-image" alt=""/>
 
                         <div class="FlipInner-Head">
-                            <h2>{{$flipTheSwitch->date}}</h2>
+                            <h2>{{$flipTheSwitch->customizeDates}}</h2>
                             <h3>{{$flipTheSwitch->title}}</h3>
                         </div>
 
