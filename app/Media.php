@@ -14,4 +14,8 @@ class Media extends Model
     public function flipTheSwitch(){
         return $this->hasOne(FlipTheSwitch::class);
     }
+
+    public function podcast(){
+        return $this->hasOne(Podcast::class);
+    }
 }

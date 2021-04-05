@@ -17,4 +17,8 @@ class Image extends Model
     public function contentLibrary(){
         return $this->hasOne(ContentLibrary::class);
     }
+
+    public function podcast(){
+        return $this->hasOne(Podcast::class);
+    }
 }
