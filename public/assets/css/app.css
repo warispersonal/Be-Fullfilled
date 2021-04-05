@@ -19650,3 +19650,8 @@ select.custom-select:focus {
     width: 343px !important;
     height: 156px !important;
 }
+
+.content-library-image{
+    width: 374px !important;
+    height: 257px !important;
+}

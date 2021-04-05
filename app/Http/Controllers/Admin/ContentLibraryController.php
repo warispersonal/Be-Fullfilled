@@ -12,7 +12,8 @@ class ContentLibraryController extends Controller
 {
     public function index()
     {
-        return view('admin.content_library.index');
+        $contentLibraries = ContentLibrary::all();
+        return view('admin.content_library.index',compact('contentLibraries'));
     }
 
     public function create()
