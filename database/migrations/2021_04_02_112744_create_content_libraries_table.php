@@ -15,6 +15,10 @@ class CreateContentLibrariesTable extends Migration
     {
         Schema::create('content_libraries', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->dateTime('date');
+            $table->bigInteger('image_id')->nullable();
             $table->timestamps();
         });
     }

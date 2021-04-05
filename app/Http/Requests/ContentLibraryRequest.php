@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FlipTheScreenRequest extends FormRequest
+class ContentLibraryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class FlipTheScreenRequest extends FormRequest
         return [
             'date' => 'required',
             'title' => 'required',
-            'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
+            'description' => 'required',
+            'file' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
         ];
     }
 }

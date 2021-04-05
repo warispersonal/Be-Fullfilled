@@ -12,11 +12,6 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function add_content_to_the_library()
-    {
-        return view('admin.add_content_to_the_library');
-    }
-
     public function add_new_faq()
     {
         return view('admin.add-new-faq');
@@ -51,7 +46,4 @@ class AdminController extends Controller
         return view('admin.user-profile-detail');
     }
 
-    public function content_library(){
-        return view('admin.content-library');
-    }
 }

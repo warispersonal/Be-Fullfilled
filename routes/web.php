@@ -10,13 +10,14 @@ Route::redirect('/', 'login');
 Auth::routes();
 Route::prefix('/admin')->group(function () {
 
+    Route::get('/flip-the-switch', [FlipTheSwitchController::class, 'index'])->name('flip_the_switch');
     Route::get('/upload-new', [FlipTheSwitchController::class, 'create'])->name('upload_new');
     Route::post('/upload-new', [FlipTheSwitchController::class, 'store'])->name('upload_new_post');
-    Route::get('/flip-the-switch', [FlipTheSwitchController::class, 'index'])->name('flip_the_switch');
 
 
-    Route::get('/content-library', [AdminController::class, 'index'])->name('content_library');
-    Route::get('/add-content-to-the-library', [AdminController::class, 'add_content_to_the_library'])->name('add_content_to_the_library');
+    Route::get('/content-library', [ContentLibraryController::class, 'index'])->name('content_library');
+    Route::get('/add-content-to-the-library', [ContentLibraryController::class, 'create'])->name('add_content_to_the_library');
+    Route::post('/add-content-to-the-library', [ContentLibraryController::class, 'store'])->name('add_content_to_the_library_post');
 
 
     Route::get('/', [AdminController::class, 'index'])->name('admin');

@@ -13,4 +13,8 @@ class Image extends Model
     public function flipTheSwitch(){
         return $this->hasOne(FlipTheSwitch::class);
     }
+
+    public function contentLibrary(){
+        return $this->hasOne(ContentLibrary::class);
+    }
 }
