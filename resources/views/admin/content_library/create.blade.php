@@ -6,7 +6,6 @@
 
         <div class="FlipSwitch-Con">
             <div class="FlipLeft-Head"><h1>Add Content to the Library</h1></div>
-            <div class="FlipRight-Head"></div>
         </div>
 
         <form method="post" enctype="multipart/form-data" action="{{route('add_content_to_the_library_post')}}">
@@ -38,9 +37,16 @@
 
                             <div class="datainfo">
                                 <label>Select Date</label>
-                                <input type="date" id="" name="date" value="{{old('date')}}" placeholder="December 2, 2018">
+                                <input type="date" id="" name="date" value="{{old('date')}}"
+                                       placeholder="December 2, 2018">
                                 <i class="icon-calendar"></i>
                             </div>
+
+                            <div class="datainfo">
+                                <label>Tag Id</label>
+                                <input type="text"  name="tag_id" value="1" placeholder="">
+                            </div>
+
 
                             <div class="datainfo">
                                 <label>Title</label>
@@ -59,13 +65,15 @@
                                 </div>
                             </div>
 
+
                             <div class="AddTag-List">
                                 <h5>Add Tag</h5>
                                 <ul>
-                                    <li><a href="#">Free Content</a></li>
-                                    <li><a href="#">Paid</a></li>
-                                    <li><a href="#">Popular</a></li>
-                                    <li><a href="#">Top on list</a></li>
+                                    @foreach($tags as $tag)
+                                        <li class="m-2">
+                                            <a href="#">{{$tag->name}}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
 
@@ -84,6 +92,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 
 @endsection

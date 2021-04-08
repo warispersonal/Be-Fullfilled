@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentLibrariesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateContentLibrariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('content_libraries', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->dateTime('date');
-            $table->bigInteger('image_id')->nullable();
-            $table->bigInteger('tag_id')->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateContentLibrariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content_libraries');
+        Schema::dropIfExists('tags');
     }
 }

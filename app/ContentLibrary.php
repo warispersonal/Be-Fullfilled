@@ -12,6 +12,7 @@ class ContentLibrary extends Model
         'description',
         'date',
         'media_id',
+        'tag_id',
     ];
 
     public function image(){
@@ -26,6 +27,10 @@ class ContentLibrary extends Model
             $image = Image::find($this->image_id);
             return asset(env('CONTENT_LIBRARY_IMAGES').'/'.$image->file);
         }
+    }
+
+    public function tag(){
+        return $this->belongsTo(Tag::class);
     }
 
 }

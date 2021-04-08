@@ -6,6 +6,7 @@ use App\ContentLibrary;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\ContentLibraryRequest;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ContentLibraryController extends Controller
@@ -18,7 +19,8 @@ class ContentLibraryController extends Controller
 
     public function create()
     {
-        return view('admin.content_library.create');
+        $tags = Tag::all();
+        return view('admin.content_library.create', compact('tags'));
     }
 
 
@@ -30,6 +32,7 @@ class ContentLibraryController extends Controller
         $contentLibrary->description = $request->description;
         $contentLibrary->date = $request->date;
         $contentLibrary->image_id = $image->id ?? null;
+        $contentLibrary->tag_id = $request->tag_id;
         $contentLibrary->save();
 
         return redirect()->route('content_library')->with('success_message', 'Content library successfully created.');
