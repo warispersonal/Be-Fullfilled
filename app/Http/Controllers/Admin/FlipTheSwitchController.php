@@ -40,7 +40,7 @@ class FlipTheSwitchController extends Controller
     public function store(FlipTheSwitchRequest $request)
     {
         $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
-        $media = GenericController::saveAudioFile($request,'link', env('FLIP_THE_SWITCH_MEDIA'));
+        $media = GenericController::saveMediaFile($request,'link', env('FLIP_THE_SWITCH_MEDIA'));
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
         $flipTheSwitch->date = $request->date;

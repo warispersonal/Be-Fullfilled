@@ -40,7 +40,7 @@ class PodcastController extends Controller
     public function store(PodcastsRequest $request)
     {
         $image = GenericController::saveImage($request, 'file', env('PODCASTS_IMAGES'));
-        $media = GenericController::saveAudioFile($request,'link', env('PODCASTS_MEDIA'));
+        $media = GenericController::saveMediaFile($request,'link', env('PODCASTS_MEDIA'));
         $podcasts = new Podcast();
         $podcasts->title = $request->title;
         $podcasts->date = $request->date;

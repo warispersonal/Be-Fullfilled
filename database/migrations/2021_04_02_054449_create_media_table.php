@@ -16,7 +16,7 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->text('link');
-            $table->boolean('type'); // O for Audio 1 for Video
+            $table->boolean('type'); // O for Audio 1 for Video 2 for pdf
             $table->timestamps();
         });
     }

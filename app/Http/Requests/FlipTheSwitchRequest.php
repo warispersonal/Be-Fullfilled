@@ -26,8 +26,8 @@ class FlipTheSwitchRequest extends FormRequest
         return [
             'date' => 'required',
             'title' => 'required',
-            'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
+            'file' => 'mimes:jpg,jpeg,png|max:4096',
+//            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
         ];
     }
 }
