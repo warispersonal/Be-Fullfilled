@@ -20,6 +20,7 @@ class CreateContentLibrariesTable extends Migration
             $table->dateTime('date');
             $table->bigInteger('image_id')->nullable();
             $table->bigInteger('tag_id')->nullable();
+            $table->bigInteger('media_id')->nullable();
             $table->timestamps();
         });
     }

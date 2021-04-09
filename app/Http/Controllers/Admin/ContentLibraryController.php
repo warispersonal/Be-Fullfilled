@@ -27,12 +27,16 @@ class ContentLibraryController extends Controller
     public function store(ContentLibraryRequest $request)
     {
         $image = GenericController::saveImage($request, 'file', env('CONTENT_LIBRARY_IMAGES'));
+        $media = GenericController::saveMediaFile($request,'link', env('CONTENT_LIBRARY_MEDIA'));
+
         $contentLibrary = new ContentLibrary();
         $contentLibrary->title = $request->title;
         $contentLibrary->description = $request->description;
         $contentLibrary->date = $request->date;
         $contentLibrary->image_id = $image->id ?? null;
         $contentLibrary->tag_id = $request->tag_id;
+        $contentLibrary->media_id = $media->id ?? null;
+
         $contentLibrary->save();
 
         return redirect()->route('content_library')->with('success_message', 'Content library successfully created.');

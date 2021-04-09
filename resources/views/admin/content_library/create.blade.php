@@ -44,7 +44,7 @@
 
                             <div class="datainfo">
                                 <label>Tag Id</label>
-                                <input type="text"  name="tag_id" value="1" placeholder="">
+                                <input type="text" name="tag_id" value="1" placeholder="">
                             </div>
 
 
@@ -59,12 +59,19 @@
                             </div>
 
                             <div class="UploadContainer">
+                                <label>Upload Thumbnail Picture</label>
                                 <div class="upload-btn-wrapper">
                                     <button class="btn"><i class="icon-upload"></i> Upload a file</button>
                                     <input type="file" name="file"/>
                                 </div>
                             </div>
-
+                            <div class="SpriteLine"></div>
+                            <div class="UploadContainer">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn"><i class="icon-upload"></i> Upload a file</button>
+                                    <input type="file" name="link"/>
+                                </div>
+                            </div>
 
                             <div class="AddTag-List">
                                 <h5>Add Tag</h5>

@@ -13,6 +13,7 @@ class ContentLibrary extends Model
         'date',
         'media_id',
         'tag_id',
+        'media_id',
     ];
 
     public function image(){
