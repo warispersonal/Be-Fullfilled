@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\WeeklyGoalRequest;
 use App\Http\Resources\WeeklyGoalsResource;
 use App\WeeklyGoal;
+use DateTime;
+use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +22,6 @@ class WeeklyGoalsController extends Controller
     {
         $goals = Auth::user()->weeklyGoals()->get();
         return $this->success('Goals list' , WeeklyGoalsResource::collection($goals));
-
     }
 
     /**
@@ -94,9 +95,18 @@ class WeeklyGoalsController extends Controller
         //
     }
 
-    public function specificGoalDayList($date)
+    public function specificGoalsDayList($date)
     {
-        $goal = WeeklyGoal::whereDate('day', '=', $date)->get();
-        print_r(count($goal));
+        $goals = WeeklyGoal::whereDate('day', '=', $date)->get();
+        return $this->success('Goals list' , WeeklyGoalsResource::collection($goals));
+    }
+    public function currentWeekGoalsList(){
+        $today = new DateTime('now', new DateTimeZone('UTC'));
+        $day_of_week = $today->format('w');
+        $today->modify('- ' . (($day_of_week - 1 + 7) % 7) . 'days');
+        $sunday = clone $today;
+        $sunday->modify('+ 6 days');
+        echo $today->format('Y-m-d') . "\n";
+        echo $sunday->format('Y-m-d');
     }
 }

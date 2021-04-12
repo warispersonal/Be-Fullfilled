@@ -15,8 +15,9 @@ class CreateWeeklyGoalsTable extends Migration
     {
         Schema::create('weekly_goals', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('day');
+            $table->date('day');
             $table->text('goal');
+            $table->boolean('status')->default(0);
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });

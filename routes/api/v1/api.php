@@ -76,7 +76,8 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('/goals')->group(function (){
         Route::get('/', [WeeklyGoalsController::class, 'index']);
         Route::post('/create', [WeeklyGoalsController::class, 'store']);
-        Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalDayList']);
+        Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalsDayList']);
+        Route::get('/week', [WeeklyGoalsController::class, 'currentWeekGoalsList']);
     });
 
 
