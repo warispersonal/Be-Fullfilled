@@ -8,7 +8,8 @@ class WeeklyGoal extends Model
 {
     protected $fillable = [
         'day',
-        'goal'
+        'goal',
+        'status'
     ];
 
     public function user(){

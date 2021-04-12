@@ -24,11 +24,11 @@ class ContentLibraryRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'required',
-            'title' => 'required',
-            'description' => 'required',
-            'file' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'tag_id' => 'required',
+//            'date' => 'required',
+//            'title' => 'required',
+//            'description' => 'required',
+//            'file' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+//            'tag_id' => 'required',
         ];
     }
 }

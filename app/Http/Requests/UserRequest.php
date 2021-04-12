@@ -24,14 +24,14 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'zipcode' => 'min:5|max:5',
-            'profile' => 'required',
-            'city' => 'required',
-            'street_address' => 'required',
-            'phone_number' => 'required|min:13|max:13|unique:users',
+//            'name' => 'required|string|max:255',
+//            'email' => 'required|string|email|max:255|unique:users',
+//            'password' => 'required|string|min:6|confirmed',
+//            'zipcode' => 'min:5|max:5',
+//            'profile' => 'required',
+//            'city' => 'required',
+//            'street_address' => 'required',
+//            'phone_number' => 'required|min:13|max:13|unique:users',
         ];
     }
 }

@@ -93,4 +93,10 @@ class WeeklyGoalsController extends Controller
     {
         //
     }
+
+    public function specificGoalDayList($date)
+    {
+        $goal = WeeklyGoal::whereDate('day', '=', $date)->get();
+        print_r(count($goal));
+    }
 }

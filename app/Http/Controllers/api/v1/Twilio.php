@@ -14,7 +14,7 @@ class Twilio extends Controller
     public function sendConfirmationMessage(Request $request)
     {
         $request->validate([
-            'phone' => 'required'
+//            'phone' => 'required'
         ]);
 
         $account_sid = getenv("TWILIO_SID");
