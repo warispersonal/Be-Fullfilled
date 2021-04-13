@@ -78,6 +78,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/create', [WeeklyGoalsController::class, 'store']);
         Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalsDayList']);
         Route::get('/week', [WeeklyGoalsController::class, 'currentWeekGoalsList']);
+        Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
     });
 
 

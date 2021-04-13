@@ -9,6 +9,7 @@ use App\WeeklyGoal;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
 class WeeklyGoalsController extends Controller
@@ -162,6 +163,17 @@ class WeeklyGoalsController extends Controller
             "goals" => WeeklyGoalsResource::collection($sundayGoals),
         ]]);
 
+    }
 
+    public function updateStatus($id){
+        $goal = WeeklyGoal::find($id);
+        if($goal){
+            $goal->status = true;
+            $goal->save();
+            return $this->success("Status Updated", new WeeklyGoalsResource($goal));
+        }
+        else{
+           return $this->failure('Goal not found' , 400);
+        }
     }
 }
