@@ -192,7 +192,7 @@ class WeeklyGoalsController extends Controller
             return $this->success("Status Updated", new WeeklyGoalsResource($goal));
         }
         else{
-           return $this->failure('Goal not found' , 400);
+           return $this->failure('Goal not found' , 404);
         }
     }
     public function dayFocusScore(Request $request){
@@ -220,7 +220,12 @@ class WeeklyGoalsController extends Controller
         else{
             $focus = FocusDay::where('date',$date)->first();
         }
-        return $this->success("Day Focus", new FocusDayResource($focus));
+        if($focus){
+            return $this->success("Day Focus", new FocusDayResource($focus));
+        }
+        else{
+            return $this->failure('Focus not found' , 404);
+        }
     }
 
 }
