@@ -21,7 +21,7 @@ class LoginController extends Controller
                 return $this->failure('Password mismatch');
             }
         } else {
-            return $this->failure('User does not exist');
+            return $this->failure('User not found',404);
         }
     }
     public function unauthorized()

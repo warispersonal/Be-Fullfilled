@@ -102,14 +102,21 @@ class WeeklyGoalsController extends Controller
         $dayName = date('l', strtotime($date));
         return response()->json([
             "day" => $dayName,
+            "date" => $date,
             "goals" => WeeklyGoalsResource::collection($goals),
         ]);
     }
 
-    public function currentWeekGoalsList()
+    public function currentWeekGoalsList($date = null)
     {
 
-        $today = new DateTime('now', new DateTimeZone('UTC'));
+        if($date == null){
+            $today = new DateTime('now', new DateTimeZone('UTC'));
+        }
+        else{
+            $today = new DateTime($date, new DateTimeZone('UTC'));
+        }
+
         $day_of_week = $today->format('w');
         $today->modify('- ' . (($day_of_week - 1 + 7) % 7) . 'days');
 
@@ -142,24 +149,31 @@ class WeeklyGoalsController extends Controller
 
         return response()->json([[
             "day" => "Monday",
+            "date" => $monday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($mondayGoals),
         ], [
             "day" => "Tuesday",
+            "date" => $tuesday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($tuesdayGoals),
         ], [
             "day" => "Wednesday",
+            "date" => $wednesday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($wednesdayGoals),
         ], [
             "day" => "Thursday",
+            "date" => $thursday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($thursdayGoals),
         ], [
             "day" => "Friday",
+            "date" => $friday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($fridayGoals),
         ], [
             "day" => "Saturday",
+            "date" => $saturday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($saturdayGoals),
         ], [
             "day" => "Sunday",
+            "date" => $sunday->format('Y-m-d'),
             "goals" => WeeklyGoalsResource::collection($sundayGoals),
         ]]);
 
