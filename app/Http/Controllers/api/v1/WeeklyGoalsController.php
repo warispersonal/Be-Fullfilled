@@ -45,6 +45,7 @@ class WeeklyGoalsController extends Controller
     {
         $weeklyGoals = new WeeklyGoal();
         $weeklyGoals['day'] = $request['day'];
+        $weeklyGoals['status'] = false;
         $weeklyGoals['goal'] = $request['goal'];
 
         Auth::user()->weeklyGoals()->save($weeklyGoals);
