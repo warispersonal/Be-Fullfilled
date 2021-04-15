@@ -55,4 +55,7 @@ class AdminController extends Controller
     public function new_password(){
         return view('admin.new-password');
     }
+    public function notification(){
+        return view('admin.notification');
+    }
 }

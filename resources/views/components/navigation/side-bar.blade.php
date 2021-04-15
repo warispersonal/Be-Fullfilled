@@ -14,7 +14,7 @@
             <li><a href="{{route('finance_dashboard')}}"><i class="icon-finance-dashboard"></i> Finance Dashboard</a></li>
             <li><a href="{{route('faq')}}"><i class="icon-faq"></i> FAQ</a></li>
             <li><a href="javascript:void(0)"><i class="icon-feedback"></i> Feedback</a></li>
-            <li><a href="javascript:void(0)"><i class="icon-push-notifications"></i> Push Notifications</a></li>
+            <li><a href="{{route('notification')}}"><i class="icon-push-notifications"></i> Push Notifications</a></li>
             <li><a href="javascript:void(0)"><i class="icon-terms"></i> Terms & Conditions</a></li>
 
             <div class="spriter-line"></div>

@@ -41,5 +41,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
         Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
         Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
+        Route::get('/notification', [AdminController::class, 'notification'])->name('notification');
     });
 });
