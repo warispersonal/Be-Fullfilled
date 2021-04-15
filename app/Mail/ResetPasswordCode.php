@@ -29,6 +29,7 @@ class ResetPasswordCode extends Mailable
      */
     public function build()
     {
+        $code = $this->code;
         return $this->markdown('emails.resetPasswordCode', compact('code'));
     }
 }
