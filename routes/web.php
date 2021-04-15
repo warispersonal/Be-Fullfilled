@@ -42,5 +42,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
         Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
         Route::get('/notification', [AdminController::class, 'notification'])->name('notification');
+        Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
     });
 });

@@ -52,10 +52,17 @@ class AdminController extends Controller
     public function my_profile_setting(){
         return view('admin.my-profile-setting');
     }
+
     public function new_password(){
         return view('admin.new-password');
     }
+
     public function notification(){
         return view('admin.notification');
     }
+
+    public function reset_password(){
+        return view('admin.reset-password');
+    }
+
 }
