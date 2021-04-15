@@ -10,41 +10,24 @@ use App\Http\Resources\WeeklyGoalsResource;
 use App\WeeklyGoal;
 use DateTime;
 use DateTimeZone;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
 class WeeklyGoalsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $goals = Auth::user()->weeklyGoals()->get();
         return $this->success('Goals list', WeeklyGoalsResource::collection($goals));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(WeeklyGoalRequest $request)
     {
         $weeklyGoals = new WeeklyGoal();
@@ -56,46 +39,21 @@ class WeeklyGoalsController extends Controller
         return $this->success("Created", new WeeklyGoalsResource($weeklyGoals));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
@@ -103,7 +61,7 @@ class WeeklyGoalsController extends Controller
 
     public function specificGoalsDayList($date)
     {
-        $goals = WeeklyGoal::whereDate('day', '=', $date)->get();
+        $goals = WeeklyGoal::whereDate('day', '=', $date)->where('user_id',Auth::id())->get();
         $dayName = date('l', strtotime($date));
         return response()->json([
             "day" => $dayName,
@@ -115,10 +73,9 @@ class WeeklyGoalsController extends Controller
     public function currentWeekGoalsList($date = null)
     {
 
-        if($date == null){
+        if ($date == null) {
             $today = new DateTime('now', new DateTimeZone('UTC'));
-        }
-        else{
+        } else {
             $today = new DateTime($date, new DateTimeZone('UTC'));
         }
 
@@ -126,31 +83,31 @@ class WeeklyGoalsController extends Controller
         $today->modify('- ' . (($day_of_week - 1 + 7) % 7) . 'days');
 
         $monday = clone $today;
-        $mondayGoals = WeeklyGoal::whereDate('day', '=', $monday->format('Y-m-d'))->get();
+        $mondayGoals = WeeklyGoal::whereDate('day', '=', $monday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $tuesday = clone $today;
         $tuesday->modify('+ 1 days');
-        $tuesdayGoals = WeeklyGoal::whereDate('day', '=', $tuesday->format('Y-m-d'))->get();
+        $tuesdayGoals = WeeklyGoal::whereDate('day', '=', $tuesday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $wednesday = clone $today;
         $wednesday->modify('+ 2 days');
-        $wednesdayGoals = WeeklyGoal::whereDate('day', '=', $wednesday->format('Y-m-d'))->get();
+        $wednesdayGoals = WeeklyGoal::whereDate('day', '=', $wednesday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $thursday = clone $today;
         $thursday->modify('+ 3 days');
-        $thursdayGoals = WeeklyGoal::whereDate('day', '=', $thursday->format('Y-m-d'))->get();
+        $thursdayGoals = WeeklyGoal::whereDate('day', '=', $thursday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $friday = clone $today;
         $friday->modify('+ 4 days');
-        $fridayGoals = WeeklyGoal::whereDate('day', '=', $friday->format('Y-m-d'))->get();
+        $fridayGoals = WeeklyGoal::whereDate('day', '=', $friday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $saturday = clone $today;
         $saturday->modify('+ 5 days');
-        $saturdayGoals = WeeklyGoal::whereDate('day', '=', $saturday->format('Y-m-d'))->get();
+        $saturdayGoals = WeeklyGoal::whereDate('day', '=', $saturday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         $sunday = clone $today;
         $sunday->modify('+ 6 days');
-        $sundayGoals = WeeklyGoal::whereDate('day', '=', $sunday->format('Y-m-d'))->get();
+        $sundayGoals = WeeklyGoal::whereDate('day', '=', $sunday->format('Y-m-d'))->where('user_id',Auth::id())->get();
 
         return response()->json([[
             "day" => "Monday",
@@ -184,25 +141,26 @@ class WeeklyGoalsController extends Controller
 
     }
 
-    public function updateStatus($id){
+    public function updateStatus($id)
+    {
         $goal = WeeklyGoal::find($id);
-        if($goal){
+        if ($goal) {
             $goal->status = true;
             $goal->save();
             return $this->success("Status Updated", new WeeklyGoalsResource($goal));
-        }
-        else{
-           return $this->failure('Goal not found' , 404);
+        } else {
+            return $this->failure('Goal not found', 404);
         }
     }
-    public function dayFocusScore(Request $request){
-        $focus = FocusDay::where('user_id' , Auth::id())->where('date',Date::now()->format('Y-m-d'))->first();
-        if($focus){
+
+    public function dayFocusScore(Request $request)
+    {
+        $focus = FocusDay::where('user_id', Auth::id())->where('date', Date::now()->format('Y-m-d'))->first();
+        if ($focus) {
             $focus->focus_value = $request->focus_value;
             $focus->save();
             return $this->success("Day Focus Updates", new FocusDayResource($focus));
-        }
-        else{
+        } else {
             $focusDay = new FocusDay();
             $focusDay->user_id = Auth::id();
             $focusDay->date = Date::now()->format('Y-m-d');
@@ -213,18 +171,17 @@ class WeeklyGoalsController extends Controller
 
     }
 
-    public function getDayFocusScore($date = null){
-        if($date == null){
-            $focus = FocusDay::where('date',Date::now()->format('Y-m-d'))->first();
+    public function getDayFocusScore($date = null)
+    {
+        if ($date == null) {
+            $focus = FocusDay::where('date', Date::now()->format('Y-m-d'))->where('user_id',Auth::id())->first();
+        } else {
+            $focus = FocusDay::where('date', $date)->first();
         }
-        else{
-            $focus = FocusDay::where('date',$date)->first();
-        }
-        if($focus){
+        if ($focus) {
             return $this->success("Day Focus", new FocusDayResource($focus));
-        }
-        else{
-            return $this->failure('Focus not found' , 404);
+        } else {
+            return $this->failure('Focus not found', 404);
         }
     }
 
