@@ -73,5 +73,9 @@ class AdminController extends Controller
         return view('admin.send-push-notification');
     }
 
+    public function terms_and_condition(){
+        return view('admin.terms-and-condition');
+    }
+
 
 }

@@ -45,5 +45,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
         Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');
         Route::get('/send-push-notification', [AdminController::class, 'send_push_notification'])->name('send_push_notification');
+        Route::get('/terms-and-condition', [AdminController::class, 'terms_and_condition'])->name('terms_and_condition');
     });
 });

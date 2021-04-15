@@ -15,7 +15,7 @@
             <li><a href="{{route('faq')}}"><i class="icon-faq"></i> FAQ</a></li>
             <li><a href="javascript:void(0)"><i class="icon-feedback"></i> Feedback</a></li>
             <li><a href="{{route('send_push_notification')}}"><i class="icon-push-notifications"></i> Push Notifications</a></li>
-            <li><a href="javascript:void(0)"><i class="icon-terms"></i> Terms & Conditions</a></li>
+            <li><a href="{{route('terms_and_condition')}}"><i class="icon-terms"></i> Terms & Conditions</a></li>
 
             <div class="spriter-line"></div>
 
