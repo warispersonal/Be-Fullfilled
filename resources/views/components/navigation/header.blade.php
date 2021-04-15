@@ -16,7 +16,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="{{route('user_profile_detail')}}">View Profile</a>
-                    <a class="dropdown-item" href="#">Edit</a>
+                    <a class="dropdown-item" href="{{route('my_profile_setting')}}">Edit</a>
                     <a class="dropdown-item" href="#">Delete</a>
                 </div>
 

@@ -39,5 +39,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/user-profile-detail', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
 
         Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
+        Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
     });
 });

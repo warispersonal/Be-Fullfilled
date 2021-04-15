@@ -48,4 +48,7 @@ class AdminController extends Controller
     public function finance_dashboard(){
         return view('admin.finance-dashboard');
     }
+    public function my_profile_setting(){
+        return view('admin.my-profile-setting');
+    }
 }
