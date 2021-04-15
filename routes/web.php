@@ -37,5 +37,7 @@ Route::middleware('auth:admin')->group(function () {
 
         Route::get('/store-add-product', [AdminController::class, 'store_add_product'])->name('store_add_product');
         Route::get('/user-profile-detail', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
+
+        Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
     });
 });

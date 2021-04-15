@@ -16,3 +16,8 @@
 .icon-orders:before { content: '\e80e'; } /* '' */
 .icon-upload:before { content: '\e80f'; } /* '' */
 .icon-calendar:before { content: '\e810'; } /* '' */
+.icon-up-arrow:before { content: '\e811'; } /* '' */
+.icon-arrow-right:before { content: '\e812'; } /* '' */
+.icon-edit-input:before { content: '\e813'; } /* '' */
+.icon-password-hidden:before { content: '\e814'; } /* '' */
+.icon-password-show:before { content: '\e815'; } /* '' */
