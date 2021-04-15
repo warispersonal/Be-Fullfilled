@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\EmailSendController;
+use App\Http\Controllers\api\v1\FocusController;
 use App\Http\Controllers\api\v1\JournalsController;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
@@ -79,10 +80,13 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalsDayList']);
         Route::get('/week/{date?}', [WeeklyGoalsController::class, 'currentWeekGoalsList']);
         Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
-        Route::post('/focus/create', [WeeklyGoalsController::class, 'dayFocusScore']);
-        Route::get('/focus/{date?}', [WeeklyGoalsController::class, 'getDayFocusScore']);
+
     });
 
+    Route::prefix('/focus')->group(function (){
+        Route::post('/create', [FocusController::class, 'dayFocusScore']);
+        Route::get('/{date?}', [FocusController::class, 'getDayFocusScore']);
+    });
 
 
     /*
