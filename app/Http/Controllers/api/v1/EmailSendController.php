@@ -15,7 +15,7 @@ class EmailSendController extends Controller
             'email' => 'required'
         ]);
         if (RecordExistsController::isEmailExists($request->email)) {
-            $six_digit_random_number = mt_rand(100000, 999999);
+            $six_digit_random_number = mt_rand(1000, 9999);
             Mail::to($request->email)->send(new ResetPasswordCode($six_digit_random_number));
             return $this->success('Code send successfully', ['code' => $six_digit_random_number]);
         } else {
