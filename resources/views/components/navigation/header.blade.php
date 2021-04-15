@@ -19,6 +19,7 @@
                     <a class="dropdown-item" href="{{route('my_profile_setting')}}">Edit</a>
                     <a class="dropdown-item" href="{{route('new_password')}}">New Password</a>
                     <a class="dropdown-item" href="{{route('reset_password')}}">Reset Password</a>
+                    <a class="dropdown-item" href="{{route('reset_password_email')}}">Reset Password Email</a>
                     <a class="dropdown-item" href="#">Delete</a>
                 </div>
 
@@ -35,7 +36,9 @@
 
         <div class="notify-container">
             <div class="notify">
-                <i class="icon-menu-notification"></i>
+                <a href="{{route('notification')}}">
+                    <i class="icon-menu-notification"></i>
+                </a>
             </div>
         </div>
 

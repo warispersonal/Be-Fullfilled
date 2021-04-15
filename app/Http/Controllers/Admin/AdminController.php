@@ -65,4 +65,13 @@ class AdminController extends Controller
         return view('admin.reset-password');
     }
 
+    public function reset_password_email(){
+        return view('admin.reset-password-email');
+    }
+
+    public function send_push_notification(){
+        return view('admin.send-push-notification');
+    }
+
+
 }

@@ -43,5 +43,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
         Route::get('/notification', [AdminController::class, 'notification'])->name('notification');
         Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
+        Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');
+        Route::get('/send-push-notification', [AdminController::class, 'send_push_notification'])->name('send_push_notification');
     });
 });
