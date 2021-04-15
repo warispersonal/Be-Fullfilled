@@ -24,7 +24,7 @@ class DailyQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-//            'question' => 'required'
+            'question' => 'required'
         ];
     }
 }

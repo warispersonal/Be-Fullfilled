@@ -24,8 +24,8 @@ class NotesRequest extends FormRequest
     public function rules()
     {
         return [
-//            'title_notes' => 'required |max:255',
-//            'notes_description' => 'required',
+            'title_notes' => 'required |max:255',
+            'notes_description' => 'required',
         ];
     }
 }

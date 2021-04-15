@@ -24,8 +24,8 @@ class WeeklyGoalRequest extends FormRequest
     public function rules()
     {
         return [
-//            'day' => 'required',
-//            'goal' => 'required'
+            'day' => 'required',
+            'goal' => 'required'
         ];
     }
 }

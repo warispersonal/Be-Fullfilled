@@ -24,10 +24,10 @@ class PodcastsRequest extends FormRequest
     public function rules()
     {
         return [
-//            'date' => 'required',
-//            'title' => 'required',
-//            'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-//            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
+            'date' => 'required',
+            'title' => 'required',
+            'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
         ];
     }
 }

@@ -24,10 +24,10 @@ class FlipTheSwitchRequest extends FormRequest
     public function rules()
     {
         return [
-//            'date' => 'required',
-//            'title' => 'required',
-//            'file' => 'mimes:jpg,jpeg,png|max:4096',
-//            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
+            'date' => 'required',
+            'title' => 'required',
+            'file' => 'mimes:jpg,jpeg,png|max:4096',
+            'link' => 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav|max:15000',
         ];
     }
 }
