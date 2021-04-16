@@ -34,7 +34,7 @@ class ContentLibrary extends Model
     public function getMediaAttribute(){
         if($this->media_id != null) {
             $media = Media::find($this->media_id);
-            return asset(env('FLIP_THE_SWITCH_MEDIA').'/'.$media->link);
+            return asset(env('CONTENT_LIBRARY_MEDIA').'/'.$media->link);
         }
         return  null;
     }

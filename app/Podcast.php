@@ -21,7 +21,6 @@ class Podcast extends Model
     public function media(){
         return $this->belongsTo(Media::class);
     }
-
     public function getImageAttribute(){
         if($this->image_id == null) {
             return GenericController::thumbnail();
@@ -31,6 +30,15 @@ class Podcast extends Model
             return asset(env('PODCASTS_IMAGES').'/'.$image->file);
         }
     }
+
+    public function getMediaAttribute(){
+        if($this->media_id != null) {
+            $media = Media::find($this->media_id);
+            return asset(env('PODCASTS_MEDIA').'/'.$media->link);
+        }
+        return  null;
+    }
+
     public function getMediaTypeAttribute(){
         if($this->media_id != null) {
             $media = Media::find($this->media_id);

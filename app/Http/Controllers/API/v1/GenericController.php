@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class GenericController extends Controller
 {
-    public static function deCodeImage(){
 
-    }
-    public static function getDateFromTimeStamp($timestamp){
+    public static function getDateFromTimeStamp($timestamp)
+    {
         $timestamp = Carbon::parse($timestamp);
         $date = $timestamp->format('M d Y');
         return $date;
+    }
+
+    public static function getCustomizeDatesAttribute($date)
+    {
+        $timestamp = strtotime($date);
+        $day = date('F d, Y', $timestamp);
+        return $day;
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\API\V1\FocusController;
 use App\Http\Controllers\API\V1\JournalsController;
 use App\Http\Controllers\API\V1\LoginController;
 use App\Http\Controllers\API\V1\NotesController;
+use App\Http\Controllers\API\V1\PodcastsController;
 use App\Http\Controllers\API\V1\RegisterController;
 use App\Http\Controllers\API\V1\Twilio;
 use App\Http\Controllers\API\V1\WeeklyGoalsController;
@@ -135,3 +136,4 @@ Route::post('password/reset', [RegisterController::class,'resetPassword']);
 
 Route::get('flip-the-switch', [FlipTheSwitchController::class, 'index']);
 Route::get('content-library', [ContentLibraryController::class, 'index']);
+Route::get('podcasts', [PodcastsController::class, 'index']);
