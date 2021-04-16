@@ -20912,3 +20912,15 @@ select.custom-select:focus {
     min-height: 1300px;
   }
 }
+
+
+/* Custom CSS */
+.FlipThumb-Con .FlipSwitch-Thum img{
+    width: 343px !important;
+    height: 156px !important;
+}
+
+.content-library-image{
+    width: 374px !important;
+    height: 257px !important;
+}

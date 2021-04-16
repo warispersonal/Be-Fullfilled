@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\ContentLibraryController;
-use App\Http\Controllers\admin\FlipTheSwitchController;
-use App\Http\Controllers\admin\PodcastController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ContentLibraryController;
+use App\Http\Controllers\Admin\FlipTheSwitchController;
+use App\Http\Controllers\Admin\PodcastController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'login');
