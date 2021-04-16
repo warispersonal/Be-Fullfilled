@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\V1\ContentLibraryController;
 use App\Http\Controllers\API\V1\DailyQuestionController;
 use App\Http\Controllers\API\V1\EmailSendController;
 use App\Http\Controllers\API\V1\FlipTheSwitchController;
@@ -133,3 +134,4 @@ Route::post('password/reset', [RegisterController::class,'resetPassword']);
 */
 
 Route::get('flip-the-switch', [FlipTheSwitchController::class, 'index']);
+Route::get('content-library', [ContentLibraryController::class, 'index']);
