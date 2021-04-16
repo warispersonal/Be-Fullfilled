@@ -16,21 +16,29 @@ class ContentLibrary extends Model
         'media_id',
     ];
 
-    public function image(){
+    public function image()
+    {
         return $this->belongsTo(Image::class);
     }
 
-    public function getImageAttribute(){
-        if($this->image_id == null) {
-            return GenericController::thumbnail();
+    public function getMediaTypeAttribute()
+    {
+        if ($this->media_id != null) {
+            $media = Media::find($this->media_id);
+            if ($media->type == 0) {
+                return 'audio';
+            } elseif ($media->type == 1) {
+                return "video";
+            } elseif ($media->type == 2) {
+                return "pdf";
+            }
+            return null;
         }
-        else{
-            $image = Image::find($this->image_id);
-            return asset(env('CONTENT_LIBRARY_IMAGES').'/'.$image->file);
-        }
+        return null;
     }
 
-    public function tag(){
+    public function tag()
+    {
         return $this->belongsTo(Tag::class);
     }
 

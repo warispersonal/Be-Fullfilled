@@ -31,19 +31,19 @@ class Podcast extends Model
             return asset(env('PODCASTS_IMAGES').'/'.$image->file);
         }
     }
-
-    public function getMediaAttribute(){
-        if($this->media_id != null) {
-            $media = Media::find($this->media_id);
-            return asset(env('PODCASTS_MEDIA').'/'.$media->link);
-        }
-        return  null;
-    }
-
     public function getMediaTypeAttribute(){
         if($this->media_id != null) {
             $media = Media::find($this->media_id);
-            return $media->type;
+            if($media->type == 0){
+                return 'audio';
+            }
+            elseif($media->type == 1){
+                return "video";
+            }
+            elseif($media->type == 2){
+                return "pdf";
+            }
+            return null;
         }
         return  null;
     }
