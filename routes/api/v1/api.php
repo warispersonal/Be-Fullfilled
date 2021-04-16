@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\FlipTheSwitchController;
 use App\Http\Controllers\API\V1\ContentLibraryController;
 use App\Http\Controllers\API\V1\DailyQuestionController;
 use App\Http\Controllers\API\V1\EmailSendController;
-use App\Http\Controllers\API\V1\FlipTheSwitchController;
+use App\Http\Controllers\API\V1\FlipTheSwitchController as FlipSwitch;
 use App\Http\Controllers\API\V1\FocusController;
 use App\Http\Controllers\API\V1\JournalsController;
 use App\Http\Controllers\API\V1\LoginController;
@@ -134,6 +135,6 @@ Route::post('password/reset', [RegisterController::class,'resetPassword']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('flip-the-switch', [FlipTheSwitchController::class, 'index']);
+Route::get('flip-the-switch', [FlipSwitch::class, 'index']);
 Route::get('content-library', [ContentLibraryController::class, 'index']);
 Route::get('podcasts', [PodcastsController::class, 'index']);
