@@ -1,16 +1,15 @@
 <?php
 
-use App\Http\Controllers\api\v1\DailyQuestionController;
-use App\Http\Controllers\api\v1\EmailSendController;
-use App\Http\Controllers\api\v1\FocusController;
-use App\Http\Controllers\api\v1\JournalsController;
-use App\Http\Controllers\api\v1\LoginController;
-use App\Http\Controllers\api\v1\NotesController;
-use App\Http\Controllers\api\v1\RegisterController;
-
-use App\Http\Controllers\api\v1\Twilio;
-use App\Http\Controllers\api\v1\WeeklyGoalsController;
-use App\Http\Controllers\api\v1\YourDayController;
+use App\Http\Controllers\API\V1\DailyQuestionController;
+use App\Http\Controllers\API\V1\EmailSendController;
+use App\Http\Controllers\API\V1\FocusController;
+use App\Http\Controllers\API\V1\JournalsController;
+use App\Http\Controllers\API\V1\LoginController;
+use App\Http\Controllers\API\V1\NotesController;
+use App\Http\Controllers\API\V1\RegisterController;
+use App\Http\Controllers\API\V1\Twilio;
+use App\Http\Controllers\API\V1\WeeklyGoalsController;
+use App\Http\Controllers\API\V1\YourDayController;
 use Illuminate\Support\Facades\Route;
 
 /*
