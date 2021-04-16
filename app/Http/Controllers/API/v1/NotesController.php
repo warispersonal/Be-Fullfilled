@@ -19,7 +19,7 @@ class NotesController extends Controller
     public function index()
     {
         $notes = Auth::user()->notes()->get();
-        return $this->success("Notes List",NotesResource::collection($notes));
+        return $this->success("Notes List", NotesResource::collection($notes));
     }
 
 

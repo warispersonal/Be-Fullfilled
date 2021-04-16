@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\V1\DailyQuestionController;
 use App\Http\Controllers\API\V1\EmailSendController;
+use App\Http\Controllers\API\V1\FlipTheSwitchController;
 use App\Http\Controllers\API\V1\FocusController;
 use App\Http\Controllers\API\V1\JournalsController;
 use App\Http\Controllers\API\V1\LoginController;
@@ -123,3 +124,12 @@ Route::post('send/sms', [Twilio::class, 'sendConfirmationMessage']);
 Route::post('reset/password/sms', [Twilio::class, 'sendResetPasswordOnMobile']);
 Route::post('reset/password/email', [EmailSendController::class, 'sendResetPasswordOnEmail']);
 Route::post('password/reset', [RegisterController::class,'resetPassword']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Route for Flip the Switch & Content Library & Podcasts
+|--------------------------------------------------------------------------
+*/
+
+Route::get('flip-the-switch', [FlipTheSwitchController::class, 'index']);
