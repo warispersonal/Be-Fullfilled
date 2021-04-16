@@ -77,5 +77,9 @@ class AdminController extends Controller
         return view('admin.terms-and-condition');
     }
 
+    public function feedback(){
+        return view('admin.feedback');
+    }
+
 
 }
