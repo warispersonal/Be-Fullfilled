@@ -8,6 +8,8 @@ use Illuminate\Support\Carbon;
 
 class FlipTheSwitch extends Model
 {
+    use \App\Http\Traits\Media;
+
     protected $guarded = [
         'title',
         'date',
@@ -24,43 +26,12 @@ class FlipTheSwitch extends Model
     }
 
     public function getImageAttribute(){
-        if($this->image_id == null) {
-            return GenericController::thumbnail();
-        }
-        else{
-            $image = Image::find($this->image_id);
-            return asset(env('FLIP_THE_SWITCH_IMAGES').'/'.$image->file);
-        }
+        return $this->getImage($this->image_id, env('FLIP_THE_SWITCH_IMAGES'));
     }
 
-    public function getMediaAttribute(){
-        if($this->media_id != null) {
-            $media = Media::find($this->media_id);
-            return asset(env('FLIP_THE_SWITCH_MEDIA').'/'.$media->link);
-        }
-        return  null;
+    public function getMediaAttribute()
+    {
+        return $this->getMedia($this->media_id, env('FLIP_THE_SWITCH_MEDIA'));
     }
 
-    public function getMediaTypeAttribute(){
-        if($this->media_id != null) {
-            $media = Media::find($this->media_id);
-            if($media->type == 0){
-                return 'audio';
-            }
-            elseif($media->type == 1){
-                return "video";
-            }
-            elseif($media->type == 2){
-                return "pdf";
-            }
-            return null;
-        }
-        return  null;
-    }
-
-    public function getCustomizeDatesAttribute(){
-        $timestamp = strtotime($this->date);
-        $day = date('F d, Y', $timestamp);
-        return $day;
-    }
 }
