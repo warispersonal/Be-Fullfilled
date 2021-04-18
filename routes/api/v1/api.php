@@ -1,19 +1,18 @@
 <?php
 
 use App\Http\Controllers\admin\FlipTheSwitchController;
-use App\Http\Controllers\API\V1\ContentLibraryController;
-use App\Http\Controllers\API\V1\DailyQuestionController;
-use App\Http\Controllers\API\V1\EmailSendController;
-use App\Http\Controllers\API\V1\FlipTheSwitchController as FlipSwitch;
-use App\Http\Controllers\API\V1\FocusController;
-use App\Http\Controllers\API\V1\JournalsController;
-use App\Http\Controllers\API\V1\LoginController;
-use App\Http\Controllers\API\V1\NotesController;
-use App\Http\Controllers\API\V1\PodcastsController;
-use App\Http\Controllers\API\V1\RegisterController;
-use App\Http\Controllers\API\V1\Twilio;
-use App\Http\Controllers\API\V1\WeeklyGoalsController;
-use App\Http\Controllers\API\V1\YourDayController;
+use App\Http\Controllers\api\v1\ContentLibraryController;
+use App\Http\Controllers\api\v1\DailyQuestionController;
+use App\Http\Controllers\api\v1\EmailSendController;
+use App\Http\Controllers\api\v1\FlipTheSwitchController as FlipSwitch;
+use App\Http\Controllers\api\v1\FocusController;
+use App\Http\Controllers\api\v1\LoginController;
+use App\Http\Controllers\api\v1\NotesController;
+use App\Http\Controllers\api\v1\PodcastsController;
+use App\Http\Controllers\api\v1\RegisterController;
+use App\Http\Controllers\api\v1\Twilio;
+use App\Http\Controllers\api\v1\WeeklyGoalsController;
+use App\Http\Controllers\api\v1\YourDayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +26,7 @@ Route::get('/login', [LoginController::class, 'unauthorized'])->name('un-authori
 
 /*
 |--------------------------------------------------------------------------
-| Register & Login API's
+| Register & Login api's
 |--------------------------------------------------------------------------
 */
 
@@ -38,7 +37,7 @@ Route::prefix('/user')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Forgot password & reset password API's
+| Forgot password & reset password api's
 |--------------------------------------------------------------------------
 */
 
@@ -50,7 +49,7 @@ Route::middleware('auth:api')->group(function () {
 
     /*
     |--------------------------------------------------------------------------
-    | User profile & logout API's
+    | User profile & logout api's
     |--------------------------------------------------------------------------
     */
 

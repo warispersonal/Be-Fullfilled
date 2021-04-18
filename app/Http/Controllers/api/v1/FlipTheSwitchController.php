@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\V1;
+namespace App\Http\Controllers\api\v1;
 
 use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\API\V1;
+namespace App\Http\Controllers\api\v1;
 
-use App\DailyQuestion;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\DailyQuestionRequest;
-use App\Http\Resources\DailyQuestionResource;
+use App\Http\Requests\YourDayRequest;
+use App\Http\Resources\YourDayResource;
+use App\YourDay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class DailyQuestionController extends Controller
+class YourDayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,8 @@ class DailyQuestionController extends Controller
      */
     public function index()
     {
-        $question = DailyQuestion::all();
-        return $this->success("Question List",DailyQuestionResource::collection($question));
-
+        $yourDays = Auth::user()->yourDays()->get();
+        return $this->success("Your days list",YourDayResource::collection($yourDays));
     }
 
 
@@ -29,12 +29,13 @@ class DailyQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DailyQuestionRequest $request)
+    public function store(YourDayRequest $request)
     {
-        $question = new DailyQuestion();
-        $question['question'] = $request->question;
-        $question->save();
-        return $this->success('Created', new DailyQuestionResource($question), 200);
+        $yourDay = new YourDay();
+        $yourDay['daily_question_id'] = $request['daily_question_id'];
+        $yourDay['answer'] = $request['answer'];
+        Auth::user()->yourDays()->save($yourDay);
+        return $this->success('Created',new YourDayResource($yourDay));
 
     }
 
@@ -46,10 +47,19 @@ class DailyQuestionController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.

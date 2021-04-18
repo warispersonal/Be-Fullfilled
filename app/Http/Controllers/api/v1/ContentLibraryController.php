@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API\V1;
+namespace App\Http\Controllers\api\v1;
 
 use App\ContentLibrary;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ContentLibraryResource;
-use Illuminate\Http\Request;
 
 class ContentLibraryController extends Controller
 {
