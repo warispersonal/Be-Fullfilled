@@ -20928,3 +20928,7 @@ select.custom-select:focus {
     width: 48px !important;
     height: 48px !important;
 }
+.product-image{
+    width: 111px !important;
+    height: 152px !important;
+}
