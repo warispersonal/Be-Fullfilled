@@ -20924,3 +20924,7 @@ select.custom-select:focus {
     width: 374px !important;
     height: 257px !important;
 }
+.user-profile-image{
+    width: 48px !important;
+    height: 48px !important;
+}

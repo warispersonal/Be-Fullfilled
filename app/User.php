@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Http\Traits\Generic;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, Generic;
 
     /**
      * The attributes that are mass assignable.
@@ -63,6 +64,11 @@ class User extends Authenticatable
     public function getProfileAttribute($profile)
     {
         return url('storage/'.$profile);
+    }
+
+    public function getCustomizeDatesAttribute()
+    {
+        return $this->getCustomizeDate($this->created_at);
     }
 
 }
