@@ -76,5 +76,11 @@ class RegisterController extends Controller
         return $this->success('You have been successfully logged out!');
     }
 
+    public function users()
+    {
+        $users = User::all();
+        return $this->success('You have been successfully logged out!', $users);
+    }
+
 
 }

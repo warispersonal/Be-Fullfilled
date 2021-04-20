@@ -6,6 +6,7 @@ use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\EmailSendController;
 use App\Http\Controllers\api\v1\FlipTheSwitchController as FlipSwitch;
 use App\Http\Controllers\api\v1\FocusController;
+use App\Http\Controllers\api\v1\IsRecordExists;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\PodcastsController;
@@ -137,3 +138,19 @@ Route::post('password/reset', [RegisterController::class,'resetPassword']);
 Route::get('flip-the-switch', [FlipSwitch::class, 'index']);
 Route::get('content-library', [ContentLibraryController::class, 'index']);
 Route::get('podcasts', [PodcastsController::class, 'index']);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Check if Email & Phone Number exists
+|--------------------------------------------------------------------------
+*/
+Route::prefix('/unique')->group(function (){
+    Route::get('email/{user}', [IsRecordExists::class, 'email']);
+    Route::get('phone/{user}', [IsRecordExists::class, 'phone']);
+});
+
+
+
+Route::get('user/list', [RegisterController::class, 'users']);
