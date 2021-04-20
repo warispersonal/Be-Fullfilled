@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContentLibraryController;
 use App\Http\Controllers\Admin\FlipTheSwitchController;
 use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PushNotificationController;
 use App\Http\Controllers\Admin\QuestionController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,11 +47,14 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
         Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
         Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
-        Route::get('/notification', [AdminController::class, 'notification'])->name('notification');
         Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
         Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');
-        Route::get('/send-push-notification', [AdminController::class, 'send_push_notification'])->name('send_push_notification');
         Route::get('/terms-and-condition', [AdminController::class, 'terms_and_condition'])->name('terms_and_condition');
         Route::get('/feedback', [AdminController::class, 'feedback'])->name('feedback');
+
+        Route::get('/notification', [PushNotificationController::class, 'index'])->name('notification');
+        Route::get('/send-push-notification', [PushNotificationController::class, 'create'])->name('send_push_notification');
+        Route::post('/send-push-notification', [PushNotificationController::class, 'store'])->name('send_push_notification_post');
+
     });
 });

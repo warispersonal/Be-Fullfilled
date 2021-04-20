@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePodcastsTable extends Migration
+class CreatePushNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePodcastsTable extends Migration
      */
     public function up()
     {
-        Schema::create('podcasts', function (Blueprint $table) {
+        Schema::create('push_notifications', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description');
             $table->date('date');
             $table->bigInteger('image_id')->nullable();
-            $table->bigInteger('media_id')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePodcastsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('podcasts');
+        Schema::dropIfExists('push_notifications');
     }
 }

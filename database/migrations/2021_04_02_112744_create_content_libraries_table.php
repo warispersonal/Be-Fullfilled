@@ -17,7 +17,7 @@ class CreateContentLibrariesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->dateTime('date');
+            $table->date('date');
             $table->bigInteger('image_id')->nullable();
             $table->bigInteger('tag_id')->nullable();
             $table->bigInteger('media_id')->nullable();

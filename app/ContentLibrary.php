@@ -13,7 +13,7 @@ class ContentLibrary extends Model
         'title',
         'description',
         'date',
-        'media_id',
+        'image_id',
         'tag_id',
         'media_id',
     ];

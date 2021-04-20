@@ -44,10 +44,6 @@ class AdminController extends Controller
         return view('admin.new-password');
     }
 
-    public function notification(){
-        return view('admin.notification');
-    }
-
     public function reset_password(){
         return view('admin.reset-password');
     }
@@ -56,9 +52,6 @@ class AdminController extends Controller
         return view('admin.reset-password-email');
     }
 
-    public function send_push_notification(){
-        return view('admin.send-push-notification');
-    }
 
     public function terms_and_condition(){
         return view('admin.terms-and-condition');

@@ -47,4 +47,5 @@ trait Media
         $day = date('F d, Y', $timestamp);
         return $day;
     }
+
 }

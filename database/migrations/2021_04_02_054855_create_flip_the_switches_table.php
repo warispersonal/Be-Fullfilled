@@ -16,7 +16,7 @@ class CreateFlipTheSwitchesTable extends Migration
         Schema::create('flip_the_switches', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->dateTime('date');
+            $table->date('date');
             $table->bigInteger('image_id')->nullable();
             $table->bigInteger('media_id')->nullable();
             $table->timestamps();
