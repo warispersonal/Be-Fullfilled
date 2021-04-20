@@ -14,7 +14,7 @@ class IsRecordExists extends Controller
             return $this->success('Email is exists', [] );
         }
         else{
-            return $this->failure('Email is not exists');
+            return $this->failure('Email is not exists',200);
         }
     }
 
@@ -24,7 +24,7 @@ class IsRecordExists extends Controller
             return $this->success('Phone number is exists', [] );
         }
         else{
-            return $this->failure('Phone number is not exists');
+            return $this->failure('Phone number is not exists',200);
         }
     }
 }
