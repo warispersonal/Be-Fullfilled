@@ -13,18 +13,10 @@ class AdminController extends Controller
         return view('admin.index', compact('users'));
     }
 
-    public function add_new_faq()
-    {
-        return view('admin.add-new-faq');
-    }
 
     public function all_orders()
     {
         return view('admin.all-orders');
-    }
-
-    public function faq(){
-        return view('admin.faq');
     }
 
     public function podcast(){

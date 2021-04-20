@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContentLibraryController;
 use App\Http\Controllers\Admin\FlipTheSwitchController;
 use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'login');
@@ -29,15 +30,16 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/upload-new-podcast', [PodcastController::class, 'create'])->name('upload_new_podcast');
         Route::post('/upload-new-podcast', [PodcastController::class, 'store'])->name('upload_new_podcast_post');
 
-
         Route::get('/manage-store', [ProductController::class, 'index'])->name('manage_store');
         Route::get('/store-add-product', [ProductController::class, 'create'])->name('store_add_product');
         Route::post('/store-add-product', [ProductController::class, 'store'])->name('store_add_product_post');
 
+        Route::get('/faq', [QuestionController::class, 'index'])->name('faq');
+        Route::get('/add-new-faq', [QuestionController::class, 'create'])->name('add_new_faq');
+        Route::post('/add-new-faq', [QuestionController::class, 'store'])->name('add_new_faq_post');
+
         Route::get('/', [AdminController::class, 'index'])->name('admin');
-        Route::get('/add-new-faq', [AdminController::class, 'add_new_faq'])->name('add_new_faq');
         Route::get('/all-orders', [AdminController::class, 'all_orders'])->name('all_orders');
-        Route::get('/faq', [AdminController::class, 'faq'])->name('faq');
 
         Route::get('/user-profile-detail', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
 
