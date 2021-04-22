@@ -46,9 +46,7 @@ Route::middleware('auth:admin')->group(function () {
 
         Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
         Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
-        Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
-        Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
-        Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');
+
         Route::get('/terms-and-condition', [AdminController::class, 'terms_and_condition'])->name('terms_and_condition');
         Route::get('/feedback', [AdminController::class, 'feedback'])->name('feedback');
 
@@ -58,3 +56,12 @@ Route::middleware('auth:admin')->group(function () {
 
     });
 });
+
+Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset-password/via-email', [AdminController::class, 'via_email'])->name('via_email');
+Route::post('/reset-password/via-cell-number', [AdminController::class, 'via_cell_number'])->name('via_cell_number');
+
+
+
+Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
+Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');

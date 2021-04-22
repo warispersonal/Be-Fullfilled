@@ -83,8 +83,8 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalsDayList']);
         Route::get('/week/{date?}', [WeeklyGoalsController::class, 'currentWeekGoalsList']);
         Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
-
     });
+
 
     Route::prefix('/focus')->group(function (){
         Route::post('/create', [FocusController::class, 'dayFocusScore']);

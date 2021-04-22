@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Request;
 
 class AdminController extends Controller
 {
@@ -61,5 +62,12 @@ class AdminController extends Controller
         return view('admin.feedback');
     }
 
+    public function via_email(Request $request){
+
+    }
+
+    public function via_cell_number(Request $request){
+
+    }
 
 }

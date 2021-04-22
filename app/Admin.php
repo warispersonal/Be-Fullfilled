@@ -22,6 +22,7 @@ class Admin extends Authenticatable
         'password',
         'profile',
         'phone_number',
+        'password_reset_code',
     ];
 
     /**

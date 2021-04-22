@@ -44,7 +44,7 @@
                                 <button type="submit">Login</button>
                             </div>
 
-                            <div class="Reset-Pass"><a href="#">Reset Password?</a></div>
+                            <div class="Reset-Pass"><a href="{{route('reset_password')}}">Reset Password?</a></div>
 
                         </div>
                     </form>
