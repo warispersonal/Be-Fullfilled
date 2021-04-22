@@ -1,35 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="SideMenu-Left">
-        <div class="aside-menu">
-            <ul>
-
-                <li class="active"><a href="#"><i class="icon-manage-users"></i> Manage Users</a></li>
-                <li><a href="#"><i class="icon-flip-the-switch"></i> Flip the Switch</a></li>
-                <li><a href="#"><i class="icon-content-library"></i> Content Library</a></li>
-                <li><a href="#"><i class="icon-podcasts"></i> Podcasts</a></li>
-
-                <div class="spriter-line"></div>
-
-                <li><a href="#"><i class="icon-manage-store"></i> Manage Store</a></li>
-                <li><a href="#"><i class="icon-orders"></i> Orders</a></li>
-                <li><a href="#"><i class="icon-finance-dashboard"></i> Finance Dashboard</a></li>
-                <li><a href="#"><i class="icon-faq"></i> FAQ</a></li>
-                <li><a href="#"><i class="icon-feedback"></i> Feedback</a></li>
-                <li><a href="#"><i class="icon-push-notifications"></i> Push Notifications</a></li>
-                <li><a href="#"><i class="icon-terms"></i> Terms & Conditions</a></li>
-
-                <div class="spriter-line"></div>
-
-                <div class="LogoutHead">
-                    <h6>Powered by the App guys<br/> Be Fulfilled © 2021 *</h6>
-                    <a href="#"><i class="icon-logout"></i> Log Out</a>
-                </div>
-
-            </ul>
-        </div>
-    </div>
 
     <div class="AllUser-Dashboard">
 
@@ -59,30 +30,30 @@
 
                 <tr class="table-border">
 
-                    <td>October 25, 2019</td>
+                    <td>{{Auth::user()->date}}</td>
 
                     <td>
 
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
+                                <img class="user-profile-image" src="{{Auth::user()->image}}" alt=""/>
                             </div>
 
                             <div class="headeright">
-                                <h2>Kristin Watson</h2>
-                                <h3>(217) 555-0113</h3>
+                                <h2>{{Auth::user()->name}}</h2>
+                                <h3>{{Auth::user()->phone_number}}</h3>
                             </div>
 
                         </div>
 
                     </td>
 
-                    <td>Austin</td>
+                    <td>{{Auth::user()->city}}</td>
 
-                    <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+                    <td>{{Auth::user()->city}}<br/> {{Auth::user()->street_address}}</td>
 
-                    <td>2312</td>
+                    <td>{{Auth::user()->zipcode}}</td>
 
                     <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 
