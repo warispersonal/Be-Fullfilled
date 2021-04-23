@@ -19,6 +19,9 @@ Route::post('login', [
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('/admin')->group(function () {
 
+
+        Route::post('/update-profile', [AdminController::class, 'update_profile'])->name('update_profile');
+
         Route::get('/flip-the-switch', [FlipTheSwitchController::class, 'index'])->name('flip_the_switch');
         Route::get('/upload-new', [FlipTheSwitchController::class, 'create'])->name('upload_new');
         Route::post('/upload-new', [FlipTheSwitchController::class, 'store'])->name('upload_new_post');

@@ -62,7 +62,7 @@ class Admin extends Authenticatable
 
     public function getImageAttribute($profile)
     {
-        return asset(env('ADMIN_IMAGES').'/'.$this->profile);;
+        return asset(env('ADMIN_IMAGES').'/'.$this->profile);
     }
 
     public function getDateAttribute($val){

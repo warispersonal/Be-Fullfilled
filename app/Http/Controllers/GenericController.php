@@ -26,6 +26,20 @@ class GenericController extends Controller
         }
     }
 
+    public static function saveImageSameModel($image_file, $input_name, $path)
+    {
+        if ($image_file->hasFile($input_name)) {
+            ini_set('memory_limit', '-1');
+            $file = $image_file->file($input_name);
+            $save_image = time() . '.' . $file->getClientOriginalName();
+            $file->move($path, $save_image);
+            return $save_image;
+        } else {
+            return null;
+        }
+    }
+
+
     public static function saveMediaFile($image_file, $input_name, $path)
     {
         if ($image_file->hasFile($input_name)) {
