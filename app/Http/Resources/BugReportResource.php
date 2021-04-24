@@ -17,7 +17,7 @@ class BugReportResource extends JsonResource
         return [
             'id' => $this->id,
             'description' => $this->description,
-            'media' => $this->image,
+            'media' => $this->media,
         ];
     }
 }

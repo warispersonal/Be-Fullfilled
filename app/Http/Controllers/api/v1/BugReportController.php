@@ -41,7 +41,7 @@ class BugReportController extends Controller
      */
     public function store(BugReportRequest $request)
     {
-        $media = GenericController::saveMediaFile($request,'link', env('BUG_REPORT_IMAGE'));
+        $media = GenericController::saveMediaFile($request,'link', env('BUG_REPORT_MEDIA'));
         $bugReport = new BugReport();
         $bugReport->description = $request->description;
         $bugReport->media_id = $media->id ?? null;

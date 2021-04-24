@@ -13,9 +13,9 @@ class BugReport extends Model
         'user_id',
     ];
 
-    public function getImageAttribute()
+    public function getMediaAttribute()
     {
-        return $this->getImage($this->image_id, env('BUG_REPORT_IMAGE'));
+        return $this->getMedia($this->media_id, env('BUG_REPORT_MEDIA'));
     }
 
 }
