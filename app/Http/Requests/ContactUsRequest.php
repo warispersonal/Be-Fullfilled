@@ -13,7 +13,7 @@ class ContactUsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class ContactUsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'subject' => 'required',
+            'message' => 'required'
         ];
     }
 }

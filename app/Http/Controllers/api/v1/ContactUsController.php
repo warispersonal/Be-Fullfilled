@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\ContactUs;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactUsRequest;
+use App\Http\Resources\ContactUsResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactUsController extends Controller
 {
@@ -24,9 +28,15 @@ class ContactUsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactUsRequest $request)
     {
-        //
+        $contactUs = new ContactUs();
+        $contactUs->subject = $request->subject;
+        $contactUs->message = $request->message;
+        $contactUs->user_id = Auth::id();
+        $contactUs->save();
+        return $this->success("Request Send", new ContactUsResource($contactUs));
+
     }
 
     /**
