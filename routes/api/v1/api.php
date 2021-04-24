@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\admin\FlipTheSwitchController;
+use App\Http\Controllers\api\v1\BugReportController;
+use App\Http\Controllers\api\v1\ContactUsController;
 use App\Http\Controllers\api\v1\ContentLibraryController;
 use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\EmailSendController;
@@ -54,11 +56,10 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::prefix('/user')->group(function (){
+    Route::prefix('/user')->group(function () {
         Route::get('/', [RegisterController::class, 'profile']);
         Route::delete('/logout', [RegisterController::class, 'logout']);
     });
-
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +67,7 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::prefix('/notes')->group(function (){
+    Route::prefix('/notes')->group(function () {
         Route::get('/', [NotesController::class, 'index']);
         Route::post('/create', [NotesController::class, 'store']);
     });
@@ -77,7 +78,7 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::prefix('/goals')->group(function (){
+    Route::prefix('/goals')->group(function () {
         Route::get('/', [WeeklyGoalsController::class, 'index']);
         Route::post('/create', [WeeklyGoalsController::class, 'store']);
         Route::get('/date/{date}', [WeeklyGoalsController::class, 'specificGoalsDayList']);
@@ -85,12 +86,16 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
     });
 
+    /*
+    |--------------------------------------------------------------------------
+    | Route for Focus create & get
+    |--------------------------------------------------------------------------
+    */
 
-    Route::prefix('/focus')->group(function (){
+    Route::prefix('/focus')->group(function () {
         Route::post('/create', [FocusController::class, 'dayFocusScore']);
         Route::get('/{date?}', [FocusController::class, 'getDayFocusScore']);
     });
-
 
     /*
     |--------------------------------------------------------------------------
@@ -98,22 +103,29 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::prefix('/questions')->group(function (){
+    Route::prefix('/questions')->group(function () {
         Route::get('/', [DailyQuestionController::class, 'index']);
         Route::post('/create', [DailyQuestionController::class, 'store']);
     });
-
 
     /*
     |--------------------------------------------------------------------------
     | Route for Your Day
     |--------------------------------------------------------------------------
     */
-
-    Route::prefix('/day')->group(function (){
+    Route::prefix('/day')->group(function () {
         Route::get('/', [YourDayController::class, 'index']);
         Route::post('/create', [YourDayController::class, 'store']);
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for bugreport & contact us
+    |--------------------------------------------------------------------------
+    */
+
+    Route::post('/bug/report', [BugReportController::class, 'store']);
+    Route::post('/contact/us', [ContactUsController::class, 'store']);
 });
 
 
@@ -126,7 +138,7 @@ Route::middleware('auth:api')->group(function () {
 Route::post('send/sms', [Twilio::class, 'sendConfirmationMessage']);
 Route::post('reset/password/sms', [Twilio::class, 'sendResetPasswordOnMobile']);
 Route::post('reset/password/email', [EmailSendController::class, 'sendResetPasswordOnEmail']);
-Route::post('password/reset', [RegisterController::class,'resetPassword']);
+Route::post('password/reset', [RegisterController::class, 'resetPassword']);
 
 
 /*
@@ -140,17 +152,15 @@ Route::get('content-library', [ContentLibraryController::class, 'index']);
 Route::get('podcasts', [PodcastsController::class, 'index']);
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Check if Email & Phone Number exists
 |--------------------------------------------------------------------------
 */
-Route::prefix('/unique')->group(function (){
+Route::prefix('/unique')->group(function () {
     Route::get('email/{user}', [IsRecordExists::class, 'email']);
     Route::get('phone/{user}', [IsRecordExists::class, 'phone']);
 });
-
 
 
 Route::get('user/list', [RegisterController::class, 'users']);
