@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <div class="AllUser-Dashboard Dashbag">
 
         <div class="Finance-Container">
