@@ -21,9 +21,9 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->text('profile')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('city')->nullable()->after('phone_number');
-            $table->string('zipcode')->nullable()->after('city');
-            $table->string('street_address')->nullable()->after('zipcode');
+            $table->string('city')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('street_address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
