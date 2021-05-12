@@ -42,7 +42,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/add-new-faq', [QuestionController::class, 'create'])->name('add_new_faq');
         Route::post('/add-new-faq', [QuestionController::class, 'store'])->name('add_new_faq_post');
 
-        Route::get('/', [AdminController::class, 'index'])->name('admin');
+        Route::get('/users', [AdminController::class, 'index'])->name('admin');
         Route::get('/all-orders', [AdminController::class, 'all_orders'])->name('all_orders');
 
         Route::get('/user-profile-detail', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
