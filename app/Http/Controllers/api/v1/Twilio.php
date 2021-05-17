@@ -44,9 +44,10 @@ class Twilio extends Controller
             $client = new Client($account_sid, $auth_token);
             $six_digit_random_number = mt_rand(1000, 9999);
             $message = "Your reset password code is " . $six_digit_random_number;
+            $client->messages->create($request->phone_number, ['from' => $twilio_number, 'body' => $message]);
+            return $this->success('Code send successfully', ['code' => $six_digit_random_number]);
             try {
-                $client->messages->create($request->phone_number, ['from' => $twilio_number, 'body' => $message]);
-                return $this->success('Code send successfully', ['code' => $six_digit_random_number]);
+
             } catch (TwilioException  $e) {
                 return $this->failure('This is not valid phone number');
             }

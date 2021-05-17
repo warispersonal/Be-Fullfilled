@@ -26,7 +26,7 @@ class ContentLibraryController extends Controller
 
     public function store(ContentLibraryRequest $request)
     {
-        $image = GenericController::saveImage($request, 'file', env('PUSH_NOTIFICATION_IMAGES'));
+        $image = GenericController::saveImage($request, 'file', env('CONTENT_LIBRARY_IMAGES'));
 
         $contentLibrary = new ContentLibrary();
         $contentLibrary->title = $request->title;
