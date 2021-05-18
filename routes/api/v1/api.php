@@ -13,6 +13,7 @@ use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\PodcastsController;
 use App\Http\Controllers\api\v1\RegisterController;
+use App\Http\Controllers\api\v1\SocialSetupController;
 use App\Http\Controllers\api\v1\Twilio;
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
 use App\Http\Controllers\api\v1\YourDayController;
@@ -37,6 +38,7 @@ Route::prefix('/user')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/register', [RegisterController::class, 'register']);
 });
+Route::post('/social/setup', [SocialSetupController::class, 'social_setup']);
 
 /*
 |--------------------------------------------------------------------------

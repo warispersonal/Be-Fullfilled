@@ -24,7 +24,11 @@ class User extends Authenticatable
         'phone_number',
         'city',
         'zipcode',
-        'street_address'
+        'street_address',
+        'social_account_id',
+        'social_account_type',
+        'social_account_profile_image_url',
+        'social_account_email',
     ];
 
     /**
@@ -63,7 +67,7 @@ class User extends Authenticatable
 
     public function getProfileAttribute($profile)
     {
-        return url('storage/'.$profile);
+        return url('storage/' . $profile);
     }
 
     public function getCustomizeDatesAttribute()

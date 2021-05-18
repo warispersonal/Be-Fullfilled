@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PushNotificationController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\api\v1\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'login');
@@ -68,3 +69,6 @@ Route::post('/reset-password/via-cell-number', [AdminController::class, 'via_cel
 
 Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');
 Route::get('/reset-password-email', [AdminController::class, 'reset_password_email'])->name('reset_password_email');
+
+
+Route::post('/web/login', [LoginController::class, 'login']);
