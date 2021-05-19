@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -82,5 +83,34 @@ class RegisterController extends Controller
         return $this->success('You have been successfully logged out!', $users);
     }
 
+    public function update_profile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'string|min:6',
+            'zipcode' => 'min:5|max:5',
+//            'profile' => 'required',
+            'city' => 'required',
+            'street_address' => 'required',
+            'phone_number' => 'required|min:13|max:13|unique:users,phone_number,'.Auth::id(),
+        ]);
+        $user = Auth::user();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if (!empty($request->password)) {
+            $user->password = $request->password;
+        }
+        $user->profile = $request->profile;
+        $user->phone_number = $request->phone_number;
+        $user->city = $request->city;
+        $user->zipcode = $request->zipcode;
+        $user->street_address = $request->street_address;
+        $user->save();
+        return $this->success('User Profile Updated', new UserResource($user));
+    }
+
 
 }
+

@@ -60,6 +60,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [RegisterController::class, 'profile']);
+        Route::post('/update/profile', [RegisterController::class, 'update_profile']);
         Route::delete('/logout', [RegisterController::class, 'logout']);
     });
 
