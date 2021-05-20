@@ -71,6 +71,12 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Notes::where('id',$id)->delete();
+        if ($note) {
+            $notes = Auth::user()->notes()->get();
+            return $this->success("Note Deleted",NotesResource::collection($notes));
+        } else {
+            return $this->failure('Note not found', 404);
+        }
     }
 }
