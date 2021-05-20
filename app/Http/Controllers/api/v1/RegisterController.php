@@ -92,7 +92,14 @@ class RegisterController extends Controller
         if (!empty($request->password)) {
             $user->password = $request->password;
         }
-        $user->profile = $request->profile;
+
+        if(!empty($request->profile)){
+            if(Auth::user()->profile != $request->file){
+                $image = self::uploadMediaFile($request, 'profile' , env('USER_IMAGES'));
+                $user->profile = $image;
+            }
+        }
+
         $user->phone_number = $request->phone_number;
         $user->city = $request->city;
         $user->zipcode = $request->zipcode;
