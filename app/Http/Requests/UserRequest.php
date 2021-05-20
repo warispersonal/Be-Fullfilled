@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6|confirmed',
             'zipcode' => 'min:5|max:5',
-//            'profile' => 'required',
+            'profile' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
             'city' => 'required',
             'street_address' => 'required',
             'phone_number' => 'required|min:13|max:13|unique:users',
