@@ -25,7 +25,7 @@ use Illuminate\Support\Str;
 class RegisterController extends Controller
 {
 
-    use Generic,RespondsWithHttpStatus;
+    use Generic, RespondsWithHttpStatus;
 
     public function register(Request $request)
     {
@@ -94,37 +94,40 @@ class RegisterController extends Controller
 
     public function update_profile(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'string|min:6',
-            'zipcode' => 'min:5|max:5',
             'profile' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            'city' => 'required',
-            'street_address' => 'required',
             'phone_number' => 'required|min:13|max:13|unique:users,phone_number,' . Auth::id(),
+            'city' => 'required',
+            'zipcode' => 'min:5|max:5',
+            'street_address' => 'required',
         ]);
-        $user = Auth::user();
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $user = Auth::user();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if (!empty($request->password)) {
-            $user->password = $request->password;
-        }
-
-        if (!empty($request->profile)) {
-            if (Auth::user()->profile != $request->file) {
-                $image = self::uploadMediaFile($request, 'profile', env('USER_IMAGES'));
-                $user->profile = $image;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            if (!empty($request->password)) {
+                $user->password = $request->password;
             }
+            if (!empty($request->profile)) {
+                if (Auth::user()->profile != $request->file) {
+                    $image = self::uploadMediaFile($request, 'profile', env('USER_IMAGES'));
+                    $user->profile = $image;
+                }
+            }
+            $user->phone_number = $request->phone_number;
+            $user->city = $request->city;
+            $user->zipcode = $request->zipcode;
+            $user->street_address = $request->street_address;
+            $user->save();
+            return $this->success('User Profile Updated', new UserResource($user));
         }
-
-        $user->phone_number = $request->phone_number;
-        $user->city = $request->city;
-        $user->zipcode = $request->zipcode;
-        $user->street_address = $request->street_address;
-        $user->save();
-        return $this->success('User Profile Updated', new UserResource($user));
     }
 
 
