@@ -20,4 +20,12 @@ trait RespondsWithHttpStatus
             'message' => $message,
         ], $status);
     }
+
+    public function validationFailure($error)
+    {
+        return response([
+            "success" => false,
+            "message" => $error,
+        ]);
+    }
 }
