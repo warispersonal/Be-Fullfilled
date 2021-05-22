@@ -4,6 +4,8 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Mockery\Exception;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
@@ -13,21 +15,25 @@ class Twilio extends Controller
 {
     public function sendConfirmationMessage(Request $request)
     {
-        $request->validate([
-//            'phone' => 'required'
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required'
         ]);
-
-        $account_sid = getenv("TWILIO_SID");
-        $auth_token = getenv("TWILIO_AUTH_TOKEN");
-        $twilio_number = getenv("TWILIO_NUMBER");
-        $client = new Client($account_sid, $auth_token);
-        $six_digit_random_number = mt_rand(1000, 9999);
-        $message = "Your Befullfill verification code is " . $six_digit_random_number;
-        try {
-            $client->messages->create($request->phone, ['from' => $twilio_number, 'body' => $message]);
-            return $this->success('Code send successfully', ['code' => $six_digit_random_number]);
-        } catch (TwilioException  $e) {
-            return $this->failure('This is not valid phone number');
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_AUTH_TOKEN");
+            $twilio_number = getenv("TWILIO_NUMBER");
+            $client = new Client($account_sid, $auth_token);
+            $six_digit_random_number = mt_rand(1000, 9999);
+            $message = "Your Befullfill verification code is " . $six_digit_random_number;
+            try {
+                $client->messages->create($request->phone, ['from' => $twilio_number, 'body' => $message]);
+                return $this->success('Code send successfully', ['code' => $six_digit_random_number]);
+            } catch (TwilioException  $e) {
+                return $this->failure('This is not valid phone number');
+            }
         }
 
     }
