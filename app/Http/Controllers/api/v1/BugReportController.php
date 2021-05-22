@@ -10,6 +10,7 @@ use App\Http\Resources\BugReportResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BugReportController extends Controller
 {
@@ -39,16 +40,24 @@ class BugReportController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BugReportRequest $request)
+    public function store(Request $request)
     {
-        $media = GenericController::saveMediaFile($request,'link', env('BUG_REPORT_MEDIA'));
-        $bugReport = new BugReport();
-        $bugReport->description = $request->description;
-        $bugReport->media_id = $media->id ?? null;
-        $bugReport->user_id = Auth::id();
-        $bugReport->save();
-        return $this->success("Bug Reported", new BugReportResource($bugReport));
-
+        $validator = Validator::make($request->all(), [
+            'description' => 'required',
+            'link' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $media = GenericController::saveMediaFile($request, 'link', env('BUG_REPORT_MEDIA'));
+            $bugReport = new BugReport();
+            $bugReport->description = $request->description;
+            $bugReport->media_id = $media->id ?? null;
+            $bugReport->user_id = Auth::id();
+            $bugReport->save();
+            return $this->success("Bug Reported", new BugReportResource($bugReport));
+        }
     }
 
     /**
