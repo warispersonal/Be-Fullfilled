@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DailyQuestionRequest;
 use App\Http\Resources\DailyQuestionResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DailyQuestionController extends Controller
 {
@@ -18,7 +19,7 @@ class DailyQuestionController extends Controller
     public function index()
     {
         $question = DailyQuestion::all();
-        return $this->success("Question List",DailyQuestionResource::collection($question));
+        return $this->success("Question List", DailyQuestionResource::collection($question));
 
     }
 
@@ -26,22 +27,29 @@ class DailyQuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DailyQuestionRequest $request)
+    public function store(Request $request)
     {
-        $question = new DailyQuestion();
-        $question['question'] = $request->question;
-        $question->save();
-        return $this->success('Created', new DailyQuestionResource($question), 200);
-
+        $validator = Validator::make($request->all(), [
+            'question' => 'required'
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $question = new DailyQuestion();
+            $question['question'] = $request->question;
+            $question->save();
+            return $this->success('Created', new DailyQuestionResource($question), 200);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -50,12 +58,11 @@ class DailyQuestionController extends Controller
     }
 
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -66,7 +73,7 @@ class DailyQuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
