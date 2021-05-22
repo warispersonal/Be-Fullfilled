@@ -8,6 +8,7 @@ use App\Http\Requests\ContactUsRequest;
 use App\Http\Resources\ContactUsResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ContactUsController extends Controller
 {
@@ -25,24 +26,32 @@ class ContactUsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactUsRequest $request)
+    public function store(Request $request)
     {
-        $contactUs = new ContactUs();
-        $contactUs->subject = $request->subject;
-        $contactUs->message = $request->message;
-        $contactUs->user_id = Auth::id();
-        $contactUs->save();
-        return $this->success("Request Send", new ContactUsResource($contactUs));
-
+        $validator = Validator::make($request->all(), [
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $contactUs = new ContactUs();
+            $contactUs->subject = $request->subject;
+            $contactUs->message = $request->message;
+            $contactUs->user_id = Auth::id();
+            $contactUs->save();
+            return $this->success("Request Send", new ContactUsResource($contactUs));
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,12 +60,11 @@ class ContactUsController extends Controller
     }
 
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -67,7 +75,7 @@ class ContactUsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
