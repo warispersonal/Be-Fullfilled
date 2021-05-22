@@ -13,6 +13,7 @@ use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Validator;
 
 class WeeklyGoalsController extends Controller
 {
@@ -28,15 +29,24 @@ class WeeklyGoalsController extends Controller
         //
     }
 
-    public function store(WeeklyGoalRequest $request)
+    public function store(Request $request)
     {
-        $weeklyGoals = new WeeklyGoal();
-        $weeklyGoals['day'] = $request['day'];
-        $weeklyGoals['status'] = false;
-        $weeklyGoals['goal'] = $request['goal'];
+        $validator = Validator::make($request->all(), [
+            'goal' => 'required',
+            'day' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $weeklyGoals = new WeeklyGoal();
+            $weeklyGoals['day'] = $request['day'];
+            $weeklyGoals['status'] = false;
+            $weeklyGoals['goal'] = $request['goal'];
 
-        Auth::user()->weeklyGoals()->save($weeklyGoals);
-        return $this->success("Created", new WeeklyGoalsResource($weeklyGoals));
+            Auth::user()->weeklyGoals()->save($weeklyGoals);
+            return $this->success("Created", new WeeklyGoalsResource($weeklyGoals));
+        }
     }
 
     public function show($id)
@@ -61,7 +71,7 @@ class WeeklyGoalsController extends Controller
 
     public function specificGoalsDayList($date)
     {
-        $goals = WeeklyGoal::whereDate('day', '=', $date)->where('user_id',Auth::id())->get();
+        $goals = WeeklyGoal::whereDate('day', '=', $date)->where('user_id', Auth::id())->get();
         $dayName = date('l', strtotime($date));
         return response()->json([
             "day" => $dayName,
@@ -83,31 +93,31 @@ class WeeklyGoalsController extends Controller
         $today->modify('- ' . (($day_of_week - 1 + 7) % 7) . 'days');
 
         $monday = clone $today;
-        $mondayGoals = WeeklyGoal::whereDate('day', '=', $monday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $mondayGoals = WeeklyGoal::whereDate('day', '=', $monday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $tuesday = clone $today;
         $tuesday->modify('+ 1 days');
-        $tuesdayGoals = WeeklyGoal::whereDate('day', '=', $tuesday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $tuesdayGoals = WeeklyGoal::whereDate('day', '=', $tuesday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $wednesday = clone $today;
         $wednesday->modify('+ 2 days');
-        $wednesdayGoals = WeeklyGoal::whereDate('day', '=', $wednesday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $wednesdayGoals = WeeklyGoal::whereDate('day', '=', $wednesday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $thursday = clone $today;
         $thursday->modify('+ 3 days');
-        $thursdayGoals = WeeklyGoal::whereDate('day', '=', $thursday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $thursdayGoals = WeeklyGoal::whereDate('day', '=', $thursday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $friday = clone $today;
         $friday->modify('+ 4 days');
-        $fridayGoals = WeeklyGoal::whereDate('day', '=', $friday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $fridayGoals = WeeklyGoal::whereDate('day', '=', $friday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $saturday = clone $today;
         $saturday->modify('+ 5 days');
-        $saturdayGoals = WeeklyGoal::whereDate('day', '=', $saturday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $saturdayGoals = WeeklyGoal::whereDate('day', '=', $saturday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         $sunday = clone $today;
         $sunday->modify('+ 6 days');
-        $sundayGoals = WeeklyGoal::whereDate('day', '=', $sunday->format('Y-m-d'))->where('user_id',Auth::id())->get();
+        $sundayGoals = WeeklyGoal::whereDate('day', '=', $sunday->format('Y-m-d'))->where('user_id', Auth::id())->get();
 
         return response()->json([[
             "day" => "Monday",
