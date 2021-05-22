@@ -8,6 +8,7 @@ use App\Http\Resources\NotesResource;
 use App\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class NotesController extends Controller
 {
@@ -29,14 +30,23 @@ class NotesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NotesRequest $request)
+    public function store(Request $request)
     {
-        $note = new Notes();
-        $note['title_notes'] = $request['title_notes'];
-        $note['notes_description'] = $request['notes_description'];
+        $validator = Validator::make($request->all(), [
+            'title_notes' => 'required |max:255',
+            'notes_description' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $note = new Notes();
+            $note['title_notes'] = $request['title_notes'];
+            $note['notes_description'] = $request['notes_description'];
 
-        Auth::user()->notes()->save($note);
-        return $this->success("Created", new NotesResource($note));
+            Auth::user()->notes()->save($note);
+            return $this->success("Created", new NotesResource($note));
+        }
     }
 
     /**
@@ -71,10 +81,10 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        $note = Notes::where('id',$id)->delete();
+        $note = Notes::where('id', $id)->delete();
         if ($note) {
             $notes = Auth::user()->notes()->get();
-            return $this->success("Note Deleted",NotesResource::collection($notes));
+            return $this->success("Note Deleted", NotesResource::collection($notes));
         } else {
             return $this->failure('Note not found', 404);
         }
