@@ -67,15 +67,24 @@ class RegisterController extends Controller
         return $this->success('User Profile', new UserResource($user));
     }
 
-    public function resetPassword(ResetPasswordRequest $request)
+    public function resetPassword(Request $request)
     {
-        if (RecordExistsController::isUserEmailCellExists($request->user)) {
-            $user = User::where('email', $request->user)->orWhere('phone_number', $request->user)->get()->first();
-            $user->password = Hash::make($request->password);
-            $user->save();
-            return $this->success('Password has been successfully changed');
+        $validator = Validator::make($request->all(), [
+            'user' => 'required',
+            'password' => 'required|string'
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
         } else {
-            return $this->failure('Sorry, This user is not exist in our system', 404);
+            if (RecordExistsController::isUserEmailCellExists($request->user)) {
+                $user = User::where('email', $request->user)->orWhere('phone_number', $request->user)->get()->first();
+                $user->password = Hash::make($request->password);
+                $user->save();
+                return $this->success('Password has been successfully changed');
+            } else {
+                return $this->failure('Sorry, This user is not exist in our system', 404);
+            }
         }
     }
 
