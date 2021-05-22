@@ -8,6 +8,7 @@ use App\Http\Resources\YourDayResource;
 use App\YourDay;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class YourDayController extends Controller
 {
@@ -19,30 +20,39 @@ class YourDayController extends Controller
     public function index()
     {
         $yourDays = Auth::user()->yourDays()->get();
-        return $this->success("Your days list",YourDayResource::collection($yourDays));
+        return $this->success("Your days list", YourDayResource::collection($yourDays));
     }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(YourDayRequest $request)
+    public function store(Request $request)
     {
-        $yourDay = new YourDay();
-        $yourDay['daily_question_id'] = $request['daily_question_id'];
-        $yourDay['answer'] = $request['answer'];
-        Auth::user()->yourDays()->save($yourDay);
-        return $this->success('Created',new YourDayResource($yourDay));
+        $validator = Validator::make($request->all(), [
+            'daily_question_id' => 'required|exists:daily_questions,id',
+            'answer' => 'required'
+        ]);
+        if ($validator->fails()) {
+            $error = $validator->errors()->first();
+            return $this->validationFailure($error);
+        } else {
+            $yourDay = new YourDay();
+            $yourDay['daily_question_id'] = $request['daily_question_id'];
+            $yourDay['answer'] = $request['answer'];
+            Auth::user()->yourDays()->save($yourDay);
+            return $this->success('Created', new YourDayResource($yourDay));
+        }
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,7 +63,7 @@ class YourDayController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -64,8 +74,8 @@ class YourDayController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -76,7 +86,7 @@ class YourDayController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
