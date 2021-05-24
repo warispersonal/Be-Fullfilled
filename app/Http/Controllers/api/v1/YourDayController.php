@@ -34,7 +34,8 @@ class YourDayController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'daily_question_id' => 'required|exists:daily_questions,id',
-            'answer' => 'required'
+            'answer' => 'required',
+            'day' => 'required',
         ]);
         if ($validator->fails()) {
             $error = $validator->errors()->first();
@@ -43,6 +44,7 @@ class YourDayController extends Controller
             $yourDay = new YourDay();
             $yourDay['daily_question_id'] = $request['daily_question_id'];
             $yourDay['answer'] = $request['answer'];
+            $yourDay['day'] = $request['day'];
             Auth::user()->yourDays()->save($yourDay);
             return $this->success('Created', new YourDayResource($yourDay));
         }
