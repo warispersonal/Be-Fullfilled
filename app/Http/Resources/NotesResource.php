@@ -18,6 +18,7 @@ class NotesResource extends JsonResource
           "id" => $this->id,
           "title_notes" => $this->title_notes ,
           "notes_description" => $this->notes_description ,
+          "created_at" => $this->created_at->format('Y-m-d') 
       ];
     }
 }

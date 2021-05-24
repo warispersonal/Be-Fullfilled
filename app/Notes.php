@@ -10,6 +10,7 @@ class Notes extends Model
         'title_notes',
         'notes_description',
         'user_id',
+        'created_at'
     ];
 
     public function user(){
