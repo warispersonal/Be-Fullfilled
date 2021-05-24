@@ -10,7 +10,7 @@ trait Generic
         return $day;
     }
 
-    public static function uploadMediaFile($file, $input_name, $location)
+    public function uploadMediaFile($file, $input_name, $location)
     {
         if ($file->hasFile($input_name)) {
             ini_set('memory_limit', '-1');

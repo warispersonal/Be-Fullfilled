@@ -163,5 +163,23 @@ class WeeklyGoalsController extends Controller
         }
     }
 
+    public function stats($date = null)
+    {
+        if ($date == null) {
+            $completedGoals = WeeklyGoal::where('day', Date::now()->format('Y-m-d'))->where('user_id', Auth::id())->where('status', 1)->count();
+            $allGoals = WeeklyGoal::where('day', Date::now()->format('Y-m-d'))->where('user_id', Auth::id())->count();
+        } else {
+            $completedGoals = WeeklyGoal::where('day', $date)->where('status', 1)->count();
+            $allGoals = WeeklyGoal::where('day', $date)->count();
+        }
+        if($allGoals == 0){
+            return $this->success("Percentage of Tasks", 0);
+        }
+        else{
+            $percentage = ($completedGoals / $allGoals) * 100;
+            $percentage = round($percentage, 2);
+            return $this->success("Percentage of Tasks", $percentage);
+        }
+    }
 
 }
