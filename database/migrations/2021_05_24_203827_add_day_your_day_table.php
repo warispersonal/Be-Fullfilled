@@ -14,7 +14,7 @@ class AddDayYourDayTable extends Migration
     public function up()
     {
         Schema::table('your_days', function (Blueprint $table) {
-            $table->date('day');
+            $table->date('day')->nullable();
         });
     }
 
