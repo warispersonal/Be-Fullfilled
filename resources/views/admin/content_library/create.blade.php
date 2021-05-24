@@ -43,12 +43,6 @@
                             </div>
 
                             <div class="datainfo">
-                                <label>Tag Id</label>
-                                <input type="text" name="tag_id" value="1" placeholder="">
-                            </div>
-
-
-                            <div class="datainfo">
                                 <label>Title</label>
                                 <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                             </div>

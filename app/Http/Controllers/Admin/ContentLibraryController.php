@@ -33,7 +33,6 @@ class ContentLibraryController extends Controller
         $contentLibrary->description = $request->description;
         $contentLibrary->date = $request->date;
         $contentLibrary->image_id = $image->id ?? null;
-        $contentLibrary->tag_id = $request->tag_id;
         $contentLibrary->save();
 
         return redirect()->route('content_library')->with('success_message', 'Content library successfully created.');

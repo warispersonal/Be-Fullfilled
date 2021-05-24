@@ -20,7 +20,7 @@
                         <div class="MainThumb">
                             <img src="{{$contentLibrary->image}}" alt="" class="content-library-image"/>
                             <div class="Mainhead-Btm">
-                                <div class="FreeCon"><h1>{{$contentLibrary->tag->name}}</h1></div>
+                                <div class="FreeCon"><h1>PAID</h1></div>
                                 <h1>{{$contentLibrary->title}} <img src="{{asset('assets/images/table-dotted.svg')}}"
                                                                     alt=""/></h1>
                                 <p>{{$contentLibrary->description}}</p>
