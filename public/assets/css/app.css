@@ -17576,7 +17576,7 @@ body {
   color: #888888;
   border-color: #888888;
 }
-.UploadNew-Container .input-file {
+.UploadNew-Container .input-file,  .input-file-thumbnail, .input-file-media  {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
