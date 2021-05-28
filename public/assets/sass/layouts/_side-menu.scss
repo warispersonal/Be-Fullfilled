@@ -2,7 +2,16 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	
+
+	.longEnough {
+	  height: 100vh;
+	  max-width: 280px;
+	  overflow: auto;
+	}
+	.mCSB_inside>.mCSB_container {
+    	margin-right: 0px;
+	}
+
 	 .SideMenu-Left{
 		 margin: 0;
 		 padding: 18px 0 0 0;
@@ -14,12 +23,11 @@
 		 top: 82px;
 		 z-index: 99;
 		 border-right: 1px solid $theme-color-3;
-		 height: 100vh;
-		 
+
 		  .aside-menu{
 		      margin: 0;
 			  padding: 0;
-			  
+
 			  .spriter-line{
 				  background: $theme-color-3;
 				  height: 1px;
@@ -29,21 +37,21 @@
 				  margin-top: 48px;
     			  margin-bottom: 35px;
 			  }
-			  
+
 			  ul{
 				  margin: 0;
 				  padding: 0;
-				  
+
 				  li.active a{
 					 background: $theme-color-1;
 					 color: $white-color;
 				  }
-				  
+
 				  li{
 					  margin: 0 0 10px 0;
 					  padding: 0;
 					  list-style: none;
-					  
+
 					  a{
 						  margin: 0;
 						  padding: 10px 10px 10px 30px;
@@ -73,12 +81,12 @@
 				  }
 			  }
 		  }
-		 
-		 
+
+
 		 .LogoutHead{
 			 margin: 0;
 			 padding: 0 0 0 30px;
-			 
+
 			 h6{
 				 margin: 0;
 				 padding: 0;
@@ -103,7 +111,7 @@
 				 text-align: left;
 				 text-decoration: none;
 				 display: block;
-				  
+
 				 i{
 					 margin: 0 6px 0 0px;
 					 padding: 0;
@@ -112,13 +120,13 @@
 					 font-size: 14px;
 				 }
 			 }
-			 
+
 		 }
-		 
-		 		 
+
+
 	 }
-	
-	
-	
-	
+
+
+
+
 }

@@ -1,4 +1,4 @@
-<div class="SideMenu-Left">
+<div class="SideMenu-Left longEnough mCustomScrollbar"  data-mcs-theme="dark">
     <div class="aside-menu">
         <ul>
 
@@ -29,7 +29,6 @@
         </ul>
     </div>
 </div>
-
 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
     @csrf
 </form>

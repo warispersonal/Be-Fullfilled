@@ -17501,6 +17501,103 @@ body {
   max-width: 480px;
   width: 100%;
 }
+.UploadNew-Container .radio-container-btn-power {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.UploadNew-Container .radio-container-btn-power input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.UploadNew-Container .radiomark {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  height: 3px;
+  width: 63px;
+  background-color: #2B2E34;
+  border-radius: 50px;
+  opacity: 0;
+}
+.UploadNew-Container .radio-container-btn-power:hover input ~ .radiomark {
+  background-color: #2B2E34;
+  opacity: 1;
+}
+.UploadNew-Container .radio-container-btn-power input:checked ~ .radiomark {
+  background-color: #2B2E34;
+  opacity: 1;
+}
+.UploadNew-Container .radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.UploadNew-Container .radio-container-btn-power input:checked ~ .radiomark:after {
+  display: block;
+}
+.UploadNew-Container .radio-container-btn-power .radiomark:after {
+  top: 9px;
+  left: 9px;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background: white;
+}
+.UploadNew-Container .btn-tertiary {
+  /*color: #555;
+  padding: 0;
+  line-height: 40px;
+  width: 300px;
+  margin: auto;
+  display: block;
+  border: 2px solid #555;*/
+  color: #696969;
+  background-color: #F5F5F5;
+  padding: 0;
+  border-radius: 25px;
+  border: 1px dashed #B4B4B4;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Poppins-Medium", sans-serif;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  line-height: 50px;
+}
+.UploadNew-Container .btn-tertiary:hover, .UploadNew-Container .btn-tertiary:focus {
+  color: #888888;
+  border-color: #888888;
+}
+.UploadNew-Container .input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.UploadNew-Container .input-file + .js-labelFile {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.UploadNew-Container .input-file + .js-labelFile .icon:before {
+  content: "";
+}
+.UploadNew-Container .input-file + .js-labelFile.has-file .icon:before {
+  content: "";
+  color: #5AAC7B;
+}
 .UploadNew-Container .UploadTab {
   margin: 0;
   padding: 0;
@@ -17696,6 +17793,75 @@ body {
   clear: both;
   display: table;
   content: "";
+}
+.UploadNew-Container .AddTag-List .tag-btn-container {
+  display: block;
+  position: relative;
+  padding: 0px 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container small {
+  position: relative;
+  z-index: 999;
+  font-family: "Poppins-Medium", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container small:checked {
+  color: #FFFFFF;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.UploadNew-Container .AddTag-List .tag-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 100%;
+  background-color: #B4B4B4;
+  transition: all 0.5s ease-in-out;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container:hover input ~ .tag-mark {
+  background-color: #2B2E34;
+  color: #FFFFFF;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container input:checked ~ .tag-mark {
+  background-color: #2B2E34;
+  color: #FFFFFF;
+}
+.UploadNew-Container .AddTag-List .tag-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container input:checked ~ .tag-mark:after {
+  display: block;
+}
+.UploadNew-Container .AddTag-List .tag-btn-container .tag-mark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: none;
+  border-width: 0 0px 0px 0;
+  transform: rotate(45deg);
 }
 .UploadNew-Container .AddTag-List h5 {
   font-style: normal;
@@ -18677,11 +18843,16 @@ body {
   background: url("../images/password-reset.png") no-repeat center top !important;
   background-size: cover !important;
 }
+.UserLogin-Container .set-new-password-confirmation {
+  background: url("../images/password-reset.png") no-repeat center top !important;
+  background-size: cover !important;
+}
 .UserLogin-Container .UserLogin,
 .UserLogin-Container .Forget-Password,
 .UserLogin-Container .Forget-Password-Email,
 .UserLogin-Container .New-Password,
-.UserLogin-Container .Set-New-Password {
+.UserLogin-Container .Set-New-Password,
+.UserLogin-Container .set-new-password-confirmation {
   background: url("../images/user-login.png") no-repeat center top;
   background-size: cover;
   width: 100%;
@@ -18692,7 +18863,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align,
 .UserLogin-Container .New-Password .UserVertical-Align,
-.UserLogin-Container .Set-New-Password .UserVertical-Align {
+.UserLogin-Container .Set-New-Password .UserVertical-Align,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align {
   padding-top: 70px;
   position: relative;
 }
@@ -18700,7 +18872,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg {
   background: #F9F9F9;
   border-radius: 25px;
   padding-top: 80px;
@@ -18713,7 +18886,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg::after,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg::after,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg::after,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg::after {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg::after,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg::after {
   clear: both;
   display: table;
   content: "";
@@ -18722,7 +18896,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .inner-logo,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .inner-logo,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .inner-logo,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .inner-logo {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .inner-logo,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .inner-logo {
   margin: 0;
   padding: 0;
 }
@@ -18730,7 +18905,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .inner-logo img,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .inner-logo img,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .inner-logo img,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .inner-logo img {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .inner-logo img,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .inner-logo img {
   max-width: 100%;
   height: auto;
 }
@@ -18738,7 +18914,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form {
   margin: 0 auto;
   padding: 0;
   max-width: 100%;
@@ -18749,7 +18926,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form h3,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form h3,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form h3,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form h3 {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form h3,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form h3 {
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -18765,7 +18943,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm {
   margin: 0;
   padding: 0;
   position: relative;
@@ -18774,7 +18953,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm input {
   border: 1px solid #E9E6E6;
   border-radius: 25px;
   background: #ffffff;
@@ -18796,7 +18976,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #B4B4B4;
 }
@@ -18804,7 +18985,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm ::-moz-placeholder {
   /* Firefox 19+ */
   color: #B4B4B4;
 }
@@ -18812,7 +18994,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-ms-input-placeholder {
   /* IE 10+ */
   color: #B4B4B4;
 }
@@ -18820,7 +19003,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm :-moz-placeholder {
   /* Firefox 18- */
   color: #B4B4B4;
 }
@@ -18828,7 +19012,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm i {
   color: #B4B4B4;
   font-size: 20px;
   position: absolute;
@@ -18840,7 +19025,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .UserForm button {
   background: #2B2E34;
   border-radius: 25px;
   outline: none;
@@ -18862,7 +19048,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass {
   margin: 42px 0 53px 0;
   padding: 0;
 }
@@ -18870,7 +19057,8 @@ body {
 .UserLogin-Container .Forget-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a,
 .UserLogin-Container .Forget-Password-Email .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a,
 .UserLogin-Container .New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a,
-.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a {
+.UserLogin-Container .Set-New-Password .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a,
+.UserLogin-Container .set-new-password-confirmation .UserVertical-Align .UserLogin-Bg .UserHead-Form .Reset-Pass a {
   font-style: normal;
   font-family: "Poppins-Regular", sans-serif;
   font-weight: normal;
@@ -18885,7 +19073,8 @@ body {
 .UserLogin-Container .Forget-Password .CopyRight,
 .UserLogin-Container .Forget-Password-Email .CopyRight,
 .UserLogin-Container .New-Password .CopyRight,
-.UserLogin-Container .Set-New-Password .CopyRight {
+.UserLogin-Container .Set-New-Password .CopyRight,
+.UserLogin-Container .set-new-password-confirmation .CopyRight {
   margin: 0;
   padding: 0;
   position: absolute;
@@ -18898,7 +19087,8 @@ body {
 .UserLogin-Container .Forget-Password .CopyRight h1,
 .UserLogin-Container .Forget-Password-Email .CopyRight h1,
 .UserLogin-Container .New-Password .CopyRight h1,
-.UserLogin-Container .Set-New-Password .CopyRight h1 {
+.UserLogin-Container .Set-New-Password .CopyRight h1,
+.UserLogin-Container .set-new-password-confirmation .CopyRight h1 {
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -18912,7 +19102,8 @@ body {
 .UserLogin-Container .Forget-Password .Reset-Pass,
 .UserLogin-Container .Forget-Password-Email .Reset-Pass,
 .UserLogin-Container .New-Password .Reset-Pass,
-.UserLogin-Container .Set-New-Password .Reset-Pass {
+.UserLogin-Container .Set-New-Password .Reset-Pass,
+.UserLogin-Container .set-new-password-confirmation .Reset-Pass {
   margin: 0;
   padding: 0;
 }
@@ -18920,7 +19111,8 @@ body {
 .UserLogin-Container .Forget-Password .Reset-Pass h4,
 .UserLogin-Container .Forget-Password-Email .Reset-Pass h4,
 .UserLogin-Container .New-Password .Reset-Pass h4,
-.UserLogin-Container .Set-New-Password .Reset-Pass h4 {
+.UserLogin-Container .Set-New-Password .Reset-Pass h4,
+.UserLogin-Container .set-new-password-confirmation .Reset-Pass h4 {
   font-style: normal;
   font-weight: 500;
   font-family: "Poppins-Medium", sans-serif;
@@ -18934,7 +19126,8 @@ body {
 .UserLogin-Container .Forget-Password .Reset-Pass p,
 .UserLogin-Container .Forget-Password-Email .Reset-Pass p,
 .UserLogin-Container .New-Password .Reset-Pass p,
-.UserLogin-Container .Set-New-Password .Reset-Pass p {
+.UserLogin-Container .Set-New-Password .Reset-Pass p,
+.UserLogin-Container .set-new-password-confirmation .Reset-Pass p {
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
@@ -18950,7 +19143,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address,
 .UserLogin-Container .New-Password .ViaEmail-Address,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address {
   margin: 0 auto 80px auto;
   padding: 10px;
   box-shadow: 0px 10px 34px rgba(218, 218, 218, 0.27);
@@ -18964,7 +19158,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address::after,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address::after,
 .UserLogin-Container .New-Password .ViaEmail-Address::after,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address::after {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address::after,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address::after {
   clear: both;
   display: table;
   content: "";
@@ -18983,7 +19178,10 @@ body {
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-image,
 .UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Left,
 .UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Left,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Right,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-image {
   margin: 0;
   padding: 0;
   float: left;
@@ -18992,7 +19190,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-Left,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-Left,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-Left,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Left {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Left,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Left {
   background: #F9F9F9;
   border-radius: 10px;
   height: 72px;
@@ -19003,7 +19202,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-Left img,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-Left img,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-Left img,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Left img {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Left img,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Left img {
   margin: 0;
   padding: 0;
   max-width: 100%;
@@ -19013,7 +19213,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-Right,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-Right,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-Right,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Right {
   margin-top: 12px;
   margin-left: 15px;
 }
@@ -19021,7 +19222,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-Right h3,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-Right h3,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-Right h3,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right h3 {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right h3,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Right h3 {
   font-style: normal;
   font-family: "Poppins-Medium", sans-serif;
   font-weight: 500;
@@ -19036,7 +19238,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-Right h4,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-Right h4,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-Right h4,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right h4 {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-Right h4,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-Right h4 {
   font-style: normal;
   font-weight: normal;
   font-family: "Poppins-Regular", sans-serif;
@@ -19051,7 +19254,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-image,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-image,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-image,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-image {
   float: right;
   margin-top: 25px;
   margin-right: 7px;
@@ -19060,7 +19264,8 @@ body {
 .UserLogin-Container .Forget-Password .ViaEmail-Address .ViaEmail-image i,
 .UserLogin-Container .Forget-Password-Email .ViaEmail-Address .ViaEmail-image i,
 .UserLogin-Container .New-Password .ViaEmail-Address .ViaEmail-image i,
-.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image i {
+.UserLogin-Container .Set-New-Password .ViaEmail-Address .ViaEmail-image i,
+.UserLogin-Container .set-new-password-confirmation .ViaEmail-Address .ViaEmail-image i {
   color: #B4B4B4;
   font-size: 20px;
   text-align: right;
@@ -19069,7 +19274,8 @@ body {
 .UserLogin-Container .Forget-Password .Email-Verify img,
 .UserLogin-Container .Forget-Password-Email .Email-Verify img,
 .UserLogin-Container .New-Password .Email-Verify img,
-.UserLogin-Container .Set-New-Password .Email-Verify img {
+.UserLogin-Container .Set-New-Password .Email-Verify img,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify img {
   max-width: 100%;
   width: 80px;
   height: auto;
@@ -19084,7 +19290,9 @@ body {
 .UserLogin-Container .New-Password .Email-Verify h5,
 .UserLogin-Container .New-Password .Email-Verify a,
 .UserLogin-Container .Set-New-Password .Email-Verify h5,
-.UserLogin-Container .Set-New-Password .Email-Verify a {
+.UserLogin-Container .Set-New-Password .Email-Verify a,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify h5,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify a {
   font-style: normal;
   font-weight: 500;
   font-family: "Poppins-Medium", sans-serif;
@@ -19099,7 +19307,8 @@ body {
 .UserLogin-Container .Forget-Password .Email-Verify a,
 .UserLogin-Container .Forget-Password-Email .Email-Verify a,
 .UserLogin-Container .New-Password .Email-Verify a,
-.UserLogin-Container .Set-New-Password .Email-Verify a {
+.UserLogin-Container .Set-New-Password .Email-Verify a,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify a {
   outline: none;
   color: #2B2E34;
 }
@@ -19107,7 +19316,8 @@ body {
 .UserLogin-Container .Forget-Password .Email-Verify h6,
 .UserLogin-Container .Forget-Password-Email .Email-Verify h6,
 .UserLogin-Container .New-Password .Email-Verify h6,
-.UserLogin-Container .Set-New-Password .Email-Verify h6 {
+.UserLogin-Container .Set-New-Password .Email-Verify h6,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify h6 {
   font-style: normal;
   font-family: "Poppins-Regular", sans-serif;
   font-weight: normal;
@@ -19121,7 +19331,8 @@ body {
 .UserLogin-Container .Forget-Password .Email-Verify h6 a,
 .UserLogin-Container .Forget-Password-Email .Email-Verify h6 a,
 .UserLogin-Container .New-Password .Email-Verify h6 a,
-.UserLogin-Container .Set-New-Password .Email-Verify h6 a {
+.UserLogin-Container .Set-New-Password .Email-Verify h6 a,
+.UserLogin-Container .set-new-password-confirmation .Email-Verify h6 a {
   font-family: "Poppins-Medium", sans-serif;
   color: #696969;
 }
@@ -19129,7 +19340,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner,
 .UserLogin-Container .Forget-Password-Email .New-PassInner,
 .UserLogin-Container .New-Password .New-PassInner,
-.UserLogin-Container .Set-New-Password .New-PassInner {
+.UserLogin-Container .Set-New-Password .New-PassInner,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner {
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -19140,7 +19352,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner h2,
 .UserLogin-Container .Forget-Password-Email .New-PassInner h2,
 .UserLogin-Container .New-Password .New-PassInner h2,
-.UserLogin-Container .Set-New-Password .New-PassInner h2 {
+.UserLogin-Container .Set-New-Password .New-PassInner h2,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner h2 {
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -19155,7 +19368,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form {
   margin: 0 0 18px 0;
   padding: 0;
   position: relative;
@@ -19164,7 +19378,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form input,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form input,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form input,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form input {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form input,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form input {
   border: 1px solid #E9E6E6;
   border-radius: 25px;
   background: #ffffff;
@@ -19185,7 +19400,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form i,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form i,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form i,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form i {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form i,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form i {
   color: #B4B4B4;
   font-size: 20px;
   text-align: right;
@@ -19198,7 +19414,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form ::-webkit-input-placeholder,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form ::-webkit-input-placeholder,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form ::-webkit-input-placeholder,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form ::-webkit-input-placeholder {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form ::-webkit-input-placeholder,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #B4B4B4;
 }
@@ -19206,7 +19423,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form ::-moz-placeholder,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form ::-moz-placeholder,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form ::-moz-placeholder,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form ::-moz-placeholder {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form ::-moz-placeholder,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form ::-moz-placeholder {
   /* Firefox 19+ */
   color: #B4B4B4;
 }
@@ -19214,7 +19432,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form :-ms-input-placeholder,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form :-ms-input-placeholder,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form :-ms-input-placeholder,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form :-ms-input-placeholder {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form :-ms-input-placeholder,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form :-ms-input-placeholder {
   /* IE 10+ */
   color: #B4B4B4;
 }
@@ -19222,7 +19441,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .PassInner-Form :-moz-placeholder,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .PassInner-Form :-moz-placeholder,
 .UserLogin-Container .New-Password .New-PassInner .PassInner-Form :-moz-placeholder,
-.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form :-moz-placeholder {
+.UserLogin-Container .Set-New-Password .New-PassInner .PassInner-Form :-moz-placeholder,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .PassInner-Form :-moz-placeholder {
   /* Firefox 18- */
   color: #B4B4B4;
 }
@@ -19230,7 +19450,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer {
   display: block;
   position: relative;
   padding-left: 27px;
@@ -19250,7 +19471,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer input,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer input,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer input,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -19261,7 +19483,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .Login-Checkmark,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .Login-Checkmark,
 .UserLogin-Container .New-Password .New-PassInner .Login-Checkmark,
-.UserLogin-Container .Set-New-Password .New-PassInner .Login-Checkmark {
+.UserLogin-Container .Set-New-Password .New-PassInner .Login-Checkmark,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .Login-Checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -19275,21 +19498,24 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer:hover input ~ .Login-Checkmark {
   background-color: #ffffff;
 }
 .UserLogin-Container .UserLogin .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark,
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark {
   background-color: #2B2E34;
 }
 .UserLogin-Container .UserLogin .New-PassInner .checkmark:after,
 .UserLogin-Container .Forget-Password .New-PassInner .checkmark:after,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .checkmark:after,
 .UserLogin-Container .New-Password .New-PassInner .checkmark:after,
-.UserLogin-Container .Set-New-Password .New-PassInner .checkmark:after {
+.UserLogin-Container .Set-New-Password .New-PassInner .checkmark:after,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .checkmark:after {
   content: "";
   position: absolute;
   display: none;
@@ -19298,14 +19524,16 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer input:checked ~ .Login-Checkmark:after {
   display: block;
 }
 .UserLogin-Container .UserLogin .New-PassInner .LoginContainer .Login-Checkmark:after,
 .UserLogin-Container .Forget-Password .New-PassInner .LoginContainer .Login-Checkmark:after,
 .UserLogin-Container .Forget-Password-Email .New-PassInner .LoginContainer .Login-Checkmark:after,
 .UserLogin-Container .New-Password .New-PassInner .LoginContainer .Login-Checkmark:after,
-.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer .Login-Checkmark:after {
+.UserLogin-Container .Set-New-Password .New-PassInner .LoginContainer .Login-Checkmark:after,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner .LoginContainer .Login-Checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -19318,7 +19546,8 @@ body {
 .UserLogin-Container .Forget-Password .New-PassInner button,
 .UserLogin-Container .Forget-Password-Email .New-PassInner button,
 .UserLogin-Container .New-Password .New-PassInner button,
-.UserLogin-Container .Set-New-Password .New-PassInner button {
+.UserLogin-Container .Set-New-Password .New-PassInner button,
+.UserLogin-Container .set-new-password-confirmation .New-PassInner button {
   background: #2B2E34;
   border-radius: 25px;
   outline: none;
@@ -19342,7 +19571,8 @@ body {
 .UserLogin-Container .Forget-Password .Password-Success,
 .UserLogin-Container .Forget-Password-Email .Password-Success,
 .UserLogin-Container .New-Password .Password-Success,
-.UserLogin-Container .Set-New-Password .Password-Success {
+.UserLogin-Container .Set-New-Password .Password-Success,
+.UserLogin-Container .set-new-password-confirmation .Password-Success {
   margin: 0;
   padding: 0;
 }
@@ -19350,13 +19580,203 @@ body {
 .UserLogin-Container .Forget-Password .Password-Success img,
 .UserLogin-Container .Forget-Password-Email .Password-Success img,
 .UserLogin-Container .New-Password .Password-Success img,
-.UserLogin-Container .Set-New-Password .Password-Success img {
+.UserLogin-Container .Set-New-Password .Password-Success img,
+.UserLogin-Container .set-new-password-confirmation .Password-Success img {
   max-width: 100%;
   height: auto;
 }
 
 /***** User Login Page Css3 End  *****/
 /***** Reset Password Page Css3 Start  *****/
+.reset-btn-padd {
+  margin-bottom: 100px !important;
+}
+
+.set-new-password-container {
+  margin: 0;
+}
+.set-new-password-container .set-new-password {
+  display: block;
+  position: relative;
+  padding-left: 27px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-family: "Poppins-Regular", sans-serif;
+  font-size: 14px;
+  color: #B4B4B4;
+  line-height: 21px;
+  text-align: left;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.set-new-password-container .set-new-password input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.set-new-password-container .passwordmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 19px;
+  width: 19px;
+  background-color: #fff;
+  border: 1px solid #C8C7C7;
+  border-radius: 2px;
+}
+.set-new-password-container .set-new-password:hover input ~ .passwordmark {
+  background-color: #fff;
+}
+.set-new-password-container .set-new-password input:checked ~ .passwordmark {
+  background-color: #C8C7C7;
+}
+.set-new-password-container .passwordmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.set-new-password-container .set-new-password input:checked ~ .passwordmark:after {
+  display: block;
+}
+.set-new-password-container .set-new-password .passwordmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid transparent;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.set-new-confirm-container {
+  margin: 0;
+}
+.set-new-confirm-container .set-new-image {
+  margin: 0;
+}
+.set-new-confirm-container .set-new-image img {
+  max-width: 100%;
+  height: auto;
+}
+.set-new-confirm-container .set-new-image h1 {
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 30px;
+  line-height: 36.09px;
+  text-align: center;
+  text-decoration: none;
+  color: #2B2E34;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.set-new-confirm-container .set-new-image p {
+  font-family: "Poppins-Light", sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  text-decoration: none;
+  color: #696969;
+}
+.set-new-confirm-container .set-new-image button,
+.set-new-confirm-container .set-new-image a {
+  background: #2B2E34;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F5F5F5;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+  max-width: 321px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+.set-new-confirm-container .verification-code-container {
+  margin: 0;
+}
+.set-new-confirm-container .verification-code-container h5,
+.set-new-confirm-container .verification-code-container h6 {
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  text-decoration: none;
+  color: #2B2E34;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.set-new-confirm-container .verification-code-container h6,
+.set-new-confirm-container .verification-code-container a {
+  color: #B4B4B4;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px span;
+  margin-bottom-color: #2B2E34;
+}
+.set-new-confirm-container .verification-code-container h6 a,
+.set-new-confirm-container .verification-code-container a a {
+  color: #2B2E34;
+}
+.set-new-confirm-container .verification-code-container input {
+  border: 1px solid #E9E6E6;
+  border-radius: 10px;
+  background: #ffffff;
+  font-family: "Poppins-Regular", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  color: #B4B4B4;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-bottom: 10px;
+}
+.set-new-confirm-container .verification-code-container ::-webkit-input-placeholder {
+  color: #B4B4B4;
+}
+.set-new-confirm-container .verification-code-container ::-moz-placeholder {
+  color: #B4B4B4;
+}
+.set-new-confirm-container .verification-code-container :-ms-input-placeholder {
+  color: #B4B4B4;
+}
+.set-new-confirm-container .verification-code-container :-moz-placeholder {
+  color: #B4B4B4;
+}
+.set-new-confirm-container .verification-code-container button {
+  background: #2B2E34;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F5F5F5;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+  max-width: 321px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
 /***** Reset Password Page Css3 End  *****/
 .page {
   min-height: 730px;
@@ -20149,6 +20569,14 @@ select.custom-select:focus {
   padding: 0;
   width: 100%;
 }
+.main-container .longEnough {
+  height: 100vh;
+  max-width: 280px;
+  overflow: auto;
+}
+.main-container .mCSB_inside > .mCSB_container {
+  margin-right: 0px;
+}
 .main-container .SideMenu-Left {
   margin: 0;
   padding: 18px 0 0 0;
@@ -20160,7 +20588,6 @@ select.custom-select:focus {
   top: 82px;
   z-index: 99;
   border-right: 1px solid #E9E6E6;
-  height: 100vh;
 }
 .main-container .SideMenu-Left .aside-menu {
   margin: 0;
@@ -20912,6 +21339,9 @@ select.custom-select:focus {
     min-height: 1300px;
   }
 }
+
+
+
 
 
 /* Custom CSS */

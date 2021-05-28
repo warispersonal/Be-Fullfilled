@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/fonts/fontello/css/fontello.css')}}"/>
     <link rel="shortcut icon" type="image/png" href="{{asset('images/favicon.png')}}"/>
     <link rel="icon" type="image/ico" href="{{asset('images/favicon.ico')}}"/>
+    <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css" />
     @yield('css')
 
 </head>
