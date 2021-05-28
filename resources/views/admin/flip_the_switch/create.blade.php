@@ -29,33 +29,44 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="datainfo">
-                                <label>Select Date</label>
-                                <input type="date" id="" name="date" value="{{old('date')}}"
-                                       placeholder="December 2, 2018">
-                                <i class="icon-calendar"></i>
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Select Date</label>
+                                    <div class="input-group date" id="dp3" data-date="12-02-2017"
+                                         data-date-format="mm-dd-yyyy">
+                                        <input name="date" class="form-control" type="text" value="12-02-2017">
+                                        <span class="input-group-addon btn">
+											<i class="icon-calendar" id="butt"></i>
+										</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="datainfo">
                                 <label>Podcast Title</label>
                                 <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                             </div>
-                            <div class="form-group mt-4">
-                                <label>Upload Thumbnail Picture</label>
-                                <input type="file" name="file" id="file" class="input-file">
-                                <label for="file" class="btn btn-tertiary js-labelFile">
-                                    <i class="icon-upload"></i>
-                                    <span class="js-fileName">Upload a file</span>
+
+                            <div class="UploadContainer">
+                                <label>Upload Thumnail Picture</label>
+                                
+                                <div class="custom-file-upload-two">
+                                <label for="file-upload" class="custom-file-upload">
+                                    <i class="icon-upload"></i> Upload Image
                                 </label>
-                            </div>
-                            <div class="SpriteLine"></div>
-                            <div class="form-group mt-4">
-                                <label>Upload Media File</label>
+                                <input id="file-upload" name="file" type="file" style="display:none;">
+                                </div>
+                                
+                                </div>
+                                
+                                <div class="SpriteLine"></div>
+                                
+                                <div class="form-group mt-4">
                                 <input type="file" name="link" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon-upload"></i>
                                     <span class="js-fileName">Upload a file</span>
                                 </label>
-                            </div>
-
+                                </div>
+                                    
 
                             <div class="SaveBtn">
                                 <button type="submit">Save File</button>

@@ -17576,7 +17576,7 @@ body {
   color: #888888;
   border-color: #888888;
 }
-.UploadNew-Container .input-file,  .input-file-thumbnail, .input-file-media  {
+.UploadNew-Container .input-file {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -17679,6 +17679,15 @@ body {
   padding-top: 15px;
   resize: none;
 }
+.UploadNew-Container .datainfo .input-group > .form-control:not(:last-child),
+.UploadNew-Container .datainfo .input-group > .custom-select:not(:last-child) {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.UploadNew-Container .datainfo .form-control:focus {
+  box-shadow: none;
+  border: 1px solid #E9E6E6;
+}
 .UploadNew-Container .datainfo i {
   margin: 0;
   padding: 0;
@@ -17687,7 +17696,7 @@ body {
   text-align: right;
   position: absolute;
   right: 22px;
-  top: 44px;
+  top: 10px;
   z-index: 99;
 }
 .UploadNew-Container .datainfo ::-webkit-input-placeholder {
@@ -18615,7 +18624,7 @@ body {
   height: 100%;
 }
 .MyProfile-Container .ChangePr-Container .ChangePr-Right {
-  margin-top: 105px;
+  margin-top: 80px;
   margin-left: 30px;
 }
 .MyProfile-Container .ChangePr-Container .ChangePr-Right a,
@@ -19778,6 +19787,81 @@ body {
 }
 
 /***** Reset Password Page Css3 End  *****/
+/***** Profile Upload Button Design Css3 Start  *****/
+.profile-upload-button-container {
+  margin: 0;
+}
+.profile-upload-button-container .btn-tertiary {
+  /*color: #555;
+  padding: 0;
+  line-height: 40px;
+  width: 300px;
+  margin: auto;
+  display: block;
+  border: 2px solid #555;*/
+  color: #ffffff;
+  background: #2B2E34;
+  padding: 0;
+  border-radius: 25px;
+  border: #2B2E34;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Poppins-Medium", sans-serif;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  line-height: 50px;
+  /*&:hover,
+  &:focus {
+   color: lighten(#555, 20%);
+   border-color: lighten(#555, 20%);
+  }*/
+}
+.profile-upload-button-container .input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.profile-upload-button-container .input-file + .js-labelFile {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 40px;
+  cursor: pointer;
+}
+.profile-upload-button-container .input-file + .js-labelFile .icon:before {
+  content: "";
+}
+.profile-upload-button-container .input-file + .js-labelFile.has-file .icon:before {
+  content: "";
+  color: #5AAC7B;
+}
+
+.custom-file-upload-two {
+  margin: 0;
+}
+.custom-file-upload-two .custom-file-upload {
+  color: #ffffff;
+  background: #F5F5F5 !important;
+  padding: 0;
+  border-radius: 25px;
+  border: 1px dashed #B4B4B4 !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px !important;
+  font-family: "Poppins-Medium", sans-serif;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  line-height: 50px !important;
+  text-align: center !important;
+}
+
+/***** Profile Upload Button Design Css3 End  *****/
 .page {
   min-height: 730px;
   overflow-x: hidden;
@@ -21340,10 +21424,6 @@ select.custom-select:focus {
   }
 }
 
-
-
-
-
 /* Custom CSS */
 .FlipThumb-Con .FlipSwitch-Thum img{
     width: 343px !important;
@@ -21363,5 +21443,5 @@ select.custom-select:focus {
     height: 152px !important;
 }
 .MainFlip-Container{
- padding-bottom: 50px !important;
+    padding-bottom: 50px !important;
 }

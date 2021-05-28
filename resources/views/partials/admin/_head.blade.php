@@ -13,8 +13,8 @@
     <link rel="shortcut icon" type="image/png" href="{{asset('images/favicon.png')}}"/>
     <link rel="icon" type="image/ico" href="{{asset('images/favicon.ico')}}"/>
     <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
     @yield('css')
-
 </head>
 
 <body>
