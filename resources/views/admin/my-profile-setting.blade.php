@@ -17,8 +17,14 @@
                             </div>
                         </div>
                         <div class="ChangePr-Right">
-                            Change Picture
-                            <input type="file" name="file"/>
+                        <div class="profile-upload-button-container">
+                        <div class="form-group mt-4">
+                            <input type="file" name="file" id="file" class="input-file">
+                            <label for="file" class="btn btn-tertiary js-labelFile">
+                            <span class="js-fileName">Change Picture</span>
+                            </label>
+                        </div>
+                        </div>
                         </div>
                     </div>
                     <div class="ProfileUser-Input">
