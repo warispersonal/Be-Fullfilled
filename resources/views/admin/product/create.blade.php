@@ -39,21 +39,29 @@
                 </div>
                 <div class="ProdRight UploadNew-Container">
 
+
                     <div class="AddTag-List mt-0">
                         <h5>Add Tag</h5>
                         <ul>
-                            <li><a href="#">Free Content</a></li>
-                            <li><a href="#">Paid</a></li>
-                            <li><a href="#">Popular</a></li>
-                            <li><a href="#">Top on list</a></li>
+                            @foreach($tags as $tag)
+                                <li>
+                                    <label class="tag-btn-container">
+                                        <small>{{$tag->name}}</small>
+                                        <input type="checkbox">
+                                        <span class="tag-mark"></span>
+                                    </label>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
-                    <div class="UploadContainer mt-4">
-                        <div class="upload-btn-wrapper">
-                            <button class="btn"><i class="icon-upload"></i> Upload a file</button>
-                            <input type="file" name="file">
-                        </div>
+
+                    <div class="form-group mt-4">
+                        <input type="file" name="file" id="file" class="input-file">
+                        <label for="file" class="btn btn-tertiary js-labelFile">
+                            <i class="icon-upload"></i>
+                            <span class="js-fileName">Upload a file</span>
+                        </label>
                     </div>
 
                     <div class="SaveBtn mt-4">

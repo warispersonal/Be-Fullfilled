@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\ProductRequest;
 use App\Product;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -28,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $tags = Tag::all();
+        return view('admin.product.create',compact('tags'));
     }
 
     /**
