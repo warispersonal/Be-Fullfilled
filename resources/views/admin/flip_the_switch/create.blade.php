@@ -39,6 +39,7 @@
                                 <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                             </div>
                             <div class="form-group mt-4">
+                                <label>Upload Thumbnail Picture</label>
                                 <input type="file" name="file" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon-upload"></i>
@@ -47,12 +48,15 @@
                             </div>
                             <div class="SpriteLine"></div>
                             <div class="form-group mt-4">
-                                <input type="file" name="link" id="file1" class="input-file">
+                                <label>Upload Media File</label>
+                                <input type="file" name="link" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon-upload"></i>
                                     <span class="js-fileName">Upload a file</span>
                                 </label>
                             </div>
+
+
                             <div class="SaveBtn">
                                 <button type="submit">Save File</button>
                             </div>

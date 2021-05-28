@@ -21362,3 +21362,6 @@ select.custom-select:focus {
     width: 111px !important;
     height: 152px !important;
 }
+.MainFlip-Container{
+ padding-bottom: 50px !important;
+}

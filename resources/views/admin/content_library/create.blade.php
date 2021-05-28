@@ -12,23 +12,27 @@
             @csrf
             @include('partials.generic._errors')
             <div class="UploadNew-Container">
+
                 <div class="UploadTab">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                               aria-controls="home" aria-selected="true">Audio</a>
+                            <label class="radio-container-btn-power">Audio
+                                <input type="radio" name="radio">
+                                <span class="radiomark"></span>
+                            </label>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                               aria-controls="profile" aria-selected="false">Video</a>
+                            <label class="radio-container-btn-power">Video
+                                <input type="radio" name="radio">
+                                <span class="radiomark"></span>
+                            </label>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                               aria-controls="contact" aria-selected="false">PDF</a>
+                            <label class="radio-container-btn-power">PDF
+                                <input type="radio" name="radio">
+                                <span class="radiomark"></span>
+                            </label>
                         </li>
-
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
@@ -52,27 +56,34 @@
                                 <textarea id="" name="description">{{old('description')}}</textarea>
                             </div>
 
-                            <div class="UploadContainer">
+                            <div class="form-group mt-4">
                                 <label>Upload Thumbnail Picture</label>
-                                <div class="upload-btn-wrapper">
-                                    <button class="btn"><i class="icon-upload"></i> Upload a file</button>
-                                    <input type="file" name="file"/>
-                                </div>
+                                <input type="file" name="file" id="file" class="input-file">
+                                <label for="file" class="btn btn-tertiary js-labelFile">
+                                    <i class="icon-upload"></i>
+                                    <span class="js-fileName">Upload a file</span>
+                                </label>
                             </div>
                             <div class="SpriteLine"></div>
-                            <div class="UploadContainer">
-                                <div class="upload-btn-wrapper">
-                                    <button class="btn"><i class="icon-upload"></i> Upload a file</button>
-                                    <input type="file" name="link"/>
-                                </div>
+                            <div class="form-group mt-4">
+                                <label>Upload Media File</label>
+                                <input type="file" name="link" id="file" class="input-file">
+                                <label for="file" class="btn btn-tertiary js-labelFile">
+                                    <i class="icon-upload"></i>
+                                    <span class="js-fileName">Upload a file</span>
+                                </label>
                             </div>
 
                             <div class="AddTag-List">
                                 <h5>Add Tag</h5>
                                 <ul>
                                     @foreach($tags as $tag)
-                                        <li class="m-2">
-                                            <a href="#">{{$tag->name}}</a>
+                                        <li>
+                                            <label class="tag-btn-container">
+                                                <small>{{$tag->name}}</small>
+                                                <input type="checkbox">
+                                                <span class="tag-mark"></span>
+                                            </label>
                                         </li>
                                     @endforeach
                                 </ul>
