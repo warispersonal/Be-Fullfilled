@@ -182,4 +182,20 @@ class WeeklyGoalsController extends Controller
         }
     }
 
+    public function weeklyGoalListByDate($start_date = null,$end_date = null){
+        if ($start_date != null && $end_date != null) {
+            $start_date = new DateTime($start_date, new DateTimeZone('UTC'));
+            $end_date = new DateTime($end_date, new DateTimeZone('UTC'));
+        }else{
+            $start_date = new DateTime('now', new DateTimeZone('UTC'));
+            $end_date = new DateTime('now', new DateTimeZone('UTC'));
+        }
+
+        $Goals = WeeklyGoal::whereBetween('day', [$start_date,$end_date])->where('user_id', Auth::id())->get();
+        return response()->json([
+            "goals" => WeeklyGoalsResource::collection($Goals),
+        ]);
+
+    }
+
 }

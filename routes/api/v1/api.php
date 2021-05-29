@@ -89,6 +89,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/week/{date?}', [WeeklyGoalsController::class, 'currentWeekGoalsList']);
         Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
         Route::get('/stats/{date?}', [WeeklyGoalsController::class, 'stats']);
+        Route::get('/week/{start_date?}/{end_date?}', [WeeklyGoalsController::class, 'weeklyGoalListByDate']);
     });
 
     /*
@@ -121,6 +122,7 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('/day')->group(function () {
         Route::get('/', [YourDayController::class, 'index']);
         Route::post('/create', [YourDayController::class, 'store']);
+        Route::get('/{date?}', [YourDayController::class, 'show']);
     });
 
     /*

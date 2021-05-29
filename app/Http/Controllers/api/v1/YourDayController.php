@@ -57,9 +57,10 @@ class YourDayController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($date)
     {
-        //
+        $yourDays = YourDay::whereDate('day', '=', $date)->where('user_id', Auth::id())->get();
+        return $this->success("Your days list", YourDayResource::collection($yourDays));
     }
 
     /**
