@@ -33,7 +33,7 @@ class GenericController extends Controller
             $file = $image_file->file($input_name);
             $save_image = time() . '.' . $file->getClientOriginalName();
             $file->move($path, $save_image);
-            return $file;
+            return $save_image;
         } else {
             return null;
         }

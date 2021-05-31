@@ -88,7 +88,6 @@ class AdminController extends Controller
     public function update_profile(Request $request)
     {
         $auth = Auth::user();
-
         if ($request->file) {
             $auth->profile = GenericController::saveImageSameModel($request, 'file', env('ADMIN_IMAGES'));
         }

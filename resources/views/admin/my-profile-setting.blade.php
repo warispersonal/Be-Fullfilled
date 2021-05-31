@@ -17,14 +17,14 @@
                             </div>
                         </div>
                         <div class="ChangePr-Right">
-                        <div class="profile-upload-button-container">
-                        <div class="form-group mt-4">
-                            <input type="file" name="file" id="file" class="input-file">
-                            <label for="file" class="btn btn-tertiary js-labelFile">
-                            <span class="js-fileName">Change Picture</span>
-                            </label>
-                        </div>
-                        </div>
+                            <div class="profile-upload-button-container">
+                                <div class="form-group mt-4">
+                                    <input type="file" name="file" id="file" class="input-file">
+                                    <label for="file" class="btn btn-tertiary js-labelFile">
+                                        <span class="js-fileName">Change Picture</span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="ProfileUser-Input">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="ProfileUser-Input">
                         <label>Phone Number</label>
-                        <input type="text" id="" name="phone_number"  value="{{Auth::user()->phone_number}}">
+                        <input type="text" id="" name="phone_number" value="{{Auth::user()->phone_number}}">
                         <img src="{{asset('assets/images/edit-input.svg')}}" alt=""/>
                     </div>
                     <div class="ProfileUser-Input">
