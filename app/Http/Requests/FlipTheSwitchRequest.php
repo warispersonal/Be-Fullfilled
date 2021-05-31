@@ -27,7 +27,7 @@ class FlipTheSwitchRequest extends FormRequest
             'date' => 'required',
             'title' => 'required',
             'file' => 'mimes:jpg,jpeg,png|max:4096',
-            'link' => 'required|max:15000',
+            'link' => 'required|max:10000',
         ];
     }
 }

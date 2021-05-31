@@ -28,6 +28,7 @@ class ContentLibraryRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'file' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+            'link' => 'max:10000'
         ];
     }
 }
