@@ -8,7 +8,6 @@ use App\Http\Controllers\GenericController;
 use App\Http\Requests\FlipTheSwitchRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class FlipTheSwitchController extends Controller
 {
@@ -39,34 +38,27 @@ class FlipTheSwitchController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FlipTheSwitchRequest $request)
+    public function store(Request $request)
     {
-        if ($request->hasFile('link')) {
-            $file = $request->file('link');
-            $imagemimes = ['image/png']; //Add more mimes that you want to support
-            $videomimes = ['video/mp4']; //Add more mimes that you want to support
-            $audiomimes = ['audio/mpeg']; //Add more mimes that you want to support
-
-            if (in_array($file->getMimeType(), $imagemimes)) {
-                $filevalidate = 'required|mimes:jpeg|max:2048';
-            }
-            //Validate video
-            if (in_array($file->getMimeType(), $videomimes)) {
-                $filevalidate = 'required|mimes:mp4';
-            }
-            //validate audio
-            if (in_array($file->getMimeType(), $audiomimes)) {
-                $filevalidate = 'required|mimes:mpeng';
-            }
+        $rules = 'required';
+        if ($request->fileType == 'audio') {
+            $rules = 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,wma,aac,m4a|max:10000';
         }
-        $this->validate($request, [
+        if ($request->fileType == 'video') {
+            $rules = 'required|mimes:mp4,3gp,mov,wmv,avi,mkv,webm,mpeg-2|max:10000';
+        }
+        if ($request->fileType == 'pdf') {
+            $rules = "required|mimetypes:application/pdf|max:10000";
+        }
+        $request->validate([
             'date' => 'required',
             'title' => 'required',
             'file' => 'mimes:jpg,jpeg,png|max:4096',
-            'link' => $filevalidate.'|max:10000',
+            'link' => $rules,
         ]);
+
         $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
-        $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'));
+        $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'),$request->fileType);
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
         $flipTheSwitch->date = $this->changeDateFormat($request->date);

@@ -37,10 +37,26 @@ class PodcastController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PodcastsRequest $request)
+    public function store(Request $request)
     {
+        $rules = 'required';
+        if ($request->fileType == 'audio') {
+            $rules = 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,wma,aac,m4a|max:10000';
+        }
+        if ($request->fileType == 'video') {
+            $rules = 'required|mimes:mp4,3gp,mov,wmv,avi,mkv,webm,mpeg-2|max:10000';
+        }
+        if ($request->fileType == 'pdf') {
+            $rules = "required|mimetypes:application/pdf|max:10000";
+        }
+        $request->validate([
+            'date' => 'required',
+            'title' => 'required',
+            'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+            'link' => $rules,
+        ]);
         $image = GenericController::saveImage($request, 'file', env('PODCASTS_IMAGES'));
-        $media = GenericController::saveMediaFile($request,'link', env('PODCASTS_MEDIA'));
+        $media = GenericController::saveMediaFile($request,'link', env('PODCASTS_MEDIA'),$request->fileType);
         $podcasts = new Podcast();
         $podcasts->title = $request->title;
         $podcasts->date = $this->changeDateFormat($request->date);;

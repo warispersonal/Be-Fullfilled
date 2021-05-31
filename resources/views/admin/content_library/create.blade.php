@@ -17,19 +17,22 @@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Audio
-                                <input type="radio" name="radio" checked value="audio">
+                                <input type="radio" name="fileType" checked
+                                       value="audio" {{ old('fileType') == "audio" ? 'checked' : '' }}>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Video
-                                <input type="radio" name="radio" value="video">
+                                <input type="radio" name="fileType"
+                                       value="video" {{ old('fileType') == "video" ? 'checked' : '' }}>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
                         <li class="nav-item">
                             <label class="radio-container-btn-power">PDF
-                                <input type="radio" name="radio" value="pdf">
+                                <input type="radio" name="fileType"
+                                       value="pdf" {{ old('fileType') == "pdf" ? 'checked' : '' }}>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
@@ -39,12 +42,12 @@
 
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                        <div class="datainfo">
+                            <div class="datainfo">
                                 <div class="form-group">
                                     <label class="control-label" for="date">Select Date</label>
                                     <div class="input-group date" id="dp3" data-date="12-02-2017"
                                          data-date-format="mm-dd-yyyy">
-                                        <input name="date" class="form-control" type="text" value="12-02-2017">
+                                        <input name="date" class="form-control" type="text"  value="{{old('date')}}">
                                         <span class="input-group-addon btn">
 											<i class="icon-calendar" id="butt"></i>
 										</span>
@@ -66,23 +69,23 @@
                                 <label>Upload Thumnail Picture</label>
 
                                 <div class="custom-file-upload-two">
-                                <label for="file-upload" class="custom-file-upload">
-                                    <i class="icon-upload"></i> Upload Image
-                                </label>
-                                <input id="file-upload" name="file" type="file" style="display:none;">
+                                    <label for="file-upload" class="custom-file-upload">
+                                        <i class="icon-upload"></i> Upload Image
+                                    </label>
+                                    <input id="file-upload" name="file" type="file" style="display:none;">
                                 </div>
 
-                                </div>
+                            </div>
 
-                                <div class="SpriteLine"></div>
+                            <div class="SpriteLine"></div>
 
-                                <div class="form-group mt-4">
+                            <div class="form-group mt-4">
                                 <input type="file" name="link" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon-upload"></i>
                                     <span class="js-fileName">Upload a file</span>
                                 </label>
-                                </div>
+                            </div>
 
 
                             <div class="AddTag-List">

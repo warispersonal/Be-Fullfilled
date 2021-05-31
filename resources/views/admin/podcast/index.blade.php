@@ -18,7 +18,7 @@
             @foreach($podcasts as  $podcast)
                 <div class="{{$loop->index % 2 == 0 ?  "FlipThumb-Left" : "FlipThumb-Right"}}">
                     <div class="FlipSwitch-Thum">
-                        @if($podcast->mediaType != 1)
+                        @if($podcast->mediaValue != 1)
                             <img src="{{$podcast->image}}" class="flip-the-switch-image" alt=""/>
                         @else
                             <div class="VideoCon">

@@ -40,24 +40,30 @@ class GenericController extends Controller
     }
 
 
-    public static function saveMediaFile($image_file, $input_name, $path)
+    public static function saveMediaFile($image_file, $input_name, $path, $mediaType=null)
     {
+
         if ($image_file->hasFile($input_name)) {
             ini_set('memory_limit', '-1');
             $file = $image_file->file($input_name);
             $extension = $image_file->file($input_name)->extension();
             $save_audio_file = time() . '.' . $file->getClientOriginalName();
             $file->move($path, $save_audio_file);
-
-            $imageType = 0;
-            if ($extension == "pdf") {
-                $imageType = 2;
-            } elseif ($extension == "WEBM" || $extension == "MPG" || $extension == "MP4" || $extension == "MOV" || $extension == "mkv") {
-                $imageType = 1;
+            if($mediaType == "audio"){
+                $mediaType = 0;
+            }
+            else if ($mediaType == "video"){
+                $mediaType = 1;
+            }
+            else if($mediaType == "pdf"){
+                $mediaType = 2;
+            }
+            else{
+                $mediaType = 9;
             }
             $media = new Media();
             $media->link = $save_audio_file;
-            $media->type = $imageType;
+            $media->type = $mediaType;
             $media->save();
             return $media;
         } else {

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Traits;
+
 use Illuminate\Support\Carbon;
 
 trait Generic
@@ -23,7 +24,21 @@ trait Generic
         }
     }
 
-    public function changeDateFormat($value){
-        return date('Y-m-d' , strtotime($value));
+    public function changeDateFormat($value)
+    {
+        return date('Y-m-d', strtotime($value));
+    }
+
+    public function rulesDefine($fileType)
+    {
+        if ($fileType == 'audio') {
+            $rules['link'] = 'mimes:mp3,mp4';
+        } else if ($fileType == "video") {
+            $rules['link'] = 'mimes:mp3,mp4';
+        } else if ($fileType == "pdf") {
+            $rules['link'] = 'mimes:mp3,mp4';
+        }
+
+        return $rules;
     }
 }

@@ -50,7 +50,7 @@ class BugReportController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
-            $media = GenericController::saveMediaFile($request, 'link', env('BUG_REPORT_MEDIA'));
+            $media = GenericController::saveMediaFile($request, 'link', env('BUG_REPORT_MEDIA'),$request->fileType);
             $bugReport = new BugReport();
             $bugReport->description = $request->description;
             $bugReport->media_id = $media->id ?? null;

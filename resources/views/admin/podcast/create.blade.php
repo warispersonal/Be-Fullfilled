@@ -14,14 +14,14 @@
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Audio
-                                <input type="radio" name="radio" value="audio" checked>
+                                <input type="radio" name="fileType" value="audio" checked  {{ old('fileType') == "audio" ? 'checked' : '' }}>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Video
-                                <input type="radio" name="radio" value="video">
+                                <input type="radio" name="fileType" value="video"  {{ old('fileType') == "video" ? 'checked' : '' }}>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
@@ -34,7 +34,7 @@
                                     <label class="control-label" for="date">Select Date</label>
                                     <div class="input-group date" id="dp3" data-date="12-02-2017"
                                          data-date-format="mm-dd-yyyy">
-                                        <input name="date" class="form-control" type="text" value="12-02-2017">
+                                        <input name="date" class="form-control" type="text" value="12-02-2017" value="{{old('date')}}">
                                         <span class="input-group-addon btn">
 											<i class="icon-calendar" id="butt"></i>
 										</span>

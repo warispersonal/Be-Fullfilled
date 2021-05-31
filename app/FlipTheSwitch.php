@@ -31,4 +31,5 @@ class FlipTheSwitch extends Model
         return $this->getMedia($this->media_id, env('FLIP_THE_SWITCH_MEDIA'));
     }
 
+
 }
