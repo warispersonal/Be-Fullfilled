@@ -177,7 +177,7 @@ class WeeklyGoalsController extends Controller
         }
         else{
             $percentage = ($completedGoals / $allGoals) * 100;
-            $percentage = round($percentage, 2);
+            $percentage = number_format($percentage, 2);
             return $this->success("Percentage of Tasks", $percentage);
         }
     }

@@ -41,8 +41,32 @@ class FlipTheSwitchController extends Controller
      */
     public function store(FlipTheSwitchRequest $request)
     {
+        if ($request->hasFile('link')) {
+            $file = $request->file('link');
+            $imagemimes = ['image/png']; //Add more mimes that you want to support
+            $videomimes = ['video/mp4']; //Add more mimes that you want to support
+            $audiomimes = ['audio/mpeg']; //Add more mimes that you want to support
+
+            if (in_array($file->getMimeType(), $imagemimes)) {
+                $filevalidate = 'required|mimes:jpeg|max:2048';
+            }
+            //Validate video
+            if (in_array($file->getMimeType(), $videomimes)) {
+                $filevalidate = 'required|mimes:mp4';
+            }
+            //validate audio
+            if (in_array($file->getMimeType(), $audiomimes)) {
+                $filevalidate = 'required|mimes:mpeng';
+            }
+        }
+        $this->validate($request, [
+            'date' => 'required',
+            'title' => 'required',
+            'file' => 'mimes:jpg,jpeg,png|max:4096',
+            'link' => $filevalidate.'|max:10000',
+        ]);
         $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
-        $media = GenericController::saveMediaFile($request,'link', env('FLIP_THE_SWITCH_MEDIA'));
+        $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'));
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
         $flipTheSwitch->date = $this->changeDateFormat($request->date);
