@@ -6,6 +6,7 @@ use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\FlipTheSwitchRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FlipTheSwitchController extends Controller
@@ -43,11 +44,11 @@ class FlipTheSwitchController extends Controller
         $media = GenericController::saveMediaFile($request,'link', env('FLIP_THE_SWITCH_MEDIA'));
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
-        $flipTheSwitch->date = $request->date;
+        $flipTheSwitch->date = $this->changeDateFormat($request->date);
         $flipTheSwitch->image_id = $image->id ?? null;
         $flipTheSwitch->media_id = $media->id ?? null;
-        $flipTheSwitch->save();
 
+        $flipTheSwitch->save();
         return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully created.');
     }
 

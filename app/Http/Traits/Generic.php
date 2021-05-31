@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Traits;
+use Illuminate\Support\Carbon;
+
 trait Generic
 {
-    public static function getCustomizeDate($date)
+    public function getCustomizeDate($date)
     {
         $timestamp = strtotime($date);
         $day = date('F d, Y', $timestamp);
@@ -19,5 +21,9 @@ trait Generic
             $file->move($location, $file_name);
             return $file_name;
         }
+    }
+
+    public function changeDateFormat($value){
+        return date('Y-m-d' , strtotime($value));
     }
 }

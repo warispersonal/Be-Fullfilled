@@ -44,30 +44,23 @@
                                 <label>Podcast Title</label>
                                 <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                             </div>
-
                             <div class="UploadContainer">
                                 <label>Upload Thumnail Picture</label>
-                                
                                 <div class="custom-file-upload-two">
-                                <label for="file-upload" class="custom-file-upload">
-                                    <i class="icon-upload"></i> Upload Image
-                                </label>
-                                <input id="file-upload" name="file" type="file" style="display:none;">
+                                    <label for="file-upload" class="custom-file-upload">
+                                        <i class="icon-upload"></i> Upload Image
+                                    </label>
+                                    <input id="file-upload" name="file" type="file" style="display:none;">
                                 </div>
-                                
-                                </div>
-                                
-                                <div class="SpriteLine"></div>
-                                
-                                <div class="form-group mt-4">
+                            </div>
+                            <div class="SpriteLine"></div>
+                            <div class="form-group mt-4">
                                 <input type="file" name="link" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
                                     <i class="icon-upload"></i>
                                     <span class="js-fileName">Upload a file</span>
                                 </label>
-                                </div>
-                                    
-
+                            </div>
                             <div class="SaveBtn">
                                 <button type="submit">Save File</button>
                             </div>

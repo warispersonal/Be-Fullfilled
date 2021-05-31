@@ -1,10 +1,7 @@
 <?php
 
 namespace App;
-
-use App\Http\Controllers\GenericController;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Carbon;
 
 class FlipTheSwitch extends Model
 {
