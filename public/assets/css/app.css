@@ -20654,7 +20654,7 @@ select.custom-select:focus {
   width: 100%;
 }
 .main-container .longEnough {
-  height: 100vh;
+  max-height: 600px;
   max-width: 280px;
   overflow: auto;
 }
@@ -20671,6 +20671,7 @@ select.custom-select:focus {
   left: 0;
   top: 82px;
   z-index: 99;
+  height: 100vh;
   border-right: 1px solid #E9E6E6;
 }
 .main-container .SideMenu-Left .aside-menu {
@@ -21423,6 +21424,7 @@ select.custom-select:focus {
     min-height: 1300px;
   }
 }
+
 
 /* Custom CSS */
 .FlipThumb-Con .FlipSwitch-Thum img{

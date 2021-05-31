@@ -4,7 +4,7 @@
 	width: 100%;
 	
 	.longEnough {
-	  height: 100vh;
+	  max-height: 600px;
 	  max-width: 280px;
 	  overflow: auto;
 	}
@@ -22,6 +22,7 @@
 		 left: 0;
 		 top: 82px;
 		 z-index: 99;
+		 height: 100vh;
 		 border-right: 1px solid $theme-color-3;
 		 
 		  .aside-menu{
