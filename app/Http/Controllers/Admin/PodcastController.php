@@ -43,7 +43,7 @@ class PodcastController extends Controller
         $media = GenericController::saveMediaFile($request,'link', env('PODCASTS_MEDIA'));
         $podcasts = new Podcast();
         $podcasts->title = $request->title;
-        $podcasts->date = $request->date;
+        $podcasts->date = $this->changeDateFormat($request->date);;
         $podcasts->image_id = $image->id ?? null;
         $podcasts->media_id = $media->id ?? null;
         $podcasts->save();

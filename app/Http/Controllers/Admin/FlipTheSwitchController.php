@@ -8,6 +8,7 @@ use App\Http\Controllers\GenericController;
 use App\Http\Requests\FlipTheSwitchRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FlipTheSwitchController extends Controller
 {
@@ -47,7 +48,6 @@ class FlipTheSwitchController extends Controller
         $flipTheSwitch->date = $this->changeDateFormat($request->date);
         $flipTheSwitch->image_id = $image->id ?? null;
         $flipTheSwitch->media_id = $media->id ?? null;
-
         $flipTheSwitch->save();
         return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully created.');
     }

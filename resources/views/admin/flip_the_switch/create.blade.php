@@ -13,14 +13,14 @@
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Audio
-                                <input type="radio" name="radio">
+                                <input type="radio" name="radio" value="audio" checked>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Video
-                                <input type="radio" name="radio">
+                                <input type="radio" name="radio" value="video">
                                 <span class="radiomark"></span>
                             </label>
                         </li>

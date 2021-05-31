@@ -14,14 +14,14 @@
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Audio
-                                <input type="radio" name="radio">
+                                <input type="radio" name="radio" value="audio" checked>
                                 <span class="radiomark"></span>
                             </label>
                         </li>
 
                         <li class="nav-item">
                             <label class="radio-container-btn-power">Video
-                                <input type="radio" name="radio">
+                                <input type="radio" name="radio" value="video">
                                 <span class="radiomark"></span>
                             </label>
                         </li>
@@ -47,18 +47,18 @@
                             </div>
                             <div class="UploadContainer">
                                 <label>Upload Thumnail Picture</label>
-                                
+
                                 <div class="custom-file-upload-two">
                                 <label for="file-upload" class="custom-file-upload">
                                     <i class="icon-upload"></i> Upload Image
                                 </label>
                                 <input id="file-upload" name="file" type="file" style="display:none;">
                                 </div>
-                                
+
                                 </div>
-                                
+
                                 <div class="SpriteLine"></div>
-                                
+
                                 <div class="form-group mt-4">
                                 <input type="file" name="link" id="file" class="input-file">
                                 <label for="file" class="btn btn-tertiary js-labelFile">
@@ -66,7 +66,7 @@
                                     <span class="js-fileName">Upload a file</span>
                                 </label>
                                 </div>
-                                    
+
                             <div class="SaveBtn">
                                 <button type="submit">Save File</button>
                             </div>

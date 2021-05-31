@@ -31,7 +31,7 @@ class ContentLibraryController extends Controller
         $contentLibrary = new ContentLibrary();
         $contentLibrary->title = $request->title;
         $contentLibrary->description = $request->description;
-        $contentLibrary->date = $request->date;
+        $contentLibrary->date =  $this->changeDateFormat($request->date);;
         $contentLibrary->image_id = $image->id ?? null;
         $contentLibrary->save();
 
