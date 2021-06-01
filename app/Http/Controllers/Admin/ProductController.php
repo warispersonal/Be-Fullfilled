@@ -49,6 +49,7 @@ class ProductController extends Controller
         $product->ingredient = $request->ingredient;
         $product->image_id = $image->id ?? null;
         $product->save();
+        $product->tags()->attach($request->tags);
         return redirect()->route('manage_store')->with('success_message', 'Product successfully created.');
     }
 
