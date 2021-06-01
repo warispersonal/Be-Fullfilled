@@ -14,7 +14,7 @@ class ContentLibraryController extends Controller
     public function index()
     {
         $contentLibraries = ContentLibrary::all();
-        return view('admin.content_library.index',compact('contentLibraries'));
+        return view('admin.content_library.index', compact('contentLibraries'));
     }
 
     public function create()
@@ -44,16 +44,16 @@ class ContentLibraryController extends Controller
             'link' => $rules,
         ]);
         $image = GenericController::saveImage($request, 'file', env('CONTENT_LIBRARY_IMAGES'));
-        $media = GenericController::saveMediaFile($request,'link', env('CONTENT_LIBRARY_MEDIA'),$request->fileType);
+        $media = GenericController::saveMediaFile($request, 'link', env('CONTENT_LIBRARY_MEDIA'), $request->fileType);
 
         $contentLibrary = new ContentLibrary();
         $contentLibrary->title = $request->title;
         $contentLibrary->description = $request->description;
-        $contentLibrary->date =  $this->changeDateFormat($request->date);;
+        $contentLibrary->date = $this->changeDateFormat($request->date);;
         $contentLibrary->image_id = $image->id ?? null;
         $contentLibrary->media_id = $media->id ?? null;
         $contentLibrary->save();
-
+        $contentLibrary->tags()->attach($request->tags);
         return redirect()->route('content_library')->with('success_message', 'Content library successfully created.');
     }
 

@@ -20,9 +20,11 @@
                         <div class="MainThumb">
                             <img src="{{$contentLibrary->image}}" alt="" class="content-library-image"/>
                             <div class="Mainhead-Btm">
-                                <div class="FreeCon"><h1>PAID</h1></div>
-                                <h1>{{$contentLibrary->title}} <img src="{{asset('assets/images/table-dotted.svg')}}"
-                                                                    alt=""/></h1>
+                                @if($contentLibrary->tags()->first())
+                                    <div class="FreeCon"><h1>{{$contentLibrary->tags()->first()->name??""}}</h1></div>
+                                @endif
+                                <h1>{{$contentLibrary->title}}
+                                    <img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></h1>
                                 <p>{{$contentLibrary->description}}</p>
                                 <h2>11 Lessons</h2>
                             </div>

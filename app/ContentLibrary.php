@@ -32,9 +32,9 @@ class ContentLibrary extends Model
         return $this->getMedia($this->media_id, env('CONTENT_LIBRARY_MEDIA'));
     }
 
-    public function tag()
+    public function tags()
     {
-        return $this->belongsTo(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
 }

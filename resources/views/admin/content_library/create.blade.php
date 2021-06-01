@@ -95,7 +95,7 @@
                                         <li>
                                             <label class="tag-btn-container">
                                                 <small>{{$tag->name}}</small>
-                                                <input type="checkbox">
+                                                <input type="checkbox" name="tags[]" value="{{$tag->id}}">
                                                 <span class="tag-mark"></span>
                                             </label>
                                         </li>
