@@ -21,7 +21,7 @@ class ContentLibraryResource extends JsonResource
             'date' => $this->customizeDates,
             'thumbnail' => $this->image,
             'media' => $this->media,
-            'mediaType' => $this->mediaType,
+            'mediaType' => $this->mediaValue,
         ];
     }
 }

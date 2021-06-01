@@ -21,10 +21,16 @@
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                                 <div class="datainfo">
-                                    <label>Select Date</label>
-                                    <input type="date" id="" name="date" value="{{old('date')}}"
-                                           placeholder="December 2, 2018">
-                                    <i class="icon-calendar"></i>
+                                    <div class="form-group">
+                                        <label class="control-label" for="date">Select Date</label>
+                                        <div class="input-group date" id="dp3" data-date="12-02-2017"
+                                             data-date-format="mm-dd-yyyy">
+                                            <input name="date" class="form-control" type="text" value="12-02-2017" value="{{old('date')}}">
+                                            <span class="input-group-addon btn">
+											<i class="icon-calendar" id="butt"></i>
+										</span>
+                                        </div>
+                                    </div>
                                 </div>
 
 

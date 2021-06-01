@@ -33,14 +33,14 @@
                             <h2>{{$podcast->customizeDates}}</h2>
                             <h3>{{$podcast->title}}</h3>
                         </div>
+                        @if($podcast->mediaValue != 1)
 
-                        <div class="Auto-Container">
-                            <audio controls>
-                                @if($podcast->mediaType != 1)
+                            <div class="Auto-Container">
+                                <audio controls>
                                     <source src="{{$podcast->media}}" type="audio/mpeg">
-                                @endif
-                            </audio>
-                        </div>
+                                </audio>
+                            </div>
+                        @endif
 
                     </div>
                 </div>

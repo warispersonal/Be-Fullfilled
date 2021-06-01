@@ -29,13 +29,13 @@
                             <h2>{{$flipTheSwitch->customizeDates}}</h2>
                             <h3>{{$flipTheSwitch->title}}</h3>
                         </div>
-                        <div class="Auto-Container">
-                            <audio controls>
-                                @if($flipTheSwitch->mediaType != 1)
+                        @if($flipTheSwitch->mediaValue != 1)
+                            <div class="Auto-Container">
+                                <audio controls>
                                     <source src="{{$flipTheSwitch->media}}" type="audio/mpeg">
-                                @endif
-                            </audio>
-                        </div>
+                                </audio>
+                            </div>
+                        @endif
 
                     </div>
                 </div>
