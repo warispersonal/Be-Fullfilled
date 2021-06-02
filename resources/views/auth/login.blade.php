@@ -15,6 +15,11 @@
                     </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+                        <div class="mt-3">
+                            @include('partials.generic._errors')
+                            @include('partials.generic._singleError')
+
+                        </div>
                         <div class="UserHead-Form">
                             <h3>Use Login</h3>
 

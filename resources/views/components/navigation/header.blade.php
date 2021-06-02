@@ -27,9 +27,9 @@
         </div>
 
         <div class="PrCon">
-            <img src="{{asset('assets/images/pr-img.png')}}" alt=""/>
+            <img src="{{Auth::user()->image}}" class="header-profile-image" alt=""/>
             <div class="pr-right">
-                <h1>Carla Arcand</h1>
+                <h1>{{\Illuminate\Support\Facades\Auth::user()->name}}</h1>
                 <h2>Admin</h2>
             </div>
         </div>

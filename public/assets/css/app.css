@@ -21447,3 +21447,8 @@ select.custom-select:focus {
 .MainFlip-Container{
     padding-bottom: 50px !important;
 }
+.header-profile-image{
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+}

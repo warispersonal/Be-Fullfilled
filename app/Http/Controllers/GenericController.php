@@ -16,7 +16,6 @@ class GenericController extends Controller
             $file = $image_file->file($input_name);
             $save_image = time() . '.' . $file->getClientOriginalName();
             $file->move($path, $save_image);
-
             $image = new Image();
             $image->file = $save_image;
             $image->save();
