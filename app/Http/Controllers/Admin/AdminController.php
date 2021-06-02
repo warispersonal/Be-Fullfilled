@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\User;
@@ -34,9 +35,16 @@ class AdminController extends Controller
         return view('admin.upload-new-podcast');
     }
 
-    public function user_profile_detail()
+    public function user_profile_detail($id=null)
     {
-        return view('admin.user-profile-detail');
+        if($id == null){
+            $id = Auth::id();
+            $user = Admin::find($id);
+        }
+        else{
+            $user = User::find($id);
+        }
+        return view('admin.user-profile-detail', compact('user'));
     }
 
     public function finance_dashboard()

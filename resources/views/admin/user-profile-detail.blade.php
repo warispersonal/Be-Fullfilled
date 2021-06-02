@@ -30,30 +30,30 @@
 
                 <tr class="table-border">
 
-                    <td>{{Auth::user()->date}}</td>
+                    <td>{{$user->date}}</td>
 
                     <td>
 
                         <div class="UserName-Head">
 
                             <div class="headeleft">
-                                <img class="user-profile-image" src="{{Auth::user()->image}}" alt=""/>
+                                <img class="user-profile-image" src="{{$user->image}}" alt=""/>
                             </div>
 
                             <div class="headeright">
-                                <h2>{{Auth::user()->name}}</h2>
-                                <h3>{{Auth::user()->phone_number}}</h3>
+                                <h2>{{$user->name}}</h2>
+                                <h3>{{$user->phone_number}}</h3>
                             </div>
 
                         </div>
 
                     </td>
 
-                    <td>{{Auth::user()->city}}</td>
+                    <td>{{$user->city}}</td>
 
-                    <td>{{Auth::user()->city}}<br/> {{Auth::user()->street_address}}</td>
+                    <td>{{$user->city}}<br/> {{$user->street_address}}</td>
 
-                    <td>{{Auth::user()->zipcode}}</td>
+                    <td>{{$user->zipcode}}</td>
 
                     <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
 

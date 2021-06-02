@@ -70,8 +70,17 @@ class User extends Authenticatable
         return url(asset(env('USER_IMAGES')).'/' . $profile);
     }
 
+    public function getImageAttribute($value)
+    {
+        return $this->profile;
+    }
+
     public function getCustomizeDatesAttribute()
     {
+        return $this->getCustomizeDate($this->created_at);
+    }
+
+    public function getDateAttribute($val){
         return $this->getCustomizeDate($this->created_at);
     }
 
