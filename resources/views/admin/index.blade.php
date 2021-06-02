@@ -40,7 +40,14 @@
                         <td>{{$user->city}}</td>
                         <td>{{$user->street_address}}</td>
                         <td>{{$user->zipcode}}</td>
-                        <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+                        <td>
+                            <img src="{{asset('assets/images/table-dotted.svg')}}"
+                                 class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{route('user_profile_detail',$user->id)}}">View Profile</a>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -48,6 +55,5 @@
 
             </table>
         </div>
-
     </div>
 @endsection
