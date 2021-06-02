@@ -40,6 +40,7 @@ class FlipTheSwitchController extends Controller
      */
     public function store(Request $request)
     {
+
         $rules = 'required';
         if ($request->fileType == 'audio') {
             $rules = 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,wma,aac,m4a|max:10000';
@@ -64,6 +65,7 @@ class FlipTheSwitchController extends Controller
         $flipTheSwitch->date = $this->changeDateFormat($request->date);
         $flipTheSwitch->image_id = $image->id ?? null;
         $flipTheSwitch->media_id = $media->id ?? null;
+
         $flipTheSwitch->save();
         return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully created.');
     }

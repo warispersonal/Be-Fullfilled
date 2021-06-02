@@ -30,13 +30,13 @@
 </script>
 
 <script>
-	
+
     $('#file-upload').change(function() {
        var i = $(this).prev('label').clone();
        var file = $('#file-upload')[0].files[0].name;
        $(this).prev('label').text(file);
     });
-       
+
    </script>
 
 <script>
@@ -61,6 +61,8 @@
         date_input.change(function () {
             var deger = $(this).val();
             $("h3").html("<font color=green>" + deger + "</font>");
+            document.getElementsByName("date").value = deger;
+
         });
         $('.input-group').find('.icon-calendar').on('click', function () {
             if (!date_input.data('datepicker').picker.is(":visible")) {

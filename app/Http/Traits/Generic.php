@@ -24,9 +24,12 @@ trait Generic
         }
     }
 
-    public function changeDateFormat($value)
+    public function changeDateFormat($originalDate)
     {
-        return date('Y-m-d', strtotime($value));
+        $newDate = date($originalDate);
+        $newDate  = Carbon::createFromFormat('d/m/Y', $newDate)->format('d-m-Y');
+        $newDate = Carbon::parse($newDate);
+        return $newDate;
     }
 
     public function rulesDefine($fileType)
