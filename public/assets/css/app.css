@@ -21448,7 +21448,7 @@ select.custom-select:focus {
     padding-bottom: 50px !important;
 }
 .header-profile-image{
-    width: 57px;
-    height: 57px;
-    border-radius: 50%;
+    width: 57px !important;
+    height: 57px !important;
+    border-radius: 50% !important;
 }
