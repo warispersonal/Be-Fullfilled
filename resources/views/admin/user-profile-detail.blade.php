@@ -92,7 +92,7 @@
                 <div class="AllUser-Head">
 
                     <div class="UserLeft">
-                        <h1>All Partners <span>12</span></h1>
+                        <h1>All Partners <span>0</span></h1>
                     </div>
 
                     <div class="Userright">
@@ -101,142 +101,142 @@
 
                 </div>
 
-                <div class="main-Table">
-                    <table class="table">
+{{--                <div class="main-Table">--}}
+{{--                    <table class="table">--}}
 
-                        <thead>
-                        <tr>
-                            <th>Registration Date</th>
-                            <th>User Name</th>
-                            <th>Locations</th>
-                            <th>Address</th>
-                            <th>ZIP COde</th>
-                            <th></th>
-                        </tr>
-                        </thead>
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th>Registration Date</th>--}}
+{{--                            <th>User Name</th>--}}
+{{--                            <th>Locations</th>--}}
+{{--                            <th>Address</th>--}}
+{{--                            <th>ZIP COde</th>--}}
+{{--                            <th></th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
 
-                        <tbody>
+{{--                        <tbody>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        </tbody>
+{{--                        </tbody>--}}
 
-                    </table>
-                </div>
+{{--                    </table>--}}
+{{--                </div>--}}
 
             </div>
         </div>
@@ -264,7 +264,7 @@
                 <div class="AllUser-Head">
 
                     <div class="UserLeft">
-                        <h1>All Partners with <span>18</span></h1>
+                        <h1>All Partners with <span>0</span></h1>
                     </div>
 
                     <div class="Userright">
@@ -273,142 +273,142 @@
 
                 </div>
 
-                <div class="main-Table">
-                    <table class="table">
+{{--                <div class="main-Table">--}}
+{{--                    <table class="table">--}}
 
-                        <thead>
-                        <tr>
-                            <th>Registration Date</th>
-                            <th>User Name</th>
-                            <th>Locations</th>
-                            <th>Address</th>
-                            <th>ZIP COde</th>
-                            <th></th>
-                        </tr>
-                        </thead>
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th>Registration Date</th>--}}
+{{--                            <th>User Name</th>--}}
+{{--                            <th>Locations</th>--}}
+{{--                            <th>Address</th>--}}
+{{--                            <th>ZIP COde</th>--}}
+{{--                            <th></th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
 
-                        <tbody>
+{{--                        <tbody>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        <tr class="table-border">
+{{--                        <tr class="table-border">--}}
 
-                            <td>October 25, 2019</td>
+{{--                            <td>October 25, 2019</td>--}}
 
-                            <td>
-                                <div class="UserName-Head">
+{{--                            <td>--}}
+{{--                                <div class="UserName-Head">--}}
 
-                                    <div class="headeleft">
-                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>
-                                    </div>
+{{--                                    <div class="headeleft">--}}
+{{--                                        <img src="{{asset('assets/images/Kristin Watson.png')}}" alt=""/>--}}
+{{--                                    </div>--}}
 
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
+{{--                                    <div class="headeright">--}}
+{{--                                        <h2>Kristin Watson</h2>--}}
+{{--                                        <h3>(217) 555-0113</h3>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </td>
+{{--                                </div>--}}
+{{--                            </td>--}}
 
-                            <td>Austin</td>
+{{--                            <td>Austin</td>--}}
 
-                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>
+{{--                            <td>4517 Washington Ave.<br/> Manchester, Kentucky 39495</td>--}}
 
-                            <td>2312</td>
+{{--                            <td>2312</td>--}}
 
-                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>
+{{--                            <td><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></td>--}}
 
-                        </tr>
+{{--                        </tr>--}}
 
-                        </tbody>
+{{--                        </tbody>--}}
 
-                    </table>
-                </div>
+{{--                    </table>--}}
+{{--                </div>--}}
 
             </div>
         </div>
