@@ -45,7 +45,7 @@ class FlipTheSwitchController extends Controller
             $rules = 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,wma,aac,m4a|max:10000';
         }
         if ($request->fileType == 'video') {
-            $rules = 'required|mimes:mp4,3gp,mov,wmv,avi,mkv,webm,mpeg-2|max:10000';
+            $rules = 'required|mimes:mp4,3gp,mov,wmv,avi,mkv,webm,mpeg-2|max:25000';
         }
         if ($request->fileType == 'pdf') {
             $rules = "required|mimetypes:application/pdf|max:10000";
