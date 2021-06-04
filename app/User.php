@@ -84,4 +84,7 @@ class User extends Authenticatable
         return $this->getCustomizeDate($this->created_at);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
