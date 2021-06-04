@@ -12,6 +12,7 @@ use App\Http\Controllers\api\v1\IsRecordExists;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
 use App\Http\Controllers\api\v1\PodcastsController;
+use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\RegisterController;
 use App\Http\Controllers\api\v1\SocialSetupController;
 use App\Http\Controllers\api\v1\Twilio;
@@ -125,6 +126,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{date?}', [YourDayController::class, 'show']);
     });
 
+
     /*
     |--------------------------------------------------------------------------
     | Route for bugreport & contact us
@@ -171,3 +173,13 @@ Route::prefix('/unique')->group(function () {
 
 
 Route::get('user/list', [RegisterController::class, 'users']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Route for Products
+|--------------------------------------------------------------------------
+*/
+Route::prefix('/products')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);
+});
