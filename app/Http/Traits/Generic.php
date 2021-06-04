@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use Illuminate\Support\Carbon;
+use Zend\Diactoros\Request;
 
 trait Generic
 {
@@ -44,4 +45,5 @@ trait Generic
 
         return $rules;
     }
+
 }

@@ -67,12 +67,7 @@ class User extends Authenticatable
 
     public function getProfileAttribute($profile)
     {
-        return url(asset(env('USER_IMAGES')).'/' . $profile);
-    }
-
-    public function getImageAttribute($value)
-    {
-        return $this->profile;
+        return url('storage/'.$profile);
     }
 
     public function getCustomizeDatesAttribute()

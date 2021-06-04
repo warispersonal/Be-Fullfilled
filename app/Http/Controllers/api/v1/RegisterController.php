@@ -30,12 +30,11 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6|confirmed',
-            'profile' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+            'profile' => 'required',
             'phone_number' => 'required|min:13|max:13|unique:users',
             'city' => 'required',
             'zipcode' => 'required|min:5|max:5',
@@ -45,21 +44,31 @@ class RegisterController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
-            $image = $this->uploadMediaFile($request, 'profile', env('USER_IMAGES'));
-            $user = new User();
-            $user->email = $request->email;
-            $user->name = $request->name;
-            $user->password = Hash::make($request['password']);
-            $user->phone_number = $request->phone_number;
-            $user->city = $request->city;
-            $user->zipcode = $request->zipcode;
-            $user->street_address = $request->street_address;
-            $user->profile = $image;
-            $user->remember_token = Str::random(10);
-            $user->save();
-            $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-            $response = ['token' => $token];
-            return $this->success("Registration successful", $response);
+            $image_64 = $request->profile;
+            $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+            if ($extension != "jpeg" || $extension != "jpg" || $extension != "png") {
+                $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
+                $image = str_replace($replace, '', $image_64);
+                $image = str_replace(' ', '+', $image);
+                $imageName = Str::random(10) . '.' . $extension;
+                Storage::disk('public')->put($imageName, base64_decode($image));
+                $user = new User();
+                $user->email = $request->email;
+                $user->name = $request->name;
+                $user->password = Hash::make($request['password']);
+                $user->phone_number = $request->phone_number;
+                $user->city = $request->city;
+                $user->zipcode = $request->zipcode;
+                $user->street_address = $request->street_address;
+                $user->profile = $imageName;
+                $user->remember_token = Str::random(10);
+                $user->save();
+                $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+                $response = ['token' => $token];
+                return $this->success("Registration successful", $response);
+            } else {
+                return $this->failure('Only jpeg, jpg, png file required', 404);
+            }
         }
     }
 

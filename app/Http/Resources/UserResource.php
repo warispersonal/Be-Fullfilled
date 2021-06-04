@@ -18,7 +18,7 @@ class UserResource extends JsonResource
             "id" => $this->id ,
             "name" => $this->name ,
             "email" => $this->email ,
-            "profile" => $this->social_account_type == "user" ? $this->profile : $this->social_account_profile_image_url,
+            "profile" => $this->profile ,
             "phone_number" => $this->phone_number ,
             "city" => $this->city,
             "zipcode" => $this->zipcode ,
