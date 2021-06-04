@@ -49,7 +49,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        if($product) {
+            return $this->success("Single Product", new ProductResource($product));
+        }
+        else{
+            return $this->failure('Product not found', 404);
+        }
+
     }
 
     /**
@@ -60,7 +67,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

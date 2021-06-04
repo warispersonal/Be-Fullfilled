@@ -182,4 +182,5 @@ Route::get('user/list', [RegisterController::class, 'users']);
 */
 Route::prefix('/products')->group(function () {
     Route::get('/', [ProductController::class, 'index']);
+    Route::get('/{id}/details', [ProductController::class, 'show']);
 });
