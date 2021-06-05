@@ -118,7 +118,6 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'string|min:6',
-            'profile' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
             'phone_number' => 'required|min:13|max:13|unique:users,phone_number,' . Auth::id(),
             'city' => 'required',
             'zipcode' => 'min:5|max:5',
@@ -128,6 +127,7 @@ class RegisterController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
+
             $user = Auth::user();
 
             $user->name = $request->name;
@@ -137,8 +137,20 @@ class RegisterController extends Controller
             }
             if (!empty($request->profile)) {
                 if (Auth::user()->profile != $request->file) {
-                    $image = self::uploadMediaFile($request, 'profile', env('USER_IMAGES'));
-                    $user->profile = $image;
+
+                    $image_64 = $request->profile;
+                    $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+                    if ($extension != "jpeg" || $extension != "jpg" || $extension != "png") {
+                        $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
+                        $image = str_replace($replace, '', $image_64);
+                        $image = str_replace(' ', '+', $image);
+                        $imageName = Str::random(10) . '.' . $extension;
+                        Storage::disk('public')->put($imageName, base64_decode($image));
+                        $user->profile = $imageName;
+
+                    } else {
+                        return $this->failure('Only jpeg, jpg, png file required', 404);
+                    }
                 }
             }
             $user->phone_number = $request->phone_number;
