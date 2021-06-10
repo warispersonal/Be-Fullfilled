@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductResource;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -20,76 +24,30 @@ class ProductController extends Controller
         return $this->success("Products List", ProductResource::collection($products));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $product = Product::find($id);
-        if($product) {
+        if ($product) {
             return $this->success("Single Product", new ProductResource($product));
-        }
-        else{
+        } else {
             return $this->failure('Product not found', 404);
         }
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function place_order(Request $request)
     {
+        $order = new Order();
+        $order->price = $request->price;
+        $order->quantity = $request->quantity;
+        $order->total_price = (int)((int)$request->price * (int)$request->quantity);
+        $order->shipping_address = $request->shipping_address;
+        $order->order_status_id = 1;
+        $order->product_id = $request->product_id;
+        $order->user_id = Auth::id();
+        $order->save();
+        return $this->success("Order place successfully", new OrderResource($order));
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

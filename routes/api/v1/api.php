@@ -135,6 +135,18 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/bug/report', [BugReportController::class, 'store']);
     Route::post('/contact/us', [ContactUsController::class, 'store']);
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for checkout
+    |--------------------------------------------------------------------------
+    */
+    Route::post('/checkout', [ProductController::class, 'place_order']);
+
+
 });
 
 
