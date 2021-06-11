@@ -40,4 +40,16 @@ class OrderController extends Controller
 
     }
 
+    public function show($id)
+    {
+        $user = Auth::user();
+        $order = $user->orders()->where('id', $id)->get()->first();
+        if($order){
+            return $this->success("Order place successfully", new OrderResource($order));
+        }
+        else{
+            return $this->failure('Order not found', 404);
+        }
+    }
+
 }

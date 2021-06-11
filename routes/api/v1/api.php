@@ -146,8 +146,12 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::post('/checkout', [OrderController::class, 'place_order']);
-    Route::get('/order/{status_id?}', [OrderController::class, 'index']);
 
+
+    Route::prefix('/order')->group(function () {
+    Route::get('/{status_id?}', [OrderController::class, 'index']);
+    Route::get('/{id}/details', [OrderController::class, 'show']);
+    });
 
 });
 
