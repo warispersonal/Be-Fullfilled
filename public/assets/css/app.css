@@ -21452,3 +21452,7 @@ select.custom-select:focus {
     height: 57px !important;
     border-radius: 50% !important;
 }
+.order-image{
+    width: 48px !important;
+    height: 48px !important;
+}

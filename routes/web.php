@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ContentLibraryController;
 use App\Http\Controllers\Admin\FlipTheSwitchController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PushNotificationController;
@@ -44,7 +45,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/add-new-faq', [QuestionController::class, 'store'])->name('add_new_faq_post');
 
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
-        Route::get('/all-orders', [AdminController::class, 'all_orders'])->name('all_orders');
+        Route::get('/all-orders', [OrderController::class, 'index'])->name('all_orders');
 
         Route::get('/user-profile-detail/{id?}', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
 

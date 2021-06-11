@@ -19,11 +19,6 @@ class AdminController extends Controller
     }
 
 
-    public function all_orders()
-    {
-        return view('admin.all-orders');
-    }
-
     public function podcast()
     {
         return view('admin.podcast');

@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\Http\Traits\Generic;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    use Generic;
     protected $fillable = [
         'price',
         'quantity',
@@ -31,4 +33,7 @@ class Order extends Model
         return $this->belongsTo(OrderStatus::class);
     }
 
+    public function getDateAttribute($val){
+        return $this->getCustomizeDate($this->created_at);
+    }
 }
