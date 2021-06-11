@@ -11,6 +11,7 @@ use App\Http\Controllers\api\v1\FocusController;
 use App\Http\Controllers\api\v1\IsRecordExists;
 use App\Http\Controllers\api\v1\LoginController;
 use App\Http\Controllers\api\v1\NotesController;
+use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\PodcastsController;
 use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\RegisterController;
@@ -141,10 +142,11 @@ Route::middleware('auth:api')->group(function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Route for checkout
+    | Route for checkout, user orders
     |--------------------------------------------------------------------------
     */
-    Route::post('/checkout', [ProductController::class, 'place_order']);
+    Route::post('/checkout', [OrderController::class, 'place_order']);
+    Route::get('/order/{status_id?}', [OrderController::class, 'index']);
 
 
 });
