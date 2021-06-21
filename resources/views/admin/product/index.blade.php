@@ -18,11 +18,19 @@
                 <div class="MangeStore">
                     <div class="imgtop">
                         <img class="product-image" src="{{$product->image}}" alt=""/>
-                        <div class="dotted"><img src="{{asset('assets/images/table-dotted.svg')}}" alt=""/></div>
+                        <div class="dotted">
+                            <img src="{{asset('assets/images/table-dotted.svg')}}"
+                                 class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{route('edit_manage_store',$product->id)}}">Edit</a>
+                                <a class="dropdown-item" onclick="return confirm('Are you sure?')"  href="{{route('destroy_manage_store',$product->id)}}">Delete</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="ManageHead-Btm">
                         <h1>{{$product->title}}</h1>
-                        <h2>1277-SOGREENS</h2>
+{{--                        <h2>1277-SOGREENS</h2>--}}
                         <p>
                             {{$product->description}}
                         </p>

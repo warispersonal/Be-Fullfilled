@@ -31,13 +31,13 @@ class ProductController extends Controller
     public function create()
     {
         $tags = Tag::all();
-        return view('admin.product.create',compact('tags'));
+        return view('admin.product.create', compact('tags'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
@@ -57,7 +57,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -68,34 +68,51 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $tags = Tag::all();
+        return view('admin.product.edit', compact('tags', 'product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        if ($request->has('file')) {
+            $image = GenericController::saveImage($request, 'file', env('PRODUCTS_IMAGES'));
+            $product->image_id = $image->id ?? null;
+        }
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->ingredient = $request->ingredient;
+        $product->save();
+        $product->tags()->detach();
+        $product->tags()->attach($request->tags);
+        return redirect()->route('manage_store')->with('success_message', 'Product successfully update.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('manage_store')->with('success_message', 'Product successfully destroy');
 
     }
 }

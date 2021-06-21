@@ -54,9 +54,15 @@ Route::middleware('auth:admin')->group(function () {
         });
 
 
-        Route::get('/manage-store', [ProductController::class, 'index'])->name('manage_store');
-        Route::get('/store-add-product', [ProductController::class, 'create'])->name('store_add_product');
-        Route::post('/store-add-product', [ProductController::class, 'store'])->name('store_add_product_post');
+        Route::prefix('/manage-store')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('manage_store');
+            Route::get('/add', [ProductController::class, 'create'])->name('store_add_product');
+            Route::post('/add', [ProductController::class, 'store'])->name('store_add_product_post');
+            Route::get('{id}/edit', [ProductController::class, 'edit'])->name('edit_manage_store');
+            Route::post('{id}/edit', [ProductController::class, 'update'])->name('update_manage_store');
+            Route::get('{id}/destroy', [ProductController::class, 'destroy'])->name('destroy_manage_store');
+        });
+
 
         Route::get('/faq', [QuestionController::class, 'index'])->name('faq');
         Route::get('/add-new-faq', [QuestionController::class, 'create'])->name('add_new_faq');
