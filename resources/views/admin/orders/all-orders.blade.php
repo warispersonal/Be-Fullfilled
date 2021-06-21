@@ -75,9 +75,9 @@
                             <img src="{{asset('assets/images/table-dotted.svg')}}"
                                  class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('user_profile_detail',$order->id)}}">Change Status</a>
-                            </div>
+{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
+{{--                                <a class="dropdown-item" href="{{route('user_profile_detail',$order->id)}}">Change Status</a>--}}
+{{--                            </div>--}}
                         </td>
 
                     </tr>
