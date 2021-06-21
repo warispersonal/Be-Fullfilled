@@ -32,6 +32,23 @@
                         <div class="FlipInner-Head">
                             <h2>{{$podcast->customizeDates}}</h2>
                             <h3>{{$podcast->title}}</h3>
+
+
+                            <div class="row">
+                                <div class="col-lg-12 text-right">
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-info dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{{route('edit_podcast',$podcast->id )}}">Edit</a>
+                                            <a class="dropdown-item"  onclick="return confirm('Are you sure?')" href="{{route('destroy_podcast', $podcast)}}">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         @if($podcast->mediaValue != 1)
 

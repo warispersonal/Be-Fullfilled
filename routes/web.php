@@ -44,9 +44,15 @@ Route::middleware('auth:admin')->group(function () {
         });
 
 
-        Route::get('/podcast', [PodcastController::class, 'index'])->name('podcast');
-        Route::get('/upload-new-podcast', [PodcastController::class, 'create'])->name('upload_new_podcast');
-        Route::post('/upload-new-podcast', [PodcastController::class, 'store'])->name('upload_new_podcast_post');
+        Route::prefix('/podcast')->group(function () {
+            Route::get('/', [PodcastController::class, 'index'])->name('podcast');
+            Route::get('/add', [PodcastController::class, 'create'])->name('upload_new_podcast');
+            Route::post('/add', [PodcastController::class, 'store'])->name('upload_new_podcast_post');
+            Route::get('{id}/edit', [PodcastController::class, 'edit'])->name('edit_podcast');
+            Route::post('{id}/edit', [PodcastController::class, 'update'])->name('update_podcast');
+            Route::get('{id}/destroy', [PodcastController::class, 'destroy'])->name('destroy_podcast');
+        });
+
 
         Route::get('/manage-store', [ProductController::class, 'index'])->name('manage_store');
         Route::get('/store-add-product', [ProductController::class, 'create'])->name('store_add_product');

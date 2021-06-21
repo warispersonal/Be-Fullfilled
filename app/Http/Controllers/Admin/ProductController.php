@@ -7,6 +7,7 @@ use App\Http\Controllers\GenericController;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\Tag;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -95,6 +96,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
