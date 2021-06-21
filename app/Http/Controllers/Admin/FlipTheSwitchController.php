@@ -143,6 +143,9 @@ class FlipTheSwitchController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $flipTheSwitch = FlipTheSwitch::find($id);
+        $flipTheSwitch->delete();
+        return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully updated.');
+
     }
 }

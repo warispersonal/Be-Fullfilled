@@ -30,6 +30,7 @@ Route::middleware('auth:admin')->group(function () {
             Route::post('/new', [FlipTheSwitchController::class, 'store'])->name('upload_new_post');
             Route::get('{id}/edit', [FlipTheSwitchController::class, 'edit'])->name('edit_flip_the_switch');
             Route::post('{id}/edit', [FlipTheSwitchController::class, 'update'])->name('update_flip_the_switch');
+            Route::get('{id}/destroy', [FlipTheSwitchController::class, 'destroy'])->name('destroy_flip_the_switch');
         });
         Route::get('/content-library', [ContentLibraryController::class, 'index'])->name('content_library');
         Route::get('/add-content-to-the-library', [ContentLibraryController::class, 'create'])->name('add_content_to_the_library');
