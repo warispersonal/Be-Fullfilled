@@ -28,6 +28,23 @@
                         <div class="FlipInner-Head">
                             <h2>{{$flipTheSwitch->customizeDates}}</h2>
                             <h3>{{$flipTheSwitch->title}}</h3>
+
+                            <div class="row">
+                                <div class="col-lg-12 text-right">
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-info dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                            Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">View</a>
+                                            <a class="dropdown-item" href="{{route('edit_flip_the_switch',$flipTheSwitch->id )}}">Edit</a>
+                                            <a class="dropdown-item" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         @if($flipTheSwitch->mediaValue != 1)
                             <div class="Auto-Container">

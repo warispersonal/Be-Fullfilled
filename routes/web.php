@@ -24,10 +24,13 @@ Route::middleware('auth:admin')->group(function () {
 
         Route::post('/update-profile', [AdminController::class, 'update_profile'])->name('update_profile');
 
-        Route::get('/flip-the-switch', [FlipTheSwitchController::class, 'index'])->name('flip_the_switch');
-        Route::get('/upload-new', [FlipTheSwitchController::class, 'create'])->name('upload_new');
-        Route::post('/upload-new', [FlipTheSwitchController::class, 'store'])->name('upload_new_post');
-
+        Route::prefix('/flip-the-switch')->group(function () {
+            Route::get('/', [FlipTheSwitchController::class, 'index'])->name('flip_the_switch');
+            Route::get('/new', [FlipTheSwitchController::class, 'create'])->name('upload_new');
+            Route::post('/new', [FlipTheSwitchController::class, 'store'])->name('upload_new_post');
+            Route::get('{id}/edit', [FlipTheSwitchController::class, 'edit'])->name('edit_flip_the_switch');
+            Route::post('{id}/edit', [FlipTheSwitchController::class, 'update'])->name('update_flip_the_switch');
+        });
         Route::get('/content-library', [ContentLibraryController::class, 'index'])->name('content_library');
         Route::get('/add-content-to-the-library', [ContentLibraryController::class, 'create'])->name('add_content_to_the_library');
         Route::post('/add-content-to-the-library', [ContentLibraryController::class, 'store'])->name('add_content_to_the_library_post');
@@ -65,7 +68,6 @@ Route::middleware('auth:admin')->group(function () {
 Route::get('/reset-password', [AdminController::class, 'reset_password'])->name('reset_password');
 Route::post('/reset-password/via-email', [AdminController::class, 'via_email'])->name('via_email');
 Route::post('/reset-password/via-cell-number', [AdminController::class, 'via_cell_number'])->name('via_cell_number');
-
 
 
 Route::get('/new-password', [AdminController::class, 'new_password'])->name('new_password');

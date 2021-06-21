@@ -22,6 +22,7 @@ class FlipTheSwitch extends Model
         return $this->belongsTo(Media::class);
     }
 
+
     public function getImageAttribute(){
         return $this->getImage($this->image_id, env('FLIP_THE_SWITCH_IMAGES'));
     }
@@ -29,6 +30,11 @@ class FlipTheSwitch extends Model
     public function getMediaAttribute()
     {
         return $this->getMedia($this->media_id, env('FLIP_THE_SWITCH_MEDIA'));
+    }
+
+    public function getTypeAttribute()
+    {
+        return ;
     }
 
 

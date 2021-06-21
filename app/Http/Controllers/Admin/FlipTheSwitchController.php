@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\FlipTheSwitchRequest;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class FlipTheSwitchController extends Controller
@@ -89,7 +90,8 @@ class FlipTheSwitchController extends Controller
      */
     public function edit($id)
     {
-        //
+        $flipTheSwitch = FlipTheSwitch::find($id);
+        return view('admin.flip_the_switch.edit',compact('flipTheSwitch'));
     }
 
     /**
@@ -101,7 +103,36 @@ class FlipTheSwitchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = '';
+        if ($request->fileType == 'audio') {
+            $rules = 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav,wma,aac,m4a|max:10000';
+        }
+        if ($request->fileType == 'video') {
+            $rules = 'mimes:mp4,3gp,mov,wmv,avi,mkv,webm,mpeg-2|max:25000';
+        }
+        if ($request->fileType == 'pdf') {
+            $rules = "mimetypes:application/pdf|max:10000";
+        }
+        $request->validate([
+            'date' => 'required',
+            'title' => 'required',
+            'file' => 'mimes:jpg,jpeg,png|max:4096',
+            'link' => $rules,
+        ]);
+        $flipTheSwitch = FlipTheSwitch::find($id);
+
+        if($request->has('file')){
+            $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
+            $flipTheSwitch->image_id = $image->id ?? null;
+        }
+        if($request->has('link')){
+            $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'),$request->fileType);
+            $flipTheSwitch->media_id = $media->id ?? null;
+        }
+        $flipTheSwitch->title = $request->title;
+        $flipTheSwitch->date = $this->changeDateFormat($request->date);
+        $flipTheSwitch->save();
+        return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully updated.');
     }
 
     /**
