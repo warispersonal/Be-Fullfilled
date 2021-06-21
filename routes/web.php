@@ -32,9 +32,17 @@ Route::middleware('auth:admin')->group(function () {
             Route::post('{id}/edit', [FlipTheSwitchController::class, 'update'])->name('update_flip_the_switch');
             Route::get('{id}/destroy', [FlipTheSwitchController::class, 'destroy'])->name('destroy_flip_the_switch');
         });
-        Route::get('/content-library', [ContentLibraryController::class, 'index'])->name('content_library');
-        Route::get('/add-content-to-the-library', [ContentLibraryController::class, 'create'])->name('add_content_to_the_library');
-        Route::post('/add-content-to-the-library', [ContentLibraryController::class, 'store'])->name('add_content_to_the_library_post');
+
+
+        Route::prefix('/content-library')->group(function () {
+            Route::get('/', [ContentLibraryController::class, 'index'])->name('content_library');
+            Route::get('/add', [ContentLibraryController::class, 'create'])->name('add_content_to_the_library');
+            Route::post('/add', [ContentLibraryController::class, 'store'])->name('add_content_to_the_library_post');
+            Route::get('{id}/edit', [ContentLibraryController::class, 'edit'])->name('edit_content_library');
+            Route::post('{id}/edit', [ContentLibraryController::class, 'update'])->name('update_content_library');
+            Route::get('{id}/destroy', [ContentLibraryController::class, 'destroy'])->name('destroy_content_library');
+        });
+
 
         Route::get('/podcast', [PodcastController::class, 'index'])->name('podcast');
         Route::get('/upload-new-podcast', [PodcastController::class, 'create'])->name('upload_new_podcast');

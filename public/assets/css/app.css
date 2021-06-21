@@ -21456,3 +21456,9 @@ select.custom-select:focus {
     width: 48px !important;
     height: 48px !important;
 }
+.content-library-image {
+    border-radius: 12px 12px 0 0;
+}
+.LibraryThum-Container .MainThumb{
+    overflow: visible !important;
+}

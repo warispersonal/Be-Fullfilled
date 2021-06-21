@@ -30,7 +30,8 @@
                                          class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{{route('user_profile_detail',$contentLibrary->id)}}">Delete</a>
+                                        <a class="dropdown-item" href="{{route('edit_content_library',$contentLibrary->id)}}">Edit</a>
+                                        <a class="dropdown-item" href="{{route('destroy_content_library',$contentLibrary->id)}}">Delete</a>
                                     </div>
                                 </h1>
                                 <p>{{$contentLibrary->description}}</p>
