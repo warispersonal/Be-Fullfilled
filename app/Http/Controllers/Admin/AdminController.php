@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use App\Constant\FileConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\User;
@@ -93,7 +94,7 @@ class AdminController extends Controller
 
         $auth = Auth::user();
         if ($request->file) {
-            $auth->profile = GenericController::saveImageSameModel($request, 'file', env('ADMIN_IMAGES'));
+            $auth->profile = GenericController::saveImageSameModel($request, 'file', FileConstant::ADMIN_IMAGES);
         }
         $auth->name = $request->name;
         $auth->email = $request->email;

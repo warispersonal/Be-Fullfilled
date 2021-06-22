@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use App\Http\Controllers\GenericController;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,12 +29,12 @@ class Podcast extends Model
 
     public function getImageAttribute()
     {
-        return $this->getImage($this->image_id, env('PODCASTS_IMAGES'));
+        return $this->getImage($this->image_id, FileConstant::PODCASTS_IMAGES);
     }
 
     public function getMediaAttribute()
     {
-        return $this->getMedia($this->media_id, env('PODCASTS_MEDIA'));
+        return $this->getMedia($this->media_id, FileConstant::PODCASTS_MEDIA);
     }
 
 }

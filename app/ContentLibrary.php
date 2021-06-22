@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use App\Http\Controllers\GenericController;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,12 +25,12 @@ class ContentLibrary extends Model
 
     public function getImageAttribute()
     {
-        return $this->getImage($this->image_id, env('CONTENT_LIBRARY_IMAGES'));
+        return $this->getImage($this->image_id, FileConstant::CONTENT_LIBRARY_IMAGES);
     }
 
     public function getMediaAttribute()
     {
-        return $this->getMedia($this->media_id, env('CONTENT_LIBRARY_MEDIA'));
+        return $this->getMedia($this->media_id, FileConstant::CONTENT_LIBRARY_MEDIA);
     }
 
     public function tags()

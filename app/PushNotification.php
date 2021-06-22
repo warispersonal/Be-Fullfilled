@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use Illuminate\Database\Eloquent\Model;
 
 class PushNotification extends Model
@@ -22,7 +23,7 @@ class PushNotification extends Model
 
     public function getImageAttribute()
     {
-        return $this->getImage($this->image_id, env('PUSH_NOTIFICATION_IMAGES'));
+        return $this->getImage($this->image_id, FileConstant::PUSH_NOTIFICATION_IMAGES);
     }
 
 }

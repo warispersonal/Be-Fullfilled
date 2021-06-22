@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\FileConstant;
 use App\ContentLibrary;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
@@ -44,8 +45,8 @@ class ContentLibraryController extends Controller
             'file' => 'required|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
             'link' => $rules,
         ]);
-        $image = GenericController::saveImage($request, 'file', env('CONTENT_LIBRARY_IMAGES'));
-        $media = GenericController::saveMediaFile($request, 'link', env('CONTENT_LIBRARY_MEDIA'), $request->fileType);
+        $image = GenericController::saveImage($request, 'file', FileConstant::CONTENT_LIBRARY_IMAGES);
+        $media = GenericController::saveMediaFile($request, 'link', FileConstant::CONTENT_LIBRARY_MEDIA, $request->fileType);
 
         $contentLibrary = new ContentLibrary();
         $contentLibrary->title = $request->title;
@@ -93,11 +94,11 @@ class ContentLibraryController extends Controller
         ]);
         $contentLibrary = ContentLibrary::find($id);
         if ($request->has('file')) {
-            $image = GenericController::saveImage($request, 'file', env('CONTENT_LIBRARY_IMAGES'));
+            $image = GenericController::saveImage($request, 'file', FileConstant::CONTENT_LIBRARY_IMAGES);
             $contentLibrary->image_id = $image->id ?? null;
         }
         if ($request->has('file')) {
-            $media = GenericController::saveMediaFile($request, 'link', env('CONTENT_LIBRARY_MEDIA'), $request->fileType);
+            $media = GenericController::saveMediaFile($request, 'link', FileConstant::CONTENT_LIBRARY_MEDIA, $request->fileType);
             $contentLibrary->media_id = $media->id ?? null;
         }
         $contentLibrary->title = $request->title;

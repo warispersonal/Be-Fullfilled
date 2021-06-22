@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\FileConstant;
 use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
@@ -59,8 +60,8 @@ class FlipTheSwitchController extends Controller
             'link' => $rules,
         ]);
 
-        $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
-        $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'),$request->fileType);
+        $image = GenericController::saveImage($request, 'file', FileConstant::FLIP_THE_SWITCH_IMAGES);
+        $media = GenericController::saveMediaFile($request, 'link', FileConstant::FLIP_THE_SWITCH_MEDIA,$request->fileType);
         $flipTheSwitch = new FlipTheSwitch();
         $flipTheSwitch->title = $request->title;
         $flipTheSwitch->date = $this->changeDateFormat($request->date);
@@ -122,11 +123,11 @@ class FlipTheSwitchController extends Controller
         $flipTheSwitch = FlipTheSwitch::find($id);
 
         if($request->has('file')){
-            $image = GenericController::saveImage($request, 'file', env('FLIP_THE_SWITCH_IMAGES'));
+            $image = GenericController::saveImage($request, 'file', FileConstant::FLIP_THE_SWITCH_IMAGES);
             $flipTheSwitch->image_id = $image->id ?? null;
         }
         if($request->has('link')){
-            $media = GenericController::saveMediaFile($request, 'link', env('FLIP_THE_SWITCH_MEDIA'),$request->fileType);
+            $media = GenericController::saveMediaFile($request, 'link', FileConstant::FLIP_THE_SWITCH_MEDIA,$request->fileType);
             $flipTheSwitch->media_id = $media->id ?? null;
         }
         $flipTheSwitch->title = $request->title;

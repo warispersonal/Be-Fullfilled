@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\FileConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\PodcastsRequest;
@@ -57,8 +58,8 @@ class PodcastController extends Controller
             'file' => 'mimes:jpg,jpeg,png,bmp,tiff|max:4096',
             'link' => $rules,
         ]);
-        $image = GenericController::saveImage($request, 'file', env('PODCASTS_IMAGES'));
-        $media = GenericController::saveMediaFile($request, 'link', env('PODCASTS_MEDIA'), $request->fileType);
+        $image = GenericController::saveImage($request, 'file', FileConstant::PODCASTS_IMAGES);
+        $media = GenericController::saveMediaFile($request, 'link', FileConstant::PODCASTS_MEDIA, $request->fileType);
         $podcasts = new Podcast();
         $podcasts->title = $request->title;
         $podcasts->date = $this->changeDateFormat($request->date);;
@@ -120,11 +121,11 @@ class PodcastController extends Controller
         $podcasts = Podcast::find($id);
 
         if($request->has('file')){
-            $image = GenericController::saveImage($request, 'file', env('PODCASTS_IMAGES'));
+            $image = GenericController::saveImage($request, 'file', FileConstant::PODCASTS_IMAGES);
             $podcasts->image_id = $image->id ?? null;
         }
         if($request->has('link')){
-            $media = GenericController::saveMediaFile($request, 'link', env('PODCASTS_MEDIA'), $request->fileType);
+            $media = GenericController::saveMediaFile($request, 'link', FileConstant::PODCASTS_MEDIA, $request->fileType);
             $podcasts->media_id = $media->id ?? null;
         }
         $podcasts->title = $request->title;

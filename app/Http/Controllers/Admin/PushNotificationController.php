@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\FileConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\PushNotificationRequest;
@@ -39,7 +40,7 @@ class PushNotificationController extends Controller
      */
     public function store(PushNotificationRequest $request)
     {
-        $image = GenericController::saveImage($request, 'file', env('PUSH_NOTIFICATION_IMAGES'));
+        $image = GenericController::saveImage($request, 'file', FileConstant::PUSH_NOTIFICATION_IMAGES);
 
         $pushNotification = new PushNotification();
         $pushNotification->title = $request->title;

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -18,7 +19,7 @@ class Product extends Model
 
     public function getImageAttribute()
     {
-        return $this->getImage($this->image_id, env('PRODUCTS_IMAGES'));
+        return $this->getImage($this->image_id, FileConstant::PRODUCTS_IMAGES);
     }
 
     public function tags()

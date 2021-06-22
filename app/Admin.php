@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use App\Http\Traits\Generic;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -62,7 +63,7 @@ class Admin extends Authenticatable
 
     public function getImageAttribute($profile)
     {
-        return asset(env('ADMIN_IMAGES').'/'.$this->profile);
+        return asset(FileConstant::ADMIN_IMAGES.'/'.$this->profile);
     }
 
     public function getDateAttribute($val){

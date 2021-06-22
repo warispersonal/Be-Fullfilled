@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Constant\FileConstant;
 use Illuminate\Database\Eloquent\Model;
 
 class FlipTheSwitch extends Model
@@ -24,12 +25,12 @@ class FlipTheSwitch extends Model
 
 
     public function getImageAttribute(){
-        return $this->getImage($this->image_id, env('FLIP_THE_SWITCH_IMAGES'));
+        return $this->getImage($this->image_id, FileConstant::FLIP_THE_SWITCH_IMAGES);
     }
 
     public function getMediaAttribute()
     {
-        return $this->getMedia($this->media_id, env('FLIP_THE_SWITCH_MEDIA'));
+        return $this->getMedia($this->media_id, FileConstant::FLIP_THE_SWITCH_MEDIA);
     }
 
     public function getTypeAttribute()

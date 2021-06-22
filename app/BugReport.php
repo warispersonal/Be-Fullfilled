@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Constant\FileConstant;
 use Illuminate\Database\Eloquent\Model;
 
 class BugReport extends Model
@@ -15,7 +16,7 @@ class BugReport extends Model
 
     public function getMediaAttribute()
     {
-        return $this->getMedia($this->media_id, env('BUG_REPORT_MEDIA'));
+        return $this->getMedia($this->media_id, FileConstant::BUG_REPORT_MEDIA);
     }
 
 }

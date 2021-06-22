@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\FileConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\ProductRequest;
@@ -43,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $image = GenericController::saveImage($request, 'file', env('PRODUCTS_IMAGES'));
+        $image = GenericController::saveImage($request, 'file', FileConstant::PRODUCTS_IMAGES);
         $product = new Product();
         $product->title = $request->title;
         $product->description = $request->description;
@@ -90,7 +91,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if ($request->has('file')) {
-            $image = GenericController::saveImage($request, 'file', env('PRODUCTS_IMAGES'));
+            $image = GenericController::saveImage($request, 'file', FileConstant::PRODUCTS_IMAGES);
             $product->image_id = $image->id ?? null;
         }
         $product->title = $request->title;

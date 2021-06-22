@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\BugReport;
+use App\Constant\FileConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\BugReportRequest;
@@ -50,7 +51,7 @@ class BugReportController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
-            $media = GenericController::saveMediaFile($request, 'link', env('BUG_REPORT_MEDIA'),$request->fileType);
+            $media = GenericController::saveMediaFile($request, 'link', FileConstant::BUG_REPORT_MEDIA,$request->fileType);
             $bugReport = new BugReport();
             $bugReport->description = $request->description;
             $bugReport->media_id = $media->id ?? null;
