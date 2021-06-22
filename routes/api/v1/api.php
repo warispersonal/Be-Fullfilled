@@ -15,6 +15,7 @@ use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\PodcastsController;
 use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\RegisterController;
+use App\Http\Controllers\api\v1\ShoppingCartController;
 use App\Http\Controllers\api\v1\SocialSetupController;
 use App\Http\Controllers\api\v1\Twilio;
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
@@ -76,6 +77,12 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/', [NotesController::class, 'index']);
         Route::post('/create', [NotesController::class, 'store']);
         Route::delete('/{id}/delete', [NotesController::class, 'destroy']);
+    });
+
+    Route::prefix('/shopping-cart')->group(function () {
+        Route::get('/', [ShoppingCartController::class, 'index']);
+        Route::post('/create', [ShoppingCartController::class, 'store']);
+        Route::delete('/{id}/delete', [ShoppingCartController::class, 'destroy']);
     });
 
     /*
