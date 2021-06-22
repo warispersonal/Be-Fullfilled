@@ -121,10 +121,13 @@ class PodcastController extends Controller
         $podcasts = Podcast::find($id);
 
         if($request->has('file')){
+            $this->removeImage(FileConstant::PODCASTS_IMAGES, $podcasts->image_id);
             $image = GenericController::saveImage($request, 'file', FileConstant::PODCASTS_IMAGES);
             $podcasts->image_id = $image->id ?? null;
         }
         if($request->has('link')){
+            $this->removeMedia(FileConstant::PODCASTS_MEDIA, $podcasts->media_id);
+
             $media = GenericController::saveMediaFile($request, 'link', FileConstant::PODCASTS_MEDIA, $request->fileType);
             $podcasts->media_id = $media->id ?? null;
         }
@@ -144,7 +147,11 @@ class PodcastController extends Controller
     public function destroy($id)
     {
         $podcast = Podcast::find($id);
-        $podcast->delete();
+        if($podcast){
+            $this->removeImage(FileConstant::PODCASTS_IMAGES, $podcast->image_id);
+            $this->removeMedia(FileConstant::PODCASTS_MEDIA, $podcast->media_id);
+            $podcast->delete();
+        }
         return redirect()->route('podcast')->with('success_message', 'Podcasts successfully deleted.');
 
     }

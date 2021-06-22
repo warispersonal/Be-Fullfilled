@@ -91,6 +91,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if ($request->has('file')) {
+            $this->removeImage(FileConstant::PRODUCTS_IMAGES, $product->image_id);
             $image = GenericController::saveImage($request, 'file', FileConstant::PRODUCTS_IMAGES);
             $product->image_id = $image->id ?? null;
         }
@@ -113,8 +114,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
+        if ($product) {
+            $this->removeImage(FileConstant::PRODUCTS_IMAGES, $product->image_id);
+            $product->tags()->detach();
+            $product->delete();
+        }
         return redirect()->route('manage_store')->with('success_message', 'Product successfully destroy');
-
     }
 }
