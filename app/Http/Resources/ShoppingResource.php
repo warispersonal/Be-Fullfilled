@@ -15,6 +15,7 @@ class ShoppingResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'product_id' => $this->product_id,
             'title' => $this->product->title ?? "",
             'price' => $this->product->price ?? "",

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NotesResource;
 use App\Http\Resources\ShoppingResource;
+use App\Notes;
 use App\ShoppingCart;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
@@ -30,6 +30,12 @@ class ShoppingCartController extends Controller
 
     public function destroy($id)
     {
-
+        $shopping_cart = ShoppingCart::find($id);
+        if ($shopping_cart) {
+            $shopping_cart->delete();
+            return $this->success("Shopping Cart Deleted");
+        } else {
+            return $this->failure('Shopping Cart not found', 404);
+        }
     }
 }
