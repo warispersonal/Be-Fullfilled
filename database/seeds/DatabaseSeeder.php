@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TagSeeder::class,
             OrderStatusSeeder::class,
+        ]);
+        Admin::insert([
+            [
+                'name'=>'Admin User',
+                'email'=>'admin@gmail.com',
+                'password'=> \Illuminate\Support\Facades\Hash::make('password'),
+            ]
         ]);
     }
 }

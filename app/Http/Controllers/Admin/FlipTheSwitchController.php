@@ -123,10 +123,12 @@ class FlipTheSwitchController extends Controller
         $flipTheSwitch = FlipTheSwitch::find($id);
 
         if($request->has('file')){
+            $this->removeImage(FileConstant::FLIP_THE_SWITCH_IMAGES, $flipTheSwitch->image_id);
             $image = GenericController::saveImage($request, 'file', FileConstant::FLIP_THE_SWITCH_IMAGES);
             $flipTheSwitch->image_id = $image->id ?? null;
         }
         if($request->has('link')){
+            $this->removeMedia(FileConstant::FLIP_THE_SWITCH_MEDIA, $flipTheSwitch->media_id);
             $media = GenericController::saveMediaFile($request, 'link', FileConstant::FLIP_THE_SWITCH_MEDIA,$request->fileType);
             $flipTheSwitch->media_id = $media->id ?? null;
         }
@@ -145,8 +147,12 @@ class FlipTheSwitchController extends Controller
     public function destroy($id)
     {
         $flipTheSwitch = FlipTheSwitch::find($id);
-        $flipTheSwitch->delete();
-        return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully updated.');
+        if($flipTheSwitch){
+            $this->removeImage(FileConstant::FLIP_THE_SWITCH_IMAGES, $flipTheSwitch->image_id);
+            $this->removeMedia(FileConstant::FLIP_THE_SWITCH_MEDIA, $flipTheSwitch->media_id);
+            $flipTheSwitch->delete();
+        }
+        return redirect()->route('flip_the_switch')->with('success_message', 'Flip the switch successfully remove.');
 
     }
 }

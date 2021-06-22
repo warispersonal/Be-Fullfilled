@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\Generic;
+use App\Http\Traits\RemoveFilesTraits;
 use App\Http\Traits\RespondsWithHttpStatus;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,5 +17,7 @@ class Controller extends BaseController
     use RespondsWithHttpStatus;
 
     use Generic;
+
+    use RemoveFilesTraits;
 
 }
