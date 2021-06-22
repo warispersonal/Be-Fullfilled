@@ -94,10 +94,13 @@ class ContentLibraryController extends Controller
         ]);
         $contentLibrary = ContentLibrary::find($id);
         if ($request->has('file')) {
+            $this->removeImage(FileConstant::CONTENT_LIBRARY_IMAGES, $contentLibrary->image_id);
             $image = GenericController::saveImage($request, 'file', FileConstant::CONTENT_LIBRARY_IMAGES);
             $contentLibrary->image_id = $image->id ?? null;
         }
-        if ($request->has('file')) {
+        if ($request->has('link')) {
+
+            $this->removeMedia(FileConstant::CONTENT_LIBRARY_MEDIA, $contentLibrary->media_id);
             $media = GenericController::saveMediaFile($request, 'link', FileConstant::CONTENT_LIBRARY_MEDIA, $request->fileType);
             $contentLibrary->media_id = $media->id ?? null;
         }
@@ -113,7 +116,12 @@ class ContentLibraryController extends Controller
     public function destroy($id)
     {
         $contentLibrary = ContentLibrary::find($id);
-        $contentLibrary->delete();
+        if($contentLibrary){
+            $this->removeImage(FileConstant::CONTENT_LIBRARY_IMAGES, $contentLibrary->image_id);
+            $this->removeMedia(FileConstant::CONTENT_LIBRARY_MEDIA, $contentLibrary->media_id);
+            $contentLibrary->tags()->detach();
+            $contentLibrary->delete();
+        }
         return redirect()->route('content_library')->with('success_message', 'Content library successfully deleted.');
 
     }
