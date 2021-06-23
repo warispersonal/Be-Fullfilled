@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\FlipTheSwitchController;
 use App\Http\Controllers\api\v1\BugReportController;
 use App\Http\Controllers\api\v1\ContactUsController;
 use App\Http\Controllers\api\v1\ContentLibraryController;
+use App\Http\Controllers\api\v1\DailyCheckQuestionController;
 use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\EmailSendController;
 use App\Http\Controllers\api\v1\FlipTheSwitchController as FlipSwitch;
@@ -18,6 +19,7 @@ use App\Http\Controllers\api\v1\RegisterController;
 use App\Http\Controllers\api\v1\ShoppingCartController;
 use App\Http\Controllers\api\v1\SocialSetupController;
 use App\Http\Controllers\api\v1\Twilio;
+use App\Http\Controllers\api\v1\UserDailyCheckQuestionController;
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
 use App\Http\Controllers\api\v1\YourDayController;
 use Illuminate\Support\Facades\Route;
@@ -99,6 +101,27 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}/status', [WeeklyGoalsController::class, 'updateStatus']);
         Route::get('/stats/{date?}', [WeeklyGoalsController::class, 'stats']);
         Route::get('/week/{start_date?}/{end_date?}', [WeeklyGoalsController::class, 'weeklyGoalListByDate']);
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for Daily Check Question
+    |--------------------------------------------------------------------------
+    */
+
+    Route::prefix('/daily-check-question')->group(function () {
+        Route::get('/', [DailyCheckQuestionController::class, 'index']);
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Route for User Daily Check Question
+    |--------------------------------------------------------------------------
+    */
+
+    Route::prefix('/user-daily-check-question')->group(function () {
+        Route::post('/create', [UserDailyCheckQuestionController::class, 'store']);
     });
 
     /*

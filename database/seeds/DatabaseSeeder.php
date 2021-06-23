@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TagSeeder::class,
             OrderStatusSeeder::class,
+            DailyCheckQuestionSeeder::class
         ]);
         Admin::insert([
             [
