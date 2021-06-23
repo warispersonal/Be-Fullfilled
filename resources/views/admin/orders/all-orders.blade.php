@@ -26,6 +26,7 @@
                     <th>Date</th>
                     <th>User Name</th>
                     <th>Product Name</th>
+                    <th>Price</th>
                     <th>Address</th>
                     <th>Shipping Status</th>
                     <th></th>
@@ -59,11 +60,13 @@
                             <div class="UserName-Head">
 
                                 <div class="headeright">
-                                    <h2>{{$order->prosuct->title ?? ""}}</h2>
-                                    <h3>${{$order->total_price ?? ""}}</h3>
+                                    <h2>{{$order->product->title ?? ""}}</h2>
                                 </div>
 
                             </div>
+                        </td>
+                        <td>
+                            ${{$order->total_price ?? ""}}
                         </td>
 
                         <td>
