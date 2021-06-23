@@ -15,13 +15,12 @@ class UserDailyCheckQuestionController extends Controller
         $daily_check_question_id = $request->question_id;
         $status = $request->status;
         $user_id = Auth::id();
-        $user_daily_check_questions = UserDailyCheckQuestion::where('daily_check_question_id', $daily_check_question_id)->where("user_id", $user_id)->get()->first();
-        if($user_daily_check_questions){
+        $user_daily_check_questions = UserDailyCheckQuestion::where('daily_check_question_id', $daily_check_question_id)->where("user_id", $user_id)->where('date', now()->format('Y-m-d'))->get()->first();
+        if ($user_daily_check_questions) {
             $user_daily_check_questions->status = $status;
             $user_daily_check_questions->save();
             return $this->success("User Check Question Updated", new UserDailyCheckQuestionResource($user_daily_check_questions));
-        }
-        else{
+        } else {
             $user_daily_check_questions = new UserDailyCheckQuestion();
             $user_daily_check_questions->daily_check_question_id = $daily_check_question_id;
             $user_daily_check_questions->status = $status;
