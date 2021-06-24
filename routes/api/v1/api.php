@@ -179,7 +179,7 @@ Route::middleware('auth:api')->group(function () {
 
 
     Route::prefix('/order')->group(function () {
-    Route::get('/{status_id?}', [OrderController::class, 'index']);
+    Route::get('/{status_id?}/{limit?}', [OrderController::class, 'index']);
     Route::get('/{id}/details', [OrderController::class, 'show']);
     });
 
@@ -229,6 +229,6 @@ Route::get('user/list', [RegisterController::class, 'users']);
 |--------------------------------------------------------------------------
 */
 Route::prefix('/products')->group(function () {
-    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/{limit?}', [ProductController::class, 'index']);
     Route::get('/{id}/details', [ProductController::class, 'show']);
 });

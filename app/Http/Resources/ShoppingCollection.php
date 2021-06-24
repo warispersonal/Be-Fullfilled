@@ -18,7 +18,7 @@ class ShoppingCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'carts' => ShoppingResource::collection($this->collection)
+            'data' => ShoppingResource::collection($this->collection)
         ];
     }
 }

@@ -12,7 +12,7 @@ class FlipTheSwitchCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'flip_the_switches' => FlipTheSwitchResource::collection($this->collection)
+            'data' => FlipTheSwitchResource::collection($this->collection)
         ];
     }
 }

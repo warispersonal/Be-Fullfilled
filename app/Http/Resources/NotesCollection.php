@@ -18,7 +18,7 @@ class NotesCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'notes' => NotesResource::collection($this->collection)
+            'data' => NotesResource::collection($this->collection)
         ];
     }
 }

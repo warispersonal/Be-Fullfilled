@@ -18,7 +18,7 @@ class PodcastsCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'podcasts' => PodcastsResource::collection($this->collection)
+            'data' => PodcastsResource::collection($this->collection)
         ];
     }
 }

@@ -18,7 +18,7 @@ class DailyQuestionCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'questions' => DailyQuestionResource::collection($this->collection)
+            'data' => DailyQuestionResource::collection($this->collection)
         ];
     }
 }

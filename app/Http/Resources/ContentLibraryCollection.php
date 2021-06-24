@@ -18,7 +18,7 @@ class ContentLibraryCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'content_library' => PodcastsResource::collection($this->collection)
+            'data' => PodcastsResource::collection($this->collection)
         ];
     }
 }
