@@ -205,8 +205,8 @@ Route::post('password/reset', [RegisterController::class, 'resetPassword']);
 */
 
 Route::get('flip-the-switch/{limit?}', [FlipSwitch::class, 'index']);
-Route::get('content-library', [ContentLibraryController::class, 'index']);
-Route::get('podcasts', [PodcastsController::class, 'index']);
+Route::get('content-library/{limit?}', [ContentLibraryController::class, 'index']);
+Route::get('podcasts/{limit?}', [PodcastsController::class, 'index']);
 
 
 /*
