@@ -142,7 +142,7 @@ Route::middleware('auth:api')->group(function () {
     */
 
     Route::prefix('/questions')->group(function () {
-        Route::get('/', [DailyQuestionController::class, 'index']);
+        Route::get('/{limit?}', [DailyQuestionController::class, 'index']);
         Route::post('/create', [DailyQuestionController::class, 'store']);
     });
 
@@ -152,7 +152,7 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::prefix('/day')->group(function () {
-        Route::get('/', [YourDayController::class, 'index']);
+        Route::get('/{limit?}', [YourDayController::class, 'index']);
         Route::post('/create', [YourDayController::class, 'store']);
         Route::get('/{date?}', [YourDayController::class, 'show']);
     });

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Http\Traits\PaginationTraits;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class DailyQuestionCollection extends ResourceCollection
+class YourDayCollection extends ResourceCollection
 {
     use PaginationTraits;
     /**
@@ -18,7 +18,7 @@ class DailyQuestionCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'questions' => DailyQuestionResource::collection($this->collection)
+            'days' => DailyQuestionResource::collection($this->collection)
         ];
     }
 }

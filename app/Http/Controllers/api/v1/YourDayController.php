@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\YourDayRequest;
+use App\Http\Resources\YourDayCollection;
 use App\Http\Resources\YourDayResource;
 use App\YourDay;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class YourDayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($limit = 10)
     {
-        $yourDays = Auth::user()->yourDays()->get();
-        return $this->success("Your days list", YourDayResource::collection($yourDays));
+        $yourDays = Auth::user()->yourDays()->paginate($limit);
+        return $this->success("Your days list", new YourDayCollection($yourDays));
     }
 
 
