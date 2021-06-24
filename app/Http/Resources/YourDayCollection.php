@@ -18,7 +18,7 @@ class YourDayCollection extends ResourceCollection
     {
         return [
             'pagination' => $this->pagination_template($this),
-            'days' => DailyQuestionResource::collection($this->collection)
+            'days' => YourDayResource::collection($this->collection)
         ];
     }
 }
