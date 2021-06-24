@@ -76,13 +76,13 @@ Route::middleware('auth:api')->group(function () {
     */
 
     Route::prefix('/notes')->group(function () {
-        Route::get('/', [NotesController::class, 'index']);
+        Route::get('/{limit?}', [NotesController::class, 'index']);
         Route::post('/create', [NotesController::class, 'store']);
         Route::delete('/{id}/delete', [NotesController::class, 'destroy']);
     });
 
     Route::prefix('/shopping-cart')->group(function () {
-        Route::get('/', [ShoppingCartController::class, 'index']);
+        Route::get('/{limit?}', [ShoppingCartController::class, 'index']);
         Route::post('/create', [ShoppingCartController::class, 'store']);
         Route::delete('/{id}/delete', [ShoppingCartController::class, 'destroy']);
     });

@@ -19,7 +19,7 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($limit = 15)
+    public function index($limit = 10)
     {
         $notes = Auth::user()->notes()->paginate($limit);
         return $this->success("Notes List", new NotesCollection($notes));
