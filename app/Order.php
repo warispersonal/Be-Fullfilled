@@ -9,12 +9,8 @@ class Order extends Model
 {
     use Generic;
     protected $fillable = [
-        'price',
-        'quantity',
-        'total_price',
         'shipping_address',
         'order_status_id',
-        'product_id',
         'user_id',
     ];
 
@@ -35,5 +31,9 @@ class Order extends Model
 
     public function getDateAttribute($val){
         return $this->getCustomizeDate($this->created_at);
+    }
+
+    public function order_products(){
+        return $this->hasMany(OrderProduct::class);
     }
 }
