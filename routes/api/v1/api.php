@@ -76,13 +76,13 @@ Route::middleware('auth:api')->group(function () {
     */
 
     Route::prefix('/notes')->group(function () {
-        Route::get('/', [NotesController::class, 'index']);
+        Route::get('/{limit?}', [NotesController::class, 'index']);
         Route::post('/create', [NotesController::class, 'store']);
         Route::delete('/{id}/delete', [NotesController::class, 'destroy']);
     });
 
     Route::prefix('/shopping-cart')->group(function () {
-        Route::get('/', [ShoppingCartController::class, 'index']);
+        Route::get('/{limit?}', [ShoppingCartController::class, 'index']);
         Route::post('/create', [ShoppingCartController::class, 'store']);
         Route::delete('/{id}/delete', [ShoppingCartController::class, 'destroy']);
     });
@@ -142,7 +142,7 @@ Route::middleware('auth:api')->group(function () {
     */
 
     Route::prefix('/questions')->group(function () {
-        Route::get('/', [DailyQuestionController::class, 'index']);
+        Route::get('/{limit?}', [DailyQuestionController::class, 'index']);
         Route::post('/create', [DailyQuestionController::class, 'store']);
     });
 
@@ -152,7 +152,7 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::prefix('/day')->group(function () {
-        Route::get('/', [YourDayController::class, 'index']);
+        Route::get('/{limit?}', [YourDayController::class, 'index']);
         Route::post('/create', [YourDayController::class, 'store']);
         Route::get('/{date?}', [YourDayController::class, 'show']);
     });
@@ -179,7 +179,7 @@ Route::middleware('auth:api')->group(function () {
 
 
     Route::prefix('/order')->group(function () {
-    Route::get('/{status_id?}', [OrderController::class, 'index']);
+    Route::get('/{status_id?}/{limit?}', [OrderController::class, 'index']);
     Route::get('/{id}/details', [OrderController::class, 'show']);
     });
 
@@ -204,9 +204,9 @@ Route::post('password/reset', [RegisterController::class, 'resetPassword']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('flip-the-switch', [FlipSwitch::class, 'index']);
-Route::get('content-library', [ContentLibraryController::class, 'index']);
-Route::get('podcasts', [PodcastsController::class, 'index']);
+Route::get('flip-the-switch/{limit?}', [FlipSwitch::class, 'index']);
+Route::get('content-library/{limit?}', [ContentLibraryController::class, 'index']);
+Route::get('podcasts/{limit?}', [PodcastsController::class, 'index']);
 
 
 /*
@@ -229,6 +229,6 @@ Route::get('user/list', [RegisterController::class, 'users']);
 |--------------------------------------------------------------------------
 */
 Route::prefix('/products')->group(function () {
-    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/{limit?}', [ProductController::class, 'index']);
     Route::get('/{id}/details', [ProductController::class, 'show']);
 });

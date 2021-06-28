@@ -4,9 +4,11 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NotesRequest;
+use App\Http\Resources\NotesCollection;
 use App\Http\Resources\NotesResource;
 use App\Notes;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,10 +19,10 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($limit = 10)
     {
-        $notes = Auth::user()->notes()->get();
-        return $this->success("Notes List", NotesResource::collection($notes));
+        $notes = Auth::user()->notes()->paginate($limit);
+        return $this->success("Notes List", new NotesCollection($notes));
     }
 
 

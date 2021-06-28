@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Order;
 use App\Product;
@@ -18,10 +19,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($limit = 10)
     {
-        $products = Product::all();
-        return $this->success("Products List", ProductResource::collection($products));
+        $products = Product::paginate($limit);
+        return $this->success("Products List", new ProductCollection($products));
     }
 
     public function show($id)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\v1;
 use App\DailyQuestion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DailyQuestionRequest;
+use App\Http\Resources\DailyQuestionCollection;
 use App\Http\Resources\DailyQuestionResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,10 +17,10 @@ class DailyQuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($limit = 10)
     {
-        $question = DailyQuestion::all();
-        return $this->success("Question List", DailyQuestionResource::collection($question));
+        $question = DailyQuestion::paginate($limit);
+        return $this->success("Question List", new DailyQuestionCollection($question));
 
     }
 

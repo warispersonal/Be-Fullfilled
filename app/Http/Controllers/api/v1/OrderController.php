@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function index($status = null)
+    public function index($status = null, $limit = 10)
     {
         $user = Auth::user();
         $orders = [];
         if ($status == null) {
-            $orders = $user->orders;
+            $orders = $user->orders()->paginate($limit);
         }
         if ($status != null) {
-            $orders = $user->orders()->where('order_status_id', $status)->get();
+            $orders = $user->orders()->where('order_status_id', $status)->paginate($limit);
         }
-        return $this->success("User Order List", OrderResource::collection($orders));
+        return $this->success("User Order List", new OrderCollection($orders));
     }
 
     public function place_order(Request $request)

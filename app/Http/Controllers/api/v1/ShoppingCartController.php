@@ -4,18 +4,21 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NotesResource;
+use App\Http\Resources\ShoppingCollection;
 use App\Http\Resources\ShoppingResource;
 use App\Notes;
 use App\ShoppingCart;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
 {
-    public function index()
+    public function index($limit = 10)
     {
-        $carts = ShoppingCart::where('user_id', Auth::id())->get();
-        return $this->success('Shopping Cart List', ShoppingResource::collection($carts));
+
+        $carts = ShoppingCart::where('user_id', Auth::id())->paginate($limit);
+        return $this->success('Shopping Cart List', new ShoppingCollection($carts));
     }
 
     public function store(Request $request)
