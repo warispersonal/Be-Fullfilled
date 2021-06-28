@@ -57,7 +57,7 @@
                                  class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{route('order_details',$order->id)}}">
+                                <a class="dropdown-item" href="{{route('order_details', $order->id)}}">
                                     Order Details
                                 </a>
                             </div>

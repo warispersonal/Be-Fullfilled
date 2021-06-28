@@ -4,6 +4,7 @@
 
     <div class="AllUser-Dashboard">
 
+        <input type="hidden" id="order_id" value="{{$order->id ?? 0}}"/>
         <div class="AllUser-Head">
 
             <div class="UserLeft">
@@ -43,17 +44,16 @@
                         {{$order->shipping_address ?? ""}}
                     </td>
                     <td>
-                        {{$order->orderStatus->name ?? ""}}
+                        <select class="form-control" id="order_status">
+                            @foreach($order_status  as $status)
+                                <option value="{{$status->id ?? 0}}">{{$status->name ?? ""}}</option>
+                            @endforeach
+                        </select>
                     </td>
                     <td>
-                        <img src="{{asset('assets/images/table-dotted.svg')}}"
-                             class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{route('order_details',$order->id)}}">
-                                Order Details
-                            </a>
-                        </div>
+                        <button type="button" onclick="update_order_status()" class="btn btn-outline-warning">Update
+                            Status
+                        </button>
                     </td>
                 </tr>
                 </tbody>
@@ -61,38 +61,38 @@
             </table>
         </div>
 
+
         <div class="main-tab">
             <nav>
                 <div class="nav tablist" id="nav-tab" role="tablist">
 
                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                       aria-controls="nav-home" aria-selected="true">Order Details</a>
+                       aria-controls="nav-home" aria-selected="true">All Products</a>
 
-{{--                    <a class="nav-item nav-link " id="nav-profile-tab" data-toggle="tab" href="#nav-profile"--}}
-{{--                       role="tab" aria-controls="nav-profile" aria-selected="false">--}}
-{{--                        View Activity</a>--}}
+                    {{--                    <a class="nav-item nav-link " id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">--}}
+                    {{--                        View Activity</a>--}}
 
-{{--                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"--}}
-{{--                       aria-controls="nav-contact" aria-selected="false">Contact</a>--}}
+                    {{--                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>--}}
 
                 </div>
             </nav>
         </div>
+
     </div>
 
     <div class="tab-content" id="nav-tabContent">
 
-        <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="AllUser-Dashboard">
 
                 <div class="AllUser-Head">
 
                     <div class="UserLeft">
-                        <h1>All Partners <span>12</span></h1>
+                        <h1>All Products <span>{{count($order->order_products ?? 0)}}</span></h1>
                     </div>
 
                     <div class="Userright">
-                        <a href="#">View All</a>
+                        {{--                        <a href="#">View All</a>--}}
                     </div>
 
                 </div>
@@ -102,134 +102,38 @@
 
                         <thead>
                         <tr>
-                            <th>Registration Date</th>
-                            <th>User Name</th>
-                            <th>Locations</th>
-                            <th>Address</th>
-                            <th>ZIP COde</th>
-                            <th></th>
+                            <th>Product Title</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        @foreach($order->order_products  as $order)
+                            <tr class="table-border">
+                                <td>
+                                    <div class="UserName-Head">
 
-                        <tr class="table-border">
+                                        <div class="headeright">
+                                            <h2>{{$order->product->title ?? ""}}</h2>
+                                        </div>
 
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
                                     </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
+                                </td>
+                                <td>
+                                    {{$order->price ?? 0}}
+                                </td>
+                                <td>
+                                    {{$order->quantity ?? 0}}
+                                </td>
+                                <td>
+                                    {{$order->total_price ?? 0}}
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
+
 
                     </table>
                 </div>
@@ -237,7 +141,7 @@
             </div>
         </div>
 
-        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
+        <div class="tab-pane fade " id="nav-profile" role="tabpanel"
              aria-labelledby="nav-profile-tab">
             <div class="AllUser-Dashboard activitybg">
                 <div class="ViewActivity-Con">
@@ -254,163 +158,25 @@
             </div>
         </div>
 
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <div class="AllUser-Dashboard">
-
-                <div class="AllUser-Head">
-
-                    <div class="UserLeft">
-                        <h1>All Partners with <span>18</span></h1>
-                    </div>
-
-                    <div class="Userright">
-                        <a href="#">View All</a>
-                    </div>
-
-                </div>
-
-                <div class="main-Table">
-                    <table class="table">
-
-                        <thead>
-                        <tr>
-                            <th>Registration Date</th>
-                            <th>User Name</th>
-                            <th>Locations</th>
-                            <th>Address</th>
-                            <th>ZIP COde</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        <tr class="table-border">
-
-                            <td>October 25, 2019</td>
-
-                            <td>
-                                <div class="UserName-Head">
-
-                                    <div class="headeleft">
-                                        <img src="assets/images/Kristin Watson.png" alt=""/>
-                                    </div>
-
-                                    <div class="headeright">
-                                        <h2>Kristin Watson</h2>
-                                        <h3>(217) 555-0113</h3>
-                                    </div>
-
-                                </div>
-                            </td>
-
-                            <td>Austin</td>
-
-                            <td>4517 Washington Ave.<br /> Manchester, Kentucky 39495</td>
-
-                            <td>2312</td>
-
-                            <td><img src="assets/images/table-dotted.svg" alt=""/></td>
-
-                        </tr>
-
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-        </div>
 
     </div>
 
 
-@endsection
 
+@endsection
+@section('js')
+    <script>
+        document.getElementById("order_status").value = "{{$order_status_id ?? 0}}";
+
+        function update_order_status() {
+            if (confirm("Are you sure?")) {
+                let id = $("#order_id").val();
+                let status = $("#order_status").val();
+                let url = '{{ url("admin/update/order/{id}/{status}") }}';
+                url = url.replace("{id}", id)
+                url = url.replace("{status}", status)
+                window.location.href = url
+            }
+        }
+    </script>
+@endsection

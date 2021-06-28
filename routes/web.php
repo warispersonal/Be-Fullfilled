@@ -71,6 +71,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
         Route::get('/all-orders', [OrderController::class, 'index'])->name('all_orders');
         Route::get('/order/{id}/details', [OrderController::class, 'show'])->name('order_details');
+        Route::get('/update/order/{id}/{status}', [OrderController::class, 'update_order_status'])->name('update_order_status');
 
         Route::get('/user-profile-detail/{id?}', [AdminController::class, 'user_profile_detail'])->name('user_profile_detail');
 
