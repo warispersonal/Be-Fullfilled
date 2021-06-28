@@ -168,8 +168,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/contact/us', [ContactUsController::class, 'store']);
 
 
-
-
     /*
     |--------------------------------------------------------------------------
     | Route for checkout, user orders
@@ -179,9 +177,10 @@ Route::middleware('auth:api')->group(function () {
 
 
     Route::prefix('/order')->group(function () {
-    Route::get('/{status_id?}/{limit?}', [OrderController::class, 'index']);
-    Route::get('/{id}/details', [OrderController::class, 'show']);
+        Route::get('/{status_id?}/{limit?}', [OrderController::class, 'index']);
+        Route::get('/{id}/details', [OrderController::class, 'show']);
     });
+
 
 });
 
@@ -232,3 +231,5 @@ Route::prefix('/products')->group(function () {
     Route::get('/{limit?}', [ProductController::class, 'index']);
     Route::get('/{id}/details', [ProductController::class, 'show']);
 });
+
+Route::get('/show/order/{id}', [OrderController::class, 'show']);
