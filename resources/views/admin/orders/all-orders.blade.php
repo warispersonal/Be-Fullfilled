@@ -25,66 +25,46 @@
                 <tr>
                     <th>Date</th>
                     <th>User Name</th>
-                    <th>Product Name</th>
                     <th>Address</th>
                     <th>Shipping Status</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach($orders as $order)
                     <tr class="table-border">
-
                         <td>{{$order->date}}</td>
-
                         <td>
-
                             <div class="UserName-Head">
-
                                 <div class="headeleft">
                                     <img class="order-image" src="{{$order->user->profile ?? ""}}" alt=""/>
                                 </div>
-
                                 <div class="headeright">
                                     <h2>{{$order->user->name ?? ""}}</h2>
                                     <h3>{{$order->user->phone_number ?? ""}}</h3>
                                 </div>
-
-                            </div>
-
-                        </td>
-
-                        <td>
-                            <div class="UserName-Head">
-
-                                <div class="headeright">
-                                    <h2>{{$order->prosuct->title ?? ""}}</h2>
-                                    <h3>${{$order->total_price ?? ""}}</h3>
-                                </div>
-
                             </div>
                         </td>
-
                         <td>
                             {{$order->shipping_address ?? ""}}
                         </td>
-
-                        <td>{{$order->orderStatus->name ?? ""}}</td>
+                        <td>
+                            {{$order->orderStatus->name ?? ""}}
+                        </td>
                         <td>
                             <img src="{{asset('assets/images/table-dotted.svg')}}"
                                  class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
-{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
-{{--                                <a class="dropdown-item" href="{{route('user_profile_detail',$order->id)}}">Change Status</a>--}}
-{{--                            </div>--}}
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{route('order_details',$order->id)}}">
+                                    Order Details
+                                </a>
+                            </div>
                         </td>
-
                     </tr>
                 @endforeach
-
                 </tbody>
-
             </table>
         </div>
     </div>

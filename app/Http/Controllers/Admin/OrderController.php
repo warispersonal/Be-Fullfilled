@@ -11,4 +11,8 @@ class OrderController extends Controller
         $orders = Order::all();
         return view('admin.orders.all-orders',compact('orders'));
     }
+    public function show($id){
+        $order = Order::find($id);
+        return view('admin.orders.order_details',compact('order'));
+    }
 }
