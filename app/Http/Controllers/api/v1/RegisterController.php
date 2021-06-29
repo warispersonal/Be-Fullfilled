@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Events\UserConfigurationEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\ResetPasswordRequest;
@@ -65,6 +66,7 @@ class RegisterController extends Controller
                 $user->save();
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
+                event(new UserConfigurationEvent($user));
                 return $this->success("Registration successful", $response);
             } else {
                 return $this->failure('Only jpeg, jpg, png file required', 404);
