@@ -66,9 +66,18 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [RegisterController::class, 'profile']);
-        Route::get('/configuration', [ConfigurationController::class, 'show']);
+
         Route::post('/update/profile', [RegisterController::class, 'update_profile']);
         Route::delete('/logout', [RegisterController::class, 'logout']);
+    });
+    /*
+    |--------------------------------------------------------------------------
+    | User Configuration
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('/configuration')->group(function () {
+        Route::get('/', [ConfigurationController::class, 'show']);
+        Route::post('/update', [ConfigurationController::class, 'update']);
     });
 
     /*

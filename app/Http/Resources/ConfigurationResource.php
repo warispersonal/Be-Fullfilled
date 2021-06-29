@@ -16,7 +16,8 @@ class ConfigurationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'general_notification' => $this->push_notification == 0 ? false : true,
+            'push_notification' => $this->push_notification == 0 ? false : true,
+            'general_notification' => $this->general_notification == 0 ? false : true,
             'partner_invitation' => $this->partner_invitation == 0 ? false : true,
             'location_access' => $this->location_access == 0 ? false : true,
             'user_id' => $this->user_id,

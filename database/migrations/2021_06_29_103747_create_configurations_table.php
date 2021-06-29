@@ -15,10 +15,10 @@ class CreateConfigurationsTable extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->boolean('push_notification')->default(0);
-            $table->boolean('general_notification')->default(1);
-            $table->boolean('partner_invitation')->default(1);
-            $table->boolean('location_access')->default(1);
+            $table->integer('push_notification')->default(0);
+            $table->integer('general_notification')->default(1);
+            $table->integer('partner_invitation')->default(1);
+            $table->integer('location_access')->default(1);
             $table->bigInteger('user_id');
             $table->timestamps();
         });
