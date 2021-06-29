@@ -90,4 +90,9 @@ class User extends Authenticatable
     public function daily_check_questions(){
         return $this->hasMany(DailyCheckQuestion::class);
     }
+
+    public function configuration(){
+        return $this->hasOne(Configuration::class);
+    }
+
 }

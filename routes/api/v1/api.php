@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\FlipTheSwitchController;
 use App\Http\Controllers\api\v1\BugReportController;
+use App\Http\Controllers\api\v1\ConfigurationController;
 use App\Http\Controllers\api\v1\ContactUsController;
 use App\Http\Controllers\api\v1\ContentLibraryController;
 use App\Http\Controllers\api\v1\DailyCheckQuestionController;
@@ -65,6 +66,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [RegisterController::class, 'profile']);
+        Route::get('/configuration', [ConfigurationController::class, 'show']);
         Route::post('/update/profile', [RegisterController::class, 'update_profile']);
         Route::delete('/logout', [RegisterController::class, 'logout']);
     });
