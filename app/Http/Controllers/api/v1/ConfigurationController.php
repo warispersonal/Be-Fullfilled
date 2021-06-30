@@ -18,16 +18,16 @@ class ConfigurationController extends Controller
     public function update(Request $request){
         $configuration = Auth::user()->configuration;
         if($request->push_notification){
-            $configuration->push_notification = $request->push_notification == true ? 1 : 0;
+            $configuration->push_notification = $request->push_notification == "true" ? 1 : 0;
         }
         if($request->general_notification){
-            $configuration->general_notification = $request->general_notification == true ? 1 : 0;
+            $configuration->general_notification = $request->general_notification == "true" ? 1 : 0;
         }
         if($request->partner_invitation){
-            $configuration->partner_invitation = $request->partner_invitation == true ? 1 : 0;
+            $configuration->partner_invitation = $request->partner_invitation == "true" ? 1 : 0;
         }
         if($request->location_access){
-            $configuration->location_access = $request->location_access == true ? 1 : 0;
+            $configuration->location_access = $request->location_access == "true" ? 1 : 0;
         }
         $configuration->save();
         return $this->success("User configuration updated", new ConfigurationResource($configuration));
