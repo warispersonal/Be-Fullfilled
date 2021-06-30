@@ -14,6 +14,10 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
+                if($request->device_key){
+                    $user->device_key = $request->device_key ?? "";
+                    $user->save();
+                }
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
                 return $this->success('Login Successful', $response);

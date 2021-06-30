@@ -29,6 +29,7 @@ class User extends Authenticatable
         'social_account_type',
         'social_account_profile_image_url',
         'social_account_email',
+        'device_key',
     ];
 
     /**

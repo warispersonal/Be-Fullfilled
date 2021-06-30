@@ -63,6 +63,9 @@ class RegisterController extends Controller
                 $user->street_address = $request->street_address;
                 $user->profile = $imageName;
                 $user->remember_token = Str::random(10);
+                if ($request->device_key) {
+                    $user->device_key = $request->device_key ?? "";
+                }
                 $user->save();
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
@@ -155,9 +158,13 @@ class RegisterController extends Controller
                     }
                 }
             }
+            if ($request->device_key) {
+                $user->device_key = $request->device_key ?? "";
+            }
             $user->phone_number = $request->phone_number;
             $user->city = $request->city;
             $user->zipcode = $request->zipcode;
+
             $user->street_address = $request->street_address;
             $user->save();
             return $this->success('User Profile Updated', new UserResource($user));
