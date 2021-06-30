@@ -11,6 +11,7 @@ class Configuration extends Model
         'general_notification',
         'partner_invitation',
         'location_access',
+        'card_billing_id',
         'user_id',
     ];
 

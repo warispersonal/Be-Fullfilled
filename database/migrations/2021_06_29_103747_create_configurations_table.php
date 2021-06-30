@@ -19,6 +19,7 @@ class CreateConfigurationsTable extends Migration
             $table->integer('general_notification')->default(1);
             $table->integer('partner_invitation')->default(1);
             $table->integer('location_access')->default(1);
+            $table->integer('card_billing_id')->default(0);
             $table->bigInteger('user_id');
             $table->timestamps();
         });
