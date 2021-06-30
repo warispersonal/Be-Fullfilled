@@ -37,5 +37,4 @@ class ContentLibrary extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
-
 }

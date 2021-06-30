@@ -6,7 +6,6 @@ use App\Configuration;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ConfigurationResource;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
 class ConfigurationController extends Controller

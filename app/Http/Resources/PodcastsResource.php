@@ -20,7 +20,7 @@ class PodcastsResource extends JsonResource
             'date' => $this->customizeDates,
             'thumbnail' => $this->image,
             'media' => $this->media,
-            'mediaType' => $this->mediaValue,
+            'mediaType' => $this->media_type,
         ];
     }
 }

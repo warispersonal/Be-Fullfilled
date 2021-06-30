@@ -24,6 +24,7 @@ class ProductResource extends JsonResource
             'ingredient' => $this->ingredient,
             'image' => $this->image,
             'created_at' => $this->getCustomizeDate($this->created_at),
+            'tags' => TagResource::collection($this->tags)
         ];
     }
 }

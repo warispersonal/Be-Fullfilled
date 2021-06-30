@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FlipTheSwitchResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +16,7 @@ class FlipTheSwitchResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'date' => $this->customizeDates,
-            'thumbnail' => $this->image,
-            'media' => $this->media,
-            'mediaType' => $this->media_type,
-
+            'name' => $this->name,
         ];
     }
 }
