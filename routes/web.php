@@ -12,6 +12,9 @@ use App\Http\Controllers\api\v1\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'login');
+Route::get('/fcm', [PushNotificationController::class, 'fcm'])->name('fcm');
+Route::get('/notification', [PushNotificationController::class, 'sendWebNotification'])->name('fcm');
+
 
 Auth::routes();
 Route::post('login', [

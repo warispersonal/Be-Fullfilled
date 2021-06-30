@@ -16,7 +16,9 @@
         "laravel/passport": "^9.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.5",
-        "twilio/sdk": "^6.23"
+        "twilio/sdk": "^6.23",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
