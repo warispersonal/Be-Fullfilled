@@ -8,16 +8,31 @@ use App\Image;
 
 trait Media
 {
+    function url_exists($url)
+    {
+        $headers = get_headers($url);
+        if (stripos($headers[0], "200 OK")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getImage($image_id, $path)
     {
         if ($image_id == null) {
             return GenericController::thumbnail();
         } else {
             $image = Image::find($image_id);
-            if($image) {
-                return asset($path . '/' . $image->file);
+            if ($image) {
+                $exists = $this->url_exists(asset($path . '/' . $image->file));
+                if ($exists) {
+                    return asset($path . '/' . $image->file);
+                } else {
+                    return asset("thumbnail/no_image.png");
+                }
             }
-            return null;
+            return asset("thumbnail/no_image.png");
         }
     }
 
@@ -25,10 +40,10 @@ trait Media
     {
         if ($media_id != null) {
             $media = \App\Media::find($media_id);
-            if($media) {
+            if ($media) {
                 return asset($path . '/' . $media->link);
             }
-            return  null;
+            return null;
         }
         return null;
     }
@@ -58,10 +73,10 @@ trait Media
     {
         if ($this->media_id != null) {
             $media = \App\Media::find($this->media_id);
-            if($media){
+            if ($media) {
                 return $media->type;
             }
-            return  null;
+            return null;
         }
         return null;
     }
