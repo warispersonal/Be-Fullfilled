@@ -64,10 +64,25 @@ class User extends Authenticatable
     {
         return $this->hasMany(YourDay::class);
     }
+    function url_exists($url)
+    {
+        $headers = get_headers($url);
+        if (stripos($headers[0], "200 OK")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function getProfileAttribute($profile)
     {
-        return url('storage/'.$profile);
+        $url = url('storage/'.$profile);
+        $exists = $this->url_exists($url);
+        if ($exists) {
+            return $url;
+        } else {
+            return asset("thumbnail/avatar.png");
+        }
     }
 
     public function getCustomizeDatesAttribute()
