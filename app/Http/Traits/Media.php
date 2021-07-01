@@ -2,6 +2,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\GenericController;
 use App\Image;
 
@@ -13,7 +14,10 @@ trait Media
             return GenericController::thumbnail();
         } else {
             $image = Image::find($image_id);
-            return asset($path . '/' . $image->file);
+            if($image) {
+                return asset($path . '/' . $image->file);
+            }
+            return null;
         }
     }
 
@@ -21,7 +25,10 @@ trait Media
     {
         if ($media_id != null) {
             $media = \App\Media::find($media_id);
-            return asset($path . '/' . $media->link);
+            if($media) {
+                return asset($path . '/' . $media->link);
+            }
+            return  null;
         }
         return null;
     }
@@ -30,13 +37,17 @@ trait Media
     {
         if ($this->media_id != null) {
             $media = \App\Media::find($this->media_id);
-            if ($media->type == 0) {
-                return 'audio';
-            } elseif ($media->type == 1) {
-                return "video";
-            } elseif ($media->type == 2) {
-                return "pdf";
+            if ($media) {
+                if ($media->type == 0) {
+                    return 'audio';
+                } elseif ($media->type == 1) {
+                    return "video";
+                } elseif ($media->type == 2) {
+                    return "pdf";
+                }
+                return null;
             }
+
             return null;
         }
         return null;
@@ -47,7 +58,10 @@ trait Media
     {
         if ($this->media_id != null) {
             $media = \App\Media::find($this->media_id);
-            return $media->type;
+            if($media){
+                return $media->type;
+            }
+            return  null;
         }
         return null;
     }
