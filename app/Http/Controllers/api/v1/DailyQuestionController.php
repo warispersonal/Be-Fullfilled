@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\DailyQuestion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DailyQuestionRequest;
@@ -17,7 +18,7 @@ class DailyQuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($limit = 10)
+    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
         $question = DailyQuestion::paginate($limit);
         return $this->success("Question List", new DailyQuestionCollection($question));

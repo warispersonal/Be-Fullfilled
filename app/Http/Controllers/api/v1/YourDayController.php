@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\YourDayRequest;
 use App\Http\Resources\YourDayCollection;
@@ -18,7 +19,7 @@ class YourDayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($limit = 10)
+    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
         $yourDays = Auth::user()->yourDays()->paginate($limit);
         return $this->success("Your days list", new YourDayCollection($yourDays));

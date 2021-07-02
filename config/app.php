@@ -228,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'FileConstant' => \App\Constant\FileConstant::class,
         'TwilioConstant' => \App\Constant\TwilioConstant::class,
+        'ProjectConstant' => \App\Constant\ProjectConstant::class,
     ],
 
 ];

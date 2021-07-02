@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NotesResource;
 use App\Http\Resources\ShoppingCollection;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
 {
-    public function index($limit = 10)
+    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
 
         $carts = ShoppingCart::where('user_id', Auth::id())->paginate($limit);

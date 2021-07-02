@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
 use App\Http\Resources\ProductCollection;
@@ -19,7 +20,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($limit = 10)
+    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
         $products = Product::paginate($limit);
         return $this->success("Products List", new ProductCollection($products));

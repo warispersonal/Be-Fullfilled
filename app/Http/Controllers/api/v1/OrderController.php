@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function index($status = null, $limit = 10)
+    public function index($status = null, $limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
         $user = Auth::user();
         $orders = [];

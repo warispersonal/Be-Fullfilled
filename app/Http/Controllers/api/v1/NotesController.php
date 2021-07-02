@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NotesRequest;
 use App\Http\Resources\NotesCollection;
@@ -19,7 +20,7 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($limit = 10)
+    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
         $notes = Auth::user()->notes()->paginate($limit);
         return $this->success("Notes List", new NotesCollection($notes));
