@@ -4,7 +4,7 @@
     <div class="AllUser-Dashboard">
         <div class="AllUser-Head">
             <div class="UserLeft">
-                <h1>All Users <span>123</span></h1>
+                <h1>All Users <span>{{count($users)}}</span></h1>
             </div>
             <div class="Userright">
                 <a href="#">View All</a>

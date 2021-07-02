@@ -12,6 +12,7 @@ use App\Http\Controllers\api\v1\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', 'login');
+Route::redirect('/admin', 'admin/users');
 
 Auth::routes();
 Route::post('login', [

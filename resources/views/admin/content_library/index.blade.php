@@ -37,7 +37,6 @@
                                     </div>
                                 </h1>
                                 <p>{{$contentLibrary->description}}</p>
-                                {{--                                <h2>11 Lessons</h2>--}}
                             </div>
 
                         </div>
