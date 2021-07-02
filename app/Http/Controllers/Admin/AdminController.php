@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Admin;
 use App\Constant\FileConstant;
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\User;
@@ -15,7 +16,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.index', compact('users'));
     }
 

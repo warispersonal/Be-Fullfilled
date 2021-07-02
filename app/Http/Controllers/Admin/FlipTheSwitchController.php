@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constant\FileConstant;
+use App\Constant\ProjectConstant;
 use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
@@ -20,7 +21,7 @@ class FlipTheSwitchController extends Controller
      */
     public function index()
     {
-        $flipTheSwitches = FlipTheSwitch::all();
+        $flipTheSwitches = FlipTheSwitch::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.flip_the_switch.index', compact('flipTheSwitches'));
     }
 

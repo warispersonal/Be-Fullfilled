@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constant\FileConstant;
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\PodcastsRequest;
@@ -20,7 +21,7 @@ class PodcastController extends Controller
      */
     public function index()
     {
-        $podcasts = Podcast::all();
+        $podcasts = Podcast::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.podcast.index', compact('podcasts'));
     }
 

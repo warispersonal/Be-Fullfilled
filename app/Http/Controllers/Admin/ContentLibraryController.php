@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constant\FileConstant;
+use App\Constant\ProjectConstant;
 use App\ContentLibrary;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
@@ -15,7 +16,7 @@ class ContentLibraryController extends Controller
 {
     public function index()
     {
-        $contentLibraries = ContentLibrary::all();
+        $contentLibraries = ContentLibrary::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.content_library.index', compact('contentLibraries'));
     }
 

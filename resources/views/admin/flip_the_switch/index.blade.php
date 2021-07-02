@@ -38,8 +38,10 @@
                                             Action
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{route('edit_flip_the_switch',$flipTheSwitch->id )}}">Edit</a>
-                                            <a class="dropdown-item"  onclick="return confirm('Are you sure?')" href="{{route('destroy_flip_the_switch', $flipTheSwitch)}}">Delete</a>
+                                            <a class="dropdown-item"
+                                               href="{{route('edit_flip_the_switch',$flipTheSwitch->id )}}">Edit</a>
+                                            <a class="dropdown-item" onclick="return confirm('Are you sure?')"
+                                               href="{{route('destroy_flip_the_switch', $flipTheSwitch)}}">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -57,5 +59,8 @@
                 </div>
             @endforeach
         </div>
+
     </div>
+
 @endsection
+

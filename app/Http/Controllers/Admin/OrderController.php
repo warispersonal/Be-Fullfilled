@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderStatus;
@@ -9,7 +10,7 @@ use App\OrderStatus;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::all();
+        $orders = Order::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.orders.all-orders',compact('orders'));
     }
     public function show($id){

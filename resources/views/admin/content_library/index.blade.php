@@ -30,12 +30,14 @@
                                          class="dropdown-toggle" type="button" id="dropdownMenuButton"
                                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt=""/>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="{{route('edit_content_library',$contentLibrary->id)}}">Edit</a>
-                                        <a class="dropdown-item" onclick="return confirm('Are you sure?')"  href="{{route('destroy_content_library',$contentLibrary->id)}}">Delete</a>
+                                        <a class="dropdown-item"
+                                           href="{{route('edit_content_library',$contentLibrary->id)}}">Edit</a>
+                                        <a class="dropdown-item" onclick="return confirm('Are you sure?')"
+                                           href="{{route('destroy_content_library',$contentLibrary->id)}}">Delete</a>
                                     </div>
                                 </h1>
                                 <p>{{$contentLibrary->description}}</p>
-{{--                                <h2>11 Lessons</h2>--}}
+                                {{--                                <h2>11 Lessons</h2>--}}
                             </div>
 
                         </div>
@@ -43,6 +45,5 @@
                 @endforeach
             </div>
         </div>
-
     </div>
 @endsection

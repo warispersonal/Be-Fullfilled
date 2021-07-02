@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
 use App\Question;
@@ -16,7 +17,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
+        $questions = Question::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.faq.index', compact('questions'));
     }
 

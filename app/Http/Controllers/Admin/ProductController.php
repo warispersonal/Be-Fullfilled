@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constant\FileConstant;
+use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\ProductRequest;
@@ -21,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(ProjectConstant::TOTAL_WEB_PAGINATION);
         return view('admin.product.index', compact('products'));
     }
 
