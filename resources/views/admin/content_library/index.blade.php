@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="MainFlip-Container">
-
         <div class="FlipSwitch-Con">
             <div class="FlipLeft-Head"><h1>Content Library</h1></div>
             <div class="FlipRight-Head">
@@ -12,7 +11,6 @@
                 </a>
             </div>
         </div>
-
         <div class="LibraryThum-Container">
             <div class="LibraryCon">
                 @foreach($contentLibraries as $contentLibrary)
@@ -45,4 +43,5 @@
             </div>
         </div>
     </div>
+    @include('partials.generic._pagination', ['paginator' =>$contentLibraries ])
 @endsection

@@ -1,5 +1,30 @@
-<a href="{{$paginator->nextPageUrl()}}">Next</a>
-<a href="{{$paginator->previousPageUrl()}}">Previous</a>
-<h1>Total Record {{$paginator->total()}}</h1>
-<h1>Per Page {{$paginator->perPage()}}</h1>
-<h1>Current Page {{$paginator->currentPage()}}</h1>
+<div class="MainFlip-Container table-pagination-outer-div">
+    <div class="table-pagination-outer-div">
+        <nav class="table-pagination" aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item page-item-text">
+                    <span class="show-on-page">Show on page </span>
+                    <b> {{$paginator->currentPage()}}- {{$paginator->perPage()}}  </b>
+                    <span class="show-on-page"> out of {{$paginator->total()}}</span>
+                </li>
+                <li class="page-item">
+                    <a class="page-link {{$paginator->previousPageUrl() == null ? 'href-disable': ''}}"
+                       href="{{$paginator->previousPageUrl()}}" aria-label="Previous">
+                        <span aria-hidden="true" class="{{$paginator->previousPageUrl() == null ? '': 'active'}}"><i
+                                class="fa fa-chevron-left"></i></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link {{$paginator->nextPageUrl() == null ? 'href-disable': ''}}"
+                       href="{{$paginator->nextPageUrl()}}"
+                       aria-label="Next" {{$paginator->nextPageUrl() == null ? 'disabled': ''}}>
+                        <span aria-hidden="true" class="{{$paginator->nextPageUrl() == null ? '': 'active'}}"><i
+                                class="fa fa-chevron-right"></i></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
