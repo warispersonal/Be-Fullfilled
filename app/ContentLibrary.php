@@ -23,6 +23,11 @@ class ContentLibrary extends Model
         return $this->belongsTo(Image::class);
     }
 
+    public function media()
+    {
+        return $this->belongsTo(Media::class);
+    }
+
     public function getImageAttribute()
     {
         return $this->getImage($this->image_id, FileConstant::CONTENT_LIBRARY_IMAGES);
