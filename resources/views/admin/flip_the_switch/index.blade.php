@@ -60,6 +60,8 @@
             @endforeach
         </div>
 
+        @include('partials.generic._pagination', ['paginator' =>$flipTheSwitches ])
+
     </div>
 
 @endsection

@@ -54,6 +54,8 @@
                 </tbody>
 
             </table>
+            @include('partials.generic._pagination', ['paginator' =>$users ])
+
         </div>
     </div>
 @endsection

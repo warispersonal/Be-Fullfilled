@@ -43,8 +43,10 @@
                                             Action
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{route('edit_podcast',$podcast->id )}}">Edit</a>
-                                            <a class="dropdown-item"  onclick="return confirm('Are you sure?')" href="{{route('destroy_podcast', $podcast)}}">Delete</a>
+                                            <a class="dropdown-item"
+                                               href="{{route('edit_podcast',$podcast->id )}}">Edit</a>
+                                            <a class="dropdown-item" onclick="return confirm('Are you sure?')"
+                                               href="{{route('destroy_podcast', $podcast)}}">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,5 +66,6 @@
             @endforeach
         </div>
 
+        @include('partials.generic._pagination', ['paginator' =>$podcasts ])
     </div>
 @endsection

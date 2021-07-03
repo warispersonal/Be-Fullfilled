@@ -22,6 +22,7 @@
             @endforeach
 
         </div>
+        @include('partials.generic._pagination', ['paginator' =>$questions ])
 
     </div>
 @endsection

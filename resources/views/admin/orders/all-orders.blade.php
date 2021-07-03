@@ -66,6 +66,8 @@
                 @endforeach
                 </tbody>
             </table>
+            @include('partials.generic._pagination', ['paginator' => $orders ])
+
         </div>
     </div>
 @endsection
