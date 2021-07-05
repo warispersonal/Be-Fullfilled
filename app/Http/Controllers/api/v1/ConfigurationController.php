@@ -5,7 +5,9 @@ namespace App\Http\Controllers\api\v1;
 use App\Configuration;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ConfigurationResource;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
 class ConfigurationController extends Controller
@@ -13,7 +15,16 @@ class ConfigurationController extends Controller
     public function show()
     {
         $configuration = Auth::user()->configuration;
-        return $this->success("User Configuration", new ConfigurationResource($configuration));
+        if($configuration){
+            return $this->success("User Configuration", new ConfigurationResource($configuration));
+        }
+        else{
+            $configuration = new Configuration();
+            $configuration->user_id = Auth::id();
+            $configuration->save();
+            return $this->success("User Configuration", new ConfigurationResource($configuration));
+
+        }
     }
 
     public function update(Request $request)
