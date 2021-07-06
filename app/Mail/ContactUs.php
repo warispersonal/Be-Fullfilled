@@ -7,18 +7,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class JustTesting extends Mailable
+class ContactUs extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
+    public $contact;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user, $contact)
     {
-        //
+        $this->user = $user;
+        $this->contact = $contact;
     }
 
     /**
@@ -28,6 +31,6 @@ class JustTesting extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('emails.contactus')->with('user',$this->user)->with('contact',$this->contact);
     }
 }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Admin;
 use App\ContactUs;
+use App\Mail\ContactUs as ContactUsEmail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactUsRequest;
 use App\Http\Resources\ContactUsResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ContactUsController extends Controller
@@ -44,6 +47,9 @@ class ContactUsController extends Controller
             $contactUs->message = $request->message;
             $contactUs->user_id = Auth::id();
             $contactUs->save();
+
+            $admin = Admin::first();
+            Mail::to($admin->email)->send(new ContactUsEmail(Auth::user(), $contactUs));
             return $this->success("Request Send", new ContactUsResource($contactUs));
         }
     }
