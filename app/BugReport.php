@@ -7,16 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class BugReport extends Model
 {
-    use \App\Http\Traits\Media;
     protected $fillable = [
         'description',
-        'media_id',
+        'media',
         'user_id',
     ];
 
-    public function getMediaAttribute()
+    public function getThumbnailAttribute()
     {
-        return $this->getMedia($this->media_id, FileConstant::BUG_REPORT_MEDIA);
+        $url = url('storage/' . $this->media);
+        $exists = $this->url_exists($url);
+        if ($exists) {
+            return $url;
+        } else {
+            return asset("thumbnail/avatar.png");
+        }
+    }
+
+    public function url_exists($url)
+    {
+        $headers = get_headers($url);
+        if (stripos($headers[0], "200 OK")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

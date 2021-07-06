@@ -8,10 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
 use App\Http\Requests\BugReportRequest;
 use App\Http\Resources\BugReportResource;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BugReportController extends Controller
 {
@@ -51,10 +54,23 @@ class BugReportController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
-            $media = GenericController::saveMediaFile($request, 'link', FileConstant::BUG_REPORT_MEDIA,$request->fileType);
             $bugReport = new BugReport();
+            if (!empty($request->link)) {
+                $image_64 = $request->link;
+                $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+                if ($extension != "jpeg" || $extension != "jpg" || $extension != "png") {
+                    $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
+                    $image = str_replace($replace, '', $image_64);
+                    $image = str_replace(' ', '+', $image);
+                    $imageName = Str::random(10) . '.' . $extension;
+                    Storage::disk('public')->put($imageName, base64_decode($image));
+                    $bugReport->media = $imageName;
+
+                } else {
+                    return $this->failure('Only jpeg, jpg, png file required', 404);
+                }
+            }
             $bugReport->description = $request->description;
-            $bugReport->media_id = $media->id ?? null;
             $bugReport->user_id = Auth::id();
             $bugReport->save();
             return $this->success("Bug Reported", new BugReportResource($bugReport));
