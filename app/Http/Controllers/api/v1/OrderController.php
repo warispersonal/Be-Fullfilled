@@ -35,6 +35,7 @@ class OrderController extends Controller
         $order->shipping_address = $request->shipping_address;
         $order->user_id = Auth::id();
         $order->order_status_id = 1;
+        $order->total_price = $request->total_price;
         $order->save();
         $items = $request->items;
         foreach ($items as $item) {
