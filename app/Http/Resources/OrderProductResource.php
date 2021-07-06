@@ -19,7 +19,8 @@ class OrderProductResource extends JsonResource
             'price' => $this->price,
             'quantity' => $this->quantity,
             'total_price' => $this->total_price,
-            'product_title' => $this->product->title ?? "--"
+            'product_title' => $this->product->title ?? "--",
+            'thumbnail' => $this->product->image ?? "--"
         ];
     }
 }
