@@ -21,6 +21,8 @@ class ShoppingResource extends JsonResource
             'price' => $this->product->price ?? "",
             'user_id' => $this->user_id,
             'quantity' => $this->quantity,
+            'total' => $this->quantity * $this->product->price ?? 0 ,
+            'thumbnail' => $this->product->image ?? "" ,
         ];
     }
 }
