@@ -16,12 +16,13 @@ class BugReport extends Model
     public function getThumbnailAttribute()
     {
         $url = url('storage/' . $this->media);
-        $exists = $this->url_exists($url);
-        if ($exists) {
-            return $url;
-        } else {
-            return asset("thumbnail/avatar.png");
-        }
+        return $url;
+//        $exists = $this->url_exists($url);
+//        if ($exists) {
+//            return $url;
+//        } else {
+//            return asset("thumbnail/avatar.png");
+//        }
     }
 
     public function url_exists($url)
