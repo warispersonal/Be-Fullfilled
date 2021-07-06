@@ -8,6 +8,8 @@ use App\Http\Controllers\api\v1\ContentLibraryController;
 use App\Http\Controllers\api\v1\DailyCheckQuestionController;
 use App\Http\Controllers\api\v1\DailyQuestionController;
 use App\Http\Controllers\api\v1\EmailSendController;
+use App\Http\Controllers\api\v1\FAQController;
+use App\Http\Controllers\api\v1\FeedBackController;
 use App\Http\Controllers\api\v1\FlipTheSwitchController as FlipSwitch;
 use App\Http\Controllers\api\v1\FocusController;
 use App\Http\Controllers\api\v1\IsRecordExists;
@@ -66,7 +68,6 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('/user')->group(function () {
         Route::get('/', [RegisterController::class, 'profile']);
-
         Route::post('/update/profile', [RegisterController::class, 'update_profile']);
         Route::delete('/logout', [RegisterController::class, 'logout']);
     });
@@ -79,6 +80,18 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/', [ConfigurationController::class, 'show']);
         Route::post('/update', [ConfigurationController::class, 'update']);
     });
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | User Feedback about APP
+    |--------------------------------------------------------------------------
+    */
+    Route::prefix('/feedback')->group(function () {
+        Route::post('/create', [FeedBackController::class, 'store']);
+    });
+
 
     /*
     |--------------------------------------------------------------------------
@@ -244,3 +257,12 @@ Route::prefix('/products')->group(function () {
     Route::get('/{id}/details', [ProductController::class, 'show']);
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| FAQ List
+|--------------------------------------------------------------------------
+*/
+Route::prefix('/faq')->group(function () {
+    Route::get('/', [FAQController::class, 'index']);
+});
