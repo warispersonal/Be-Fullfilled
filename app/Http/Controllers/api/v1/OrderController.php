@@ -50,7 +50,7 @@ class OrderController extends Controller
             $shopping_list[] = $shopping;
         }
         $order = new Order();
-        $order->shipping_address = $request->shipping_address;
+        $order->address_id = $request->address_id;
         $order->user_id = Auth::id();
         $order->order_status_id = 1;
         $order->total_price = $total_price;

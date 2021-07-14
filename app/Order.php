@@ -9,7 +9,7 @@ class Order extends Model
 {
     use Generic;
     protected $fillable = [
-        'shipping_address',
+        'address_id',
         'order_status_id',
         'user_id',
         'total_price',
@@ -37,4 +37,10 @@ class Order extends Model
     public function order_products(){
         return $this->hasMany(OrderProduct::class);
     }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
 }

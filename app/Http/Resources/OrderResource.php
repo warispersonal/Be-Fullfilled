@@ -16,7 +16,7 @@ class OrderResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'shipping_address' => $this->shipping_address,
+            'shipping_address' => new AddressResource($this->address),
             'order_status' => $this->orderStatus->name ?? "",
             'total_price' => $this->total_price,
             'created_at' => $this->date,

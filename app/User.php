@@ -110,4 +110,7 @@ class User extends Authenticatable
         return $this->hasOne(Configuration::class);
     }
 
+    public function address(){
+        return $this->hasMany(Address::class);
+    }
 }

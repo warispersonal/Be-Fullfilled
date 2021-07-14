@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\FlipTheSwitchController;
+use App\Http\Controllers\api\v1\AddressController;
 use App\Http\Controllers\api\v1\BugReportController;
 use App\Http\Controllers\api\v1\ConfigurationController;
 use App\Http\Controllers\api\v1\ContactUsController;
@@ -81,7 +82,15 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/update', [ConfigurationController::class, 'update']);
     });
 
-
+    /*
+       |--------------------------------------------------------------------------
+       | User Addresss
+       |--------------------------------------------------------------------------
+       */
+    Route::prefix('/address')->group(function () {
+        Route::get('/', [AddressController::class, 'index']);
+        Route::post('/create', [AddressController::class, 'store']);
+    });
 
     /*
     |--------------------------------------------------------------------------
