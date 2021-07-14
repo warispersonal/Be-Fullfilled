@@ -52,6 +52,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->ingredient = $request->ingredient;
         $product->image_id = $image->id ?? null;
+        $product->product_code = $request->product_code;
         $product->save();
         $product->tags()->attach($request->tags);
         return redirect()->route('manage_store')->with('success_message', 'Product successfully created.');
@@ -100,6 +101,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->ingredient = $request->ingredient;
+        $product->product_code = $request->product_code;
         $product->save();
         $product->tags()->detach();
         $product->tags()->attach($request->tags);

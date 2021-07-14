@@ -15,6 +15,7 @@ class Product extends Model
         'price',
         'ingredient',
         'image_id',
+        'product_code',
     ];
 
     public function getImageAttribute()

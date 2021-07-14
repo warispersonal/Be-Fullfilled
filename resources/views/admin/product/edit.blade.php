@@ -27,6 +27,11 @@
                     </div>
 
                     <div class="prodInput">
+                        <label>Product Code</label>
+                        <input type="text" id="" name="product_code" value="{{$product->product_code}}" placeholder="">
+                    </div>
+
+                    <div class="prodInput">
                         <label>Descriptions</label>
                         <textarea id="" name="description" placeholder="">{{$product->description}}</textarea>
                     </div>

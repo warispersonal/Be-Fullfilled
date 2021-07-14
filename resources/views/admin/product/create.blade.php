@@ -26,6 +26,12 @@
                         <input class="divinput" type="text" id="" name="price" value="{{old('price')}}" placeholder="">
                     </div>
 
+
+                    <div class="prodInput">
+                        <label>Product Code</label>
+                        <input type="text" id="" name="product_code" value="{{old('product_code')}}" placeholder="">
+                    </div>
+
                     <div class="prodInput">
                         <label>Descriptions</label>
                         <textarea id="" name="description" placeholder="">{{old('description')}}</textarea>
@@ -35,6 +41,7 @@
                         <label>Ingredient Lists</label>
                         <textarea id="" name="ingredient" placeholder="">{{old('ingredient')}}</textarea>
                     </div>
+
 
                 </div>
                 <div class="ProdRight UploadNew-Container">

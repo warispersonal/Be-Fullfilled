@@ -13,9 +13,8 @@
             </div>
         </div>
         <div class="mainstore">
-
             @foreach($products as $product)
-                <div class="MangeStore">
+                <div class="MangeStore mt-3">
                     <div class="imgtop">
                         <img class="product-image" src="{{$product->image}}" alt=""/>
                         <div class="dotted">
@@ -31,6 +30,7 @@
                     </div>
                     <div class="ManageHead-Btm">
                         <h1>{{$product->title}}</h1>
+                        <h2>{{$product->product_code}}</h2>
                         <p>
                             {{$product->description}}
                         </p>
