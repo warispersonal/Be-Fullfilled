@@ -8,6 +8,8 @@ use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
 use App\Order;
 use App\OrderProduct;
+use App\Product;
+use App\ShoppingCart;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -30,30 +32,49 @@ class OrderController extends Controller
 
     public function place_order(Request $request)
     {
-
+        $shopping_list = [];
+        $items = $request->items;
+        $cart = [];
+        foreach ($items as $item) {
+            $cart[] = $item['cart_id'];
+        }
+        $shopping_carts = ShoppingCart::whereIn('id',$cart)->get();
+        $total_price = 0;
+        foreach ($shopping_carts as $item_cart) {
+            $product = Product::find($item_cart->product_id);
+            $total_price = $total_price + ((int)$item_cart->quantity * $product->price);
+            $shopping['price'] = $product->price;
+            $shopping['quantity'] = $item_cart->quantity;
+            $shopping['total_price'] = (double)((double)$product->price * (int)$item_cart->quantity);
+            $shopping['product_id'] = $product->id;
+            $shopping_list[] = $shopping;
+        }
         $order = new Order();
         $order->shipping_address = $request->shipping_address;
         $order->user_id = Auth::id();
         $order->order_status_id = 1;
-        $order->total_price = $request->total_price;
+        $order->total_price = $total_price;
         $order->save();
-        $items = $request->items;
-        foreach ($items as $item) {
+        foreach ($shopping_list as $item) {
             $order_product = new OrderProduct();
             $order_product->price = $item['price'];
             $order_product->quantity = $item['quantity'];
-            $order_product->total_price = (double)((double)$item['price'] * (int)$item['quantity']);
+            $order_product->total_price = $item['total_price'];
             $order_product->product_id = $item['product_id'];
             $order_product->order_id = $order->id;
             $order_product->save();
         }
-        return $this->success("Order place successfully", new OrderResource($order));
+        foreach ($cart as $item){
+            $shopping_cart = ShoppingCart::find($item);
+            $shopping_cart->delete();
 
+        }
+        return $this->success("Order place successfully", new OrderResource($order));
     }
 
     public function show($id)
     {
-        $order = Order::find( $id);
+        $order = Order::find($id);
         if ($order) {
             return $this->success("Order place successfully", new OrderResource($order));
         } else {
