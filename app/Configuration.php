@@ -12,6 +12,8 @@ class Configuration extends Model
         'partner_invitation',
         'location_access',
         'user_id',
+        'latitude',
+        'longitude',
     ];
 
 }

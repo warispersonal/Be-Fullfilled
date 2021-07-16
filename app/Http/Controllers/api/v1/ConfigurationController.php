@@ -46,6 +46,8 @@ class ConfigurationController extends Controller
             if ($request->card_billing_id) {
                 $configuration->location_access = $request->card_billing_id;
             }
+            $configuration->latitude = $request->latitude   ;
+            $configuration->longitude = $request->longitude;
             $configuration->save();
             return $this->success("User configuration updated", new ConfigurationResource($configuration));
         } else {
@@ -54,6 +56,8 @@ class ConfigurationController extends Controller
             $configuration->general_notification = $request->general_notification == "true" ? 1 : 0;
             $configuration->partner_invitation = $request->partner_invitation == "true" ? 1 : 0;
             $configuration->location_access = $request->location_access == "true" ? 1 : 0;
+            $configuration->latitude = $request->latitude   ;
+            $configuration->longitude = $request->longitude;
             $configuration->user_id = Auth::id();
             $configuration->save();
             return $this->success("User configuration updated", new ConfigurationResource($configuration));

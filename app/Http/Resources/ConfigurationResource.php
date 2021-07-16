@@ -20,6 +20,8 @@ class ConfigurationResource extends JsonResource
             'general_notification' => $this->general_notification == 0 ? false : true,
             'partner_invitation' => $this->partner_invitation == 0 ? false : true,
             'location_access' => $this->location_access == 0 ? false : true,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
             'user_id' => $this->user_id,
         ];
     }
