@@ -11,8 +11,14 @@ class FlipTheSwitchController extends Controller
 {
     public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
     {
-
         $flipTheSwitches = FlipTheSwitch::paginate($limit);
+        return $this->success("Flip the Switch List", new FlipTheSwitchCollection($flipTheSwitches));
+    }
+
+    public function search($search)
+    {
+        $limit = ProjectConstant::TOTAL_API_PAGINATION;
+        $flipTheSwitches = FlipTheSwitch::whereLike('title',$search)->paginate($limit);
         return $this->success("Flip the Switch List", new FlipTheSwitchCollection($flipTheSwitches));
     }
 }

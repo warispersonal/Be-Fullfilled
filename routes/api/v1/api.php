@@ -232,11 +232,12 @@ Route::post('password/reset', [RegisterController::class, 'resetPassword']);
 
 /*
 |--------------------------------------------------------------------------
-| Route for Flip the Switch & Content Library & Podcasts
+| Route for Flip the Switch & Content Library & Podcasts & their searches
 |--------------------------------------------------------------------------
 */
 
 Route::get('flip-the-switch/{limit?}', [FlipSwitch::class, 'index']);
+Route::get('flip-the-switch-search/{search}', [FlipSwitch::class, 'search']);
 Route::get('content-library/{filter}', [ContentLibraryController::class, 'filter']);
 Route::get('content-library/{limit?}', [ContentLibraryController::class, 'index']);
 Route::get('podcasts/{limit?}', [PodcastsController::class, 'index']);
