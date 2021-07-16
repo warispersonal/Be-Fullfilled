@@ -275,6 +275,6 @@ Route::prefix('/products')->group(function () {
 | FAQ List
 |--------------------------------------------------------------------------
 */
-Route::prefix('/faq')->group(function () {
-    Route::get('/', [FAQController::class, 'index']);
-});
+Route::get('/faq', [FAQController::class, 'index']);
+Route::get('/faq-search/{search}', [FAQController::class, 'search']);
+
