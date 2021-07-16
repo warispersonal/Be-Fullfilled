@@ -42,4 +42,15 @@ class ContentLibrary extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+
+    public function scopeWhereLike($query, $column, $value)
+    {
+        return $query->where($column, 'like', '%'.$value.'%');
+    }
+
+    public function scopeOrWhereLike($query, $column, $value)
+    {
+        return $query->orWhere($column, 'like', '%'.$value.'%');
+    }
 }

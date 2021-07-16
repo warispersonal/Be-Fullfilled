@@ -40,4 +40,11 @@ class ContentLibraryController extends Controller
         return $this->success("Content Library List", []);
 
     }
+
+    public function search($search)
+    {
+        $limit = ProjectConstant::TOTAL_API_PAGINATION;
+        $contentLibrary = ContentLibrary::whereLike('title', $search)->orWhereLike('description', $search)->paginate($limit);
+        return $this->success("Content Library List", new ContentLibraryCollection($contentLibrary));
+    }
 }

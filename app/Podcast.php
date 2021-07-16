@@ -37,4 +37,13 @@ class Podcast extends Model
         return $this->getMedia($this->media_id, FileConstant::PODCASTS_MEDIA);
     }
 
+    public function scopeWhereLike($query, $column, $value)
+    {
+        return $query->where($column, 'like', '%'.$value.'%');
+    }
+
+    public function scopeOrWhereLike($query, $column, $value)
+    {
+        return $query->orWhere($column, 'like', '%'.$value.'%');
+    }
 }
