@@ -5,23 +5,23 @@
     <div class="MainFlip-Container">
 
         <div class="FlipSwitch-Con">
-            <div class="FlipLeft-Head"><h1>Add Question</h1></div>
+            <div class="FlipLeft-Head"><h1>Add New Term & Condition</h1></div>
             <div class="FlipRight-Head"></div>
         </div>
 
         @include('partials.generic._errors')
-        <form method="post" action="{{route('add_new_faq')}}">
+        <form method="post" action="{{route('add_new_terms_condition_post')}}">
             @csrf
             <div class="AdFaq-Container">
 
                 <div class="FaqInput">
-                    <label>Questions</label>
-                    <input type="text" id="" name="question" value="{{old('question')}}" placeholder="">
+                    <label>Title</label>
+                    <input type="text" id="" name="title" value="{{old('title')}}" placeholder="">
                 </div>
 
                 <div class="FaqInput">
-                    <label>Answer</label>
-                    <textarea id="" name="answer">{{old('answer')}}</textarea>
+                    <label>Description</label>
+                    <textarea id="" name="description">{{old('description')}}</textarea>
                 </div>
 
                 <div class="FaqInput">

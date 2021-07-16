@@ -70,11 +70,6 @@ class AdminController extends Controller
     }
 
 
-    public function terms_and_condition()
-    {
-        return view('admin.terms-and-condition');
-    }
-
     public function feedback()
     {
         return view('admin.feedback');

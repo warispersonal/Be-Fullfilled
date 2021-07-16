@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PodcastController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PushNotificationController;
 use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\TermConditionController;
 use App\Http\Controllers\api\v1\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,11 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/add-new-faq', [QuestionController::class, 'create'])->name('add_new_faq');
         Route::post('/add-new-faq', [QuestionController::class, 'store'])->name('add_new_faq_post');
 
+
+        Route::get('/terms-and-condition', [TermConditionController::class, 'index'])->name('terms_and_condition');
+        Route::get('/add-terms-and-condition', [TermConditionController::class, 'create'])->name('add_new_terms_condition');
+        Route::post('/add-terms-and-condition', [TermConditionController::class, 'store'])->name('add_new_terms_condition_post');
+
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
         Route::get('/all-orders', [OrderController::class, 'index'])->name('all_orders');
         Route::get('/order/{id}/details', [OrderController::class, 'show'])->name('order_details');
@@ -79,7 +85,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/finance-dashboard', [AdminController::class, 'finance_dashboard'])->name('finance_dashboard');
         Route::get('/my-profile-setting', [AdminController::class, 'my_profile_setting'])->name('my_profile_setting');
 
-        Route::get('/terms-and-condition', [AdminController::class, 'terms_and_condition'])->name('terms_and_condition');
         Route::get('/feedback', [AdminController::class, 'feedback'])->name('feedback');
 
         Route::get('/notification', [PushNotificationController::class, 'index'])->name('notification');
