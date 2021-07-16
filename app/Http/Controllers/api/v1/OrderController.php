@@ -66,8 +66,9 @@ class OrderController extends Controller
         }
         foreach ($cart as $item){
             $shopping_cart = ShoppingCart::find($item);
-            $shopping_cart->delete();
-
+            if($shopping_cart){
+                $shopping_cart->delete();
+            }
         }
         return $this->success("Order place successfully", new OrderResource($order));
     }
