@@ -32,7 +32,7 @@ class Order extends Model
     }
 
     public function getDateAttribute($val){
-        return $this->getCustomizeDate($this->created_at);
+        return $this->getCustomizeDateAndTime($this->created_at);
     }
 
     public function getCompletedAtAttribute($val){
