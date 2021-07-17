@@ -19,7 +19,7 @@ class OrderResource extends JsonResource
             'shipping_address' => new AddressResource($this->address),
             'order_status' => $this->orderStatus->name ?? "",
             'total_price' => $this->total_price,
-            'created_at' => $this->date,
+            'order_at' => $this->date,
             'completed_at' => $this->completed_at,
             'user' => new UserResource($this->user),
             'products' => OrderProductResource::collection($this->order_products)
