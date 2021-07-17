@@ -13,6 +13,7 @@ class Order extends Model
         'order_status_id',
         'user_id',
         'total_price',
+        'completed_at'
     ];
 
     public function user()
@@ -32,6 +33,10 @@ class Order extends Model
 
     public function getDateAttribute($val){
         return $this->getCustomizeDate($this->created_at);
+    }
+
+    public function getCompletedAtAttribute($val){
+        return $this->getCustomizeDateAndTime($val);
     }
 
     public function order_products(){

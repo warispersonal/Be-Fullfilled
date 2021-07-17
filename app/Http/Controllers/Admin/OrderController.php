@@ -24,6 +24,12 @@ class OrderController extends Controller
     public function update_order_status($id, $status){
         $order = Order::find($id);
         $order->order_status_id = $status;
+        if($order->order_status_id == 3){
+            $order->completed_at = now();
+        }
+        else{
+            $order->completed_at = null;
+        }
         $order->save();
         return redirect()->route('order_details',$id)->with('success_message', 'Order status successfully updated.');
     }

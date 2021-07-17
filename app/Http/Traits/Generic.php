@@ -14,6 +14,13 @@ trait Generic
         return $day;
     }
 
+    public function getCustomizeDateAndTime($date)
+    {
+        $timestamp = strtotime($date);
+        $day = date('F d, Y H:i:s', $timestamp);
+        return $day;
+    }
+
     public function uploadMediaFile($file, $input_name, $location)
     {
         if ($file->hasFile($input_name)) {
