@@ -20,6 +20,7 @@ use App\Http\Controllers\api\v1\OrderController;
 use App\Http\Controllers\api\v1\PodcastsController;
 use App\Http\Controllers\api\v1\ProductController;
 use App\Http\Controllers\api\v1\RegisterController;
+use App\Http\Controllers\api\v1\ScoreCardController;
 use App\Http\Controllers\api\v1\ShoppingCartController;
 use App\Http\Controllers\api\v1\SocialSetupController;
 use App\Http\Controllers\api\v1\TermConditionController;
@@ -279,4 +280,5 @@ Route::prefix('/products')->group(function () {
 Route::get('/faq', [FAQController::class, 'index']);
 Route::get('/terms-and-conditions', [TermConditionController::class, 'index']);
 Route::get('/faq-search/{search}', [FAQController::class, 'search']);
+Route::get('/score-card', [ScoreCardController::class, 'index']);
 
