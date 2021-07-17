@@ -6,6 +6,7 @@ use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\ProductResource;
 use App\Order;
 use App\OrderProduct;
 use App\Product;
@@ -83,4 +84,21 @@ class OrderController extends Controller
         }
     }
 
+    public function transaction(){
+        $user = Auth::user();
+        $orders = $user->orders;
+        $order_list  = [];
+        foreach ($orders as $order){
+            $item['id'] = $order->id;
+            $item['total_price'] = $order->total_price;
+            $first_product = $order->order_products->first()->product_id ?? null;
+            $product = null;
+            if($first_product){
+                $product = Product::find($first_product);
+            }
+            $item['first_product'] = new ProductResource($product);
+            $order_list[] = $item;
+        }
+        return $this->success('Transaction list', $order_list);
+    }
 }
