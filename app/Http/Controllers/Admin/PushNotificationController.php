@@ -45,7 +45,7 @@ class PushNotificationController extends Controller
         $pushNotification = new PushNotification();
         $pushNotification->title = $request->title;
         $pushNotification->description = $request->description;
-        $pushNotification->date = $request->date;
+        $pushNotification->date = $this->changeDateFormat($request->date);
         $pushNotification->image_id = $image->id ?? null;
         $pushNotification->save();
 
