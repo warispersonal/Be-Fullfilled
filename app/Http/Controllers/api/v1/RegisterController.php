@@ -12,6 +12,7 @@ use App\Http\Traits\Generic;
 use App\Http\Traits\RespondsWithHttpStatus;
 use App\Http\Traits\ValidationTraits;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -164,6 +165,18 @@ class RegisterController extends Controller
         }
     }
 
-
+    public function verifyToken(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            return response([
+                'status' => true,
+                'message' => "Token valid"
+            ]);
+        }
+        return response([
+            'status' => false,
+            'message' => "Token in-valid"
+        ]);
+    }
 }
 

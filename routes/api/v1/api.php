@@ -59,8 +59,10 @@ Route::post('/social/setup', [SocialSetupController::class, 'social_setup']);
 //Route::post('forgot-password', [RegisterController::class,'forgot']);
 //Route::post('password/reset', [RegisterController::class,'reset']);
 
+Route::get('/verify-token', [RegisterController::class, 'verifyToken']);
 
 Route::middleware('auth:api')->group(function () {
+
 
     /*
     |--------------------------------------------------------------------------
