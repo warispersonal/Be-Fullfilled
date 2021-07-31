@@ -17,6 +17,8 @@ class FocusDayResource extends JsonResource
         return [
             "date" => $this->date,
             "focus_value" => $this->focus_value,
+            "score_card_id" => $this->score_card_id,
+            'score_card' => new ScoreCardResource($this->score_card)
         ];
     }
 }
