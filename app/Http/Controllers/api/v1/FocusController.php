@@ -46,21 +46,19 @@ class FocusController extends Controller
             }
             else{
                 return $this->failure('Invalid score card id', 404);
-
             }
         }
-
     }
 
     public function getDayFocusScore($date = null)
     {
         if ($date == null) {
-            $focus = FocusDay::where('date', Date::now()->format('Y-m-d'))->where('user_id', Auth::id())->first();
+            $focus = FocusDay::where('date', Date::now()->format('Y-m-d'))->where('user_id', Auth::id())->get();
         } else {
-            $focus = FocusDay::where('date', $date)->first();
+            $focus = FocusDay::where('date', $date)->get();
         }
         if ($focus) {
-            return $this->success("Day Focus", new FocusDayResource($focus));
+            return $this->success("Day Focus", FocusDayResource::collection($focus));
         } else {
             return $this->failure('Focus not found', 404);
         }
