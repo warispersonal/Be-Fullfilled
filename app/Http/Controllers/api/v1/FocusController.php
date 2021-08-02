@@ -8,6 +8,7 @@ use App\Http\Resources\FocusDayResource;
 use App\Http\Resources\UserScoreCardFilterResource;
 use App\Http\Resources\UserScoreCardResource;
 use App\ScoreCard;
+use App\WeeklyGoal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
@@ -66,24 +67,27 @@ class FocusController extends Controller
 
     public function dashboard(Request $request)
     {
-        if ($request->start != null && $request->end != null) {
-            $score_cards = DB::table('score_cards')
-                ->select('score_cards.id', 'score_cards.title', 'score_cards.color', DB::raw('SUM(focus_days.focus_value) as sum'), DB::raw('COUNT(focus_days.focus_value) as count'))
-                ->join('focus_days', 'score_cards.id', '=', 'focus_days.score_card_id')
-                ->where('user_id', Auth::id())
-                ->whereBetween('focus_days.date', [$request->start, $request->end])
-                ->groupBy('score_cards.id')
-                ->get();
 
-            return $this->success("Dashboard Score Card", UserScoreCardFilterResource::collection($score_cards));
-        } else {
-            $score_cards = DB::table('score_cards')
-                ->select('score_cards.id', 'score_cards.title', 'score_cards.color', DB::raw('SUM(focus_days.focus_value) as sum'), DB::raw('COUNT(focus_days.focus_value) as count'))
-                ->join('focus_days', 'score_cards.id', '=', 'focus_days.score_card_id')
-                ->where('user_id', Auth::id())
-                ->groupBy('score_cards.id')
-                ->get();
-            return $this->success("Dashboard Score Card", UserScoreCardFilterResource::collection($score_cards));
-        }
+        $score_cards = DB::table('score_cards')
+            ->select('score_cards.id', 'score_cards.title', 'score_cards.color', DB::raw('SUM(focus_days.focus_value) as sum'), DB::raw('COUNT(focus_days.focus_value) as count'))
+            ->join('focus_days', 'score_cards.id', '=', 'focus_days.score_card_id')
+            ->where('user_id', Auth::id())
+            ->whereDate('focus_days.date', '>=', $request->daily_activity_start)->whereDate('focus_days.date', '<=', $request->daily_activity_start)
+            ->groupBy('score_cards.id')
+            ->get();
+
+        $score_card_collection = UserScoreCardFilterResource::collection($score_cards);
+
+        $weeklyTotalGoal = WeeklyGoal::where('user_id', Auth::id())->whereDate('day', '>=', $request->goals_start)->whereDate('day', '<=', $request->goals_end)->count('id');
+        $weeklyUnCompleteGoal = WeeklyGoal::where('user_id', Auth::id())->whereDate('day', '>=', $request->goals_start)->whereDate('day', '<=', $request->goals_end)->where("status", 0)->count('id');
+        $weeklyCompleteGoal = WeeklyGoal::where('user_id', Auth::id())->whereDate('day', '>=', $request->goals_start)->whereDate('day', '<=', $request->goals_end)->where("status", 1)->count('id');
+
+        $custom = array();
+        $custom['daily_activity'] = $score_card_collection;
+        $custom['goals_accomplished']['total'] = $weeklyTotalGoal;
+        $custom['goals_accomplished']['un-complete'] = $weeklyUnCompleteGoal;
+        $custom['goals_accomplished']['complete'] = $weeklyCompleteGoal;
+
+        return $this->success("Dashboard Score Card", $custom);
     }
 }
