@@ -160,6 +160,7 @@ class RegisterController extends Controller
             $user->city = $request->city;
             $user->zipcode = $request->zipcode;
             $user->street_address = $request->street_address;
+            $user->social_account_profile_image_url = null;
             $user->save();
             return $this->success('User Profile Updated', new UserResource($user));
         }

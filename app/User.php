@@ -64,6 +64,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(YourDay::class);
     }
+
     function url_exists($url)
     {
         $headers = get_headers($url);
@@ -76,7 +77,10 @@ class User extends Authenticatable
 
     public function getProfileAttribute($profile)
     {
-        $url = url('storage/'.$profile);
+        if ($this->social_account_profile_image_url != null) {
+            return $this->social_account_profile_image_url;
+        }
+        $url = url('storage/' . $profile);
         $exists = $this->url_exists($url);
         if ($exists) {
             return $url;
@@ -90,27 +94,33 @@ class User extends Authenticatable
         return $this->getCustomizeDate($this->created_at);
     }
 
-    public function getDateAttribute($val){
+    public function getDateAttribute($val)
+    {
         return $this->getCustomizeDate($this->created_at);
     }
 
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 
-    public function shopping_carts(){
+    public function shopping_carts()
+    {
         return $this->hasMany(ShoppingCart::class);
     }
 
-    public function daily_check_questions(){
+    public function daily_check_questions()
+    {
         return $this->hasMany(DailyCheckQuestion::class);
     }
 
-    public function configuration(){
+    public function configuration()
+    {
         return $this->hasOne(Configuration::class);
     }
 
-    public function address(){
+    public function address()
+    {
         return $this->hasMany(Address::class);
     }
 }
