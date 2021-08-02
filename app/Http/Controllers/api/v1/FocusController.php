@@ -5,10 +5,9 @@ namespace App\Http\Controllers\api\v1;
 use App\FocusDay;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FocusDayResource;
+use App\Http\Resources\UserScoreCardResource;
 use App\ScoreCard;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
@@ -62,5 +61,10 @@ class FocusController extends Controller
         } else {
             return $this->failure('Focus not found', 404);
         }
+    }
+
+    public function dashboard(){
+        $score_cards = ScoreCard::all();
+        return $this->success("Dashboard Score Card", UserScoreCardResource::collection($score_cards));
     }
 }

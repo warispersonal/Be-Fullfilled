@@ -211,13 +211,12 @@ Route::middleware('auth:api')->group(function () {
     |--------------------------------------------------------------------------
     */
     Route::post('/checkout', [OrderController::class, 'place_order']);
-
-
     Route::prefix('/order')->group(function () {
         Route::get('/{status_id?}/{limit?}', [OrderController::class, 'index']);
     });
     Route::get('/show/order/{id}', [OrderController::class, 'show']);
     Route::get('/transaction', [OrderController::class, 'transaction']);
+    Route::get('/dashboard', [FocusController::class, 'dashboard']);
 
 
 });
