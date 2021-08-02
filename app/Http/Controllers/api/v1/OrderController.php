@@ -71,8 +71,11 @@ class OrderController extends Controller
                 $shopping_cart->delete();
             }
         }
+
+
         return $this->success("Order place successfully", new OrderResource($order));
     }
+
 
     public function show($id)
     {

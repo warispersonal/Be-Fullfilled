@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\v1;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SocialSetupController extends Controller
 {
@@ -20,6 +21,7 @@ class SocialSetupController extends Controller
             $user->name = $request->name;
             $user->email = $request->social_account_email;
             $user->social_account_email = $request->social_account_email;
+            $user->password = Hash::make('password');
             $user->save();
             return $this->login($request);
         }

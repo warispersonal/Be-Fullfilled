@@ -28,6 +28,8 @@ use App\Http\Controllers\api\v1\Twilio;
 use App\Http\Controllers\api\v1\UserDailyCheckQuestionController;
 use App\Http\Controllers\api\v1\WeeklyGoalsController;
 use App\Http\Controllers\api\v1\YourDayController;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -218,6 +220,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/dashboard', [FocusController::class, 'dashboard']);
 
 
+
 });
 
 
@@ -282,3 +285,24 @@ Route::get('/faq', [FAQController::class, 'index']);
 Route::get('/terms-and-conditions', [TermConditionController::class, 'index']);
 Route::get('/faq-search/{search}', [FAQController::class, 'search']);
 
+
+
+Route::post('/payment-sheet', function (Request $request, Response $response) {
+    // Use an existing Customer ID if this is a returning customer.
+    $customer = \Stripe\Customer::create();
+    $ephemeralKey = \Stripe\EphemeralKey::create(
+        ['customer' => $customer->id],
+        ['stripe_version' => '2020-08-27']
+    );
+    $paymentIntent = \Stripe\PaymentIntent::create([
+        'amount' => 1099,
+        'currency' => 'usd',
+        'customer' => $customer->id
+    ]);
+
+    return $response->withJson([
+        'paymentIntent' => $paymentIntent->client_secret,
+        'ephemeralKey' => $ephemeralKey->secret,
+        'customer' => $customer->id
+    ])->withStatus(200);
+});
