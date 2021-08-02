@@ -84,7 +84,7 @@ trait Media
     public function getCustomizeDatesAttribute()
     {
         $timestamp = strtotime($this->date);
-        $day = date('F d, Y', $timestamp);
+        $day = date('l F d, Y', $timestamp);
         return $day;
     }
 
