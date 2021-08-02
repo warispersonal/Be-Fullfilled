@@ -63,8 +63,7 @@ Route::post('/social/setup', [SocialSetupController::class, 'social_setup']);
 Route::get('/verify-token', [RegisterController::class, 'verifyToken']);
 
 Route::middleware('auth:api')->group(function () {
-
-
+    Route::get('/score-card', [ScoreCardController::class, 'index']);
     /*
     |--------------------------------------------------------------------------
     | User profile & logout api's
@@ -282,5 +281,4 @@ Route::prefix('/products')->group(function () {
 Route::get('/faq', [FAQController::class, 'index']);
 Route::get('/terms-and-conditions', [TermConditionController::class, 'index']);
 Route::get('/faq-search/{search}', [FAQController::class, 'search']);
-Route::get('/score-card', [ScoreCardController::class, 'index']);
 

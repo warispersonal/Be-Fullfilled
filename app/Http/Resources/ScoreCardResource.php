@@ -18,6 +18,7 @@ class ScoreCardResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'color' => $this->color,
+            'score' => $this->today_score->focus_value ?? 0
         ];
     }
 }
