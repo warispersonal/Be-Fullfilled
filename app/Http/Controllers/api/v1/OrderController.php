@@ -33,13 +33,15 @@ class OrderController extends Controller
 
     public function place_order(Request $request)
     {
+
+
         $shopping_list = [];
         $items = $request->items;
         $cart = [];
         foreach ($items as $item) {
-            $cart[] = $item['cart_id'];
+            $cart[] = $item;
         }
-        $shopping_carts = ShoppingCart::whereIn('id',$cart)->get();
+        $shopping_carts = ShoppingCart::whereIn('id', $cart)->get();
         $total_price = 0;
         foreach ($shopping_carts as $item_cart) {
             $product = Product::find($item_cart->product_id);
@@ -65,9 +67,9 @@ class OrderController extends Controller
             $order_product->order_id = $order->id;
             $order_product->save();
         }
-        foreach ($cart as $item){
+        foreach ($cart as $item) {
             $shopping_cart = ShoppingCart::find($item);
-            if($shopping_cart){
+            if ($shopping_cart) {
                 $shopping_cart->delete();
             }
         }
@@ -87,16 +89,17 @@ class OrderController extends Controller
         }
     }
 
-    public function transaction(){
+    public function transaction()
+    {
         $user = Auth::user();
         $orders = $user->orders;
-        $order_list  = [];
-        foreach ($orders as $order){
+        $order_list = [];
+        foreach ($orders as $order) {
             $item['id'] = $order->id;
             $item['total_price'] = $order->total_price;
             $first_product = $order->order_products->first()->product_id ?? null;
             $product = null;
-            if($first_product){
+            if ($first_product) {
                 $product = Product::find($first_product);
             }
             $item['first_product'] = new ProductResource($product);
