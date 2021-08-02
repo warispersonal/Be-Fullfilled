@@ -216,7 +216,7 @@ Route::middleware('auth:api')->group(function () {
     });
     Route::get('/show/order/{id}', [OrderController::class, 'show']);
     Route::get('/transaction', [OrderController::class, 'transaction']);
-    Route::get('/dashboard', [FocusController::class, 'dashboard']);
+    Route::post('/dashboard', [FocusController::class, 'dashboard']);
 
 
 });

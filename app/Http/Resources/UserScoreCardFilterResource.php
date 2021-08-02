@@ -5,9 +5,10 @@ namespace App\Http\Resources;
 use App\FocusDay;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserScoreCardResource extends JsonResource
+class UserScoreCardFilterResource extends JsonResource
 {
     public $scorecard;
+
     public function __construct($resource)
     {
         parent::__construct($resource);
@@ -20,7 +21,7 @@ class UserScoreCardResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'color' => $this->color,
-            'result' => $this->focus_sum
+            'result' => round(($this->sum / $this->count), 2)
         ];
     }
 }

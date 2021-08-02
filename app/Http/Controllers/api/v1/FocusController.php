@@ -5,11 +5,13 @@ namespace App\Http\Controllers\api\v1;
 use App\FocusDay;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FocusDayResource;
+use App\Http\Resources\UserScoreCardFilterResource;
 use App\Http\Resources\UserScoreCardResource;
 use App\ScoreCard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class FocusController extends Controller
@@ -27,8 +29,8 @@ class FocusController extends Controller
             $error = $validator->errors()->first();
             return $this->validationFailure($error);
         } else {
-            if($score_card){
-                $focus = FocusDay::where('user_id', Auth::id())->where('score_card_id',$score_card_id)->where('date', Date::now()->format('Y-m-d'))->first();
+            if ($score_card) {
+                $focus = FocusDay::where('user_id', Auth::id())->where('score_card_id', $score_card_id)->where('date', Date::now()->format('Y-m-d'))->first();
                 if ($focus) {
                     $focus->focus_value = $request->focus_value;
                     $focus->save();
@@ -42,8 +44,7 @@ class FocusController extends Controller
                     $focusDay->save();
                     return $this->success("Day Focus Created", new FocusDayResource($focusDay));
                 }
-            }
-            else{
+            } else {
                 return $this->failure('Invalid score card id', 404);
             }
         }
@@ -63,8 +64,26 @@ class FocusController extends Controller
         }
     }
 
-    public function dashboard(){
-        $score_cards = ScoreCard::all();
-        return $this->success("Dashboard Score Card", UserScoreCardResource::collection($score_cards));
+    public function dashboard(Request $request)
+    {
+        if ($request->start != null && $request->end != null) {
+            $score_cards = DB::table('score_cards')
+                ->select('score_cards.id', 'score_cards.title', 'score_cards.color', DB::raw('SUM(focus_days.focus_value) as sum'), DB::raw('COUNT(focus_days.focus_value) as count'))
+                ->join('focus_days', 'score_cards.id', '=', 'focus_days.score_card_id')
+                ->where('user_id', Auth::id())
+                ->whereBetween('focus_days.date', [$request->start, $request->end])
+                ->groupBy('score_cards.id')
+                ->get();
+
+            return $this->success("Dashboard Score Card", UserScoreCardFilterResource::collection($score_cards));
+        } else {
+            $score_cards = DB::table('score_cards')
+                ->select('score_cards.id', 'score_cards.title', 'score_cards.color', DB::raw('SUM(focus_days.focus_value) as sum'), DB::raw('COUNT(focus_days.focus_value) as count'))
+                ->join('focus_days', 'score_cards.id', '=', 'focus_days.score_card_id')
+                ->where('user_id', Auth::id())
+                ->groupBy('score_cards.id')
+                ->get();
+            return $this->success("Dashboard Score Card", UserScoreCardFilterResource::collection($score_cards));
+        }
     }
 }

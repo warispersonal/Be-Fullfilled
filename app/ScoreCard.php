@@ -20,9 +20,15 @@ class ScoreCard extends Model
     {
         $sum = FocusDay::where('score_card_id', $this->id)->sum('focus_value');
         $count = FocusDay::where('score_card_id', $this->id)->count('focus_value');
-        $result = ($sum / $count);
-        $result = round($result,2 );
+        if($count != 0){
+            $result = ($sum / $count);
+            $result = round($result, 2);
+        }
+        else{
+            $result = 0;
+        }
         return $result;
     }
+
 
 }
