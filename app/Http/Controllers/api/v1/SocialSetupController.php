@@ -20,6 +20,7 @@ class SocialSetupController extends Controller
             $user->social_account_profile_image_url = $request->social_account_profile_image_url;
             $user->name = $request->name;
             $user->email = $request->social_account_email;
+            $user->device_key = $request->device_key ?? "";
             $user->social_account_email = $request->social_account_email;
             $user->password = Hash::make('password');
             $user->save();

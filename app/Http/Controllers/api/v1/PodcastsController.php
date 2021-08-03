@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Constant\ProjectConstant;
-use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PodcastsCollection;
-use App\Http\Resources\PodcastsResource;
 use App\Podcast;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PodcastsController extends Controller
 {
