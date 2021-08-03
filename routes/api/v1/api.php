@@ -247,8 +247,7 @@ Route::get('flip-the-switch-search/{search}', [FlipSwitch::class, 'search']);
 Route::get('content-library/{filter}', [ContentLibraryController::class, 'filter']);
 Route::get('content-library-search/{search}', [ContentLibraryController::class, 'search']);
 Route::get('content-library/{limit?}', [ContentLibraryController::class, 'index']);
-Route::get('podcasts/{limit?}', [PodcastsController::class, 'index']);
-Route::get('podcasts-search/{search}', [PodcastsController::class, 'search']);
+Route::get('podcasts', [PodcastsController::class, 'index']);
 
 
 /*

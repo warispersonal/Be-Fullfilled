@@ -13,17 +13,14 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PodcastsController extends Controller
 {
-    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
-    {
-        $podcasts = Podcast::paginate($limit);
-        return $this->success("Podcasts List", new PodcastsCollection($podcasts));
-    }
-
-
-    public function search($search)
+    public function index(Request $request)
     {
         $limit = ProjectConstant::TOTAL_API_PAGINATION;
-        $podcasts = Podcast::whereLike('title',$search)->paginate($limit);
+        if ($request->get('search')) {
+            $podcasts = Podcast::whereLike('title', $request->get('search'))->paginate($limit);
+        } else {
+            $podcasts = Podcast::paginate($limit);
+        }
         return $this->success("Podcasts List", new PodcastsCollection($podcasts));
     }
 }
