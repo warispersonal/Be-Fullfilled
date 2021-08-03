@@ -6,14 +6,18 @@ use App\Constant\ProjectConstant;
 use App\ContentLibrary;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ContentLibraryCollection;
-use App\Http\Resources\ContentLibraryResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Request;
 
 class ContentLibraryController extends Controller
 {
-    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
+    public function index(Request $request)
     {
-        $contentLibrary = ContentLibrary::paginate($limit);
+        $limit = ProjectConstant::TOTAL_API_PAGINATION;
+        if ($request->get('search')) {
+            $contentLibrary = ContentLibrary::whereLike('title', $request->get('search'))->orWhereLike('description', $request->get('search'))->paginate($limit);
+        } else {
+            $contentLibrary = ContentLibrary::paginate($limit);
+        }
         return $this->success("Content Library List", new ContentLibraryCollection($contentLibrary));
     }
 
@@ -38,13 +42,5 @@ class ContentLibraryController extends Controller
             return $this->success("Content Library List", new ContentLibraryCollection($contentLibrary));
         }
         return $this->success("Content Library List", []);
-
-    }
-
-    public function search($search)
-    {
-        $limit = ProjectConstant::TOTAL_API_PAGINATION;
-        $contentLibrary = ContentLibrary::whereLike('title', $search)->orWhereLike('description', $search)->paginate($limit);
-        return $this->success("Content Library List", new ContentLibraryCollection($contentLibrary));
     }
 }
