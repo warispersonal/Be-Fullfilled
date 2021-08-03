@@ -6,19 +6,18 @@ use App\Constant\ProjectConstant;
 use App\FlipTheSwitch;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FlipTheSwitchCollection;
+use Illuminate\Http\Request;
 
 class FlipTheSwitchController extends Controller
 {
-    public function index($limit = ProjectConstant::TOTAL_API_PAGINATION)
-    {
-        $flipTheSwitches = FlipTheSwitch::paginate($limit);
-        return $this->success("Flip the Switch List", new FlipTheSwitchCollection($flipTheSwitches));
-    }
-
-    public function search($search)
+    public function index(Request $request)
     {
         $limit = ProjectConstant::TOTAL_API_PAGINATION;
-        $flipTheSwitches = FlipTheSwitch::whereLike('title',$search)->paginate($limit);
+        if ($request->get('search')) {
+            $flipTheSwitches = FlipTheSwitch::whereLike('title', $request->get('search'))->paginate($limit);
+        } else {
+            $flipTheSwitches = FlipTheSwitch::paginate($limit);
+        }
         return $this->success("Flip the Switch List", new FlipTheSwitchCollection($flipTheSwitches));
     }
 }
