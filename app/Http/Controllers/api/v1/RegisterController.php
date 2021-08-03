@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Address;
 use App\Events\UserConfigurationEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericController;
@@ -67,7 +68,17 @@ class RegisterController extends Controller
                 $user->save();
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 $response = ['token' => $token];
+
+                $address = new Address();
+                $address->city = $request->city ?? "";
+                $address->zip_code = $request->zipcode ?? "";
+                $address->street_address = $request->street_address ?? "";
+                $address->user_id = $user->id;
+                $address->save();
+
+
                 event(new UserConfigurationEvent($user));
+
                 return $this->success("Registration successful", $response);
             } else {
                 return $this->failure('Only jpeg, jpg, png file required', 404);
@@ -162,6 +173,7 @@ class RegisterController extends Controller
             $user->street_address = $request->street_address;
             $user->social_account_profile_image_url = null;
             $user->save();
+
             return $this->success('User Profile Updated', new UserResource($user));
         }
     }
