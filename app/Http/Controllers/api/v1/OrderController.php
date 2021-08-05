@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Constant\FileConstant;
 use App\Constant\ProjectConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderCollection;
@@ -11,10 +12,15 @@ use App\Order;
 use App\OrderProduct;
 use App\Product;
 use App\ShoppingCart;
+use App\StripeInitiatePayment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Customer;
+use Stripe\EphemeralKey;
+use Stripe\PaymentIntent;
+use Stripe\Stripe;
 
 class OrderController extends Controller
 {
@@ -33,8 +39,6 @@ class OrderController extends Controller
 
     public function place_order(Request $request)
     {
-
-
         $shopping_list = [];
         $items = $request->items;
         $cart = [];
@@ -51,6 +55,9 @@ class OrderController extends Controller
             $shopping['total_price'] = (double)((double)$product->price * (int)$item_cart->quantity);
             $shopping['product_id'] = $product->id;
             $shopping_list[] = $shopping;
+        }
+        if($total_price < 50){
+            return $this->failure("Amount must be greater than or equal to $0.5");
         }
         $order = new Order();
         $order->address_id = $request->address_id;
@@ -73,11 +80,38 @@ class OrderController extends Controller
                 $shopping_cart->delete();
             }
         }
-
-
-        return $this->success("Order place successfully", new OrderResource($order));
+        $itemArray = [];
+        $itemArray['order'] = new OrderResource($order);
+        $stripe = $this->stripe_payment($total_price);
+        $itemArray['stripe'] = $stripe;
+        return $this->success("Order place successfully", $itemArray);
     }
 
+    private function stripe_payment($amount)
+    {
+        Stripe::setApiKey(FileConstant::STRIPE_API_KEY);
+        $customer = Customer::create();
+        $ephemeralKey = EphemeralKey::create(
+            ['customer' => $customer->id],
+            ['stripe_version' => '2020-08-27']
+        );
+        $paymentIntent = PaymentIntent::create([
+            'amount' => $amount,
+            'currency' => 'usd',
+            'customer' => $customer->id
+        ]);
+        $stripe_payment = new StripeInitiatePayment();
+        $stripe_payment->paymentIntent = $paymentIntent->client_secret;
+        $stripe_payment->ephemeralKey = $ephemeralKey->secret;
+        $stripe_payment->customer = $customer->id;
+        $stripe_payment->user_id = Auth::id();
+        $stripe_payment->save();
+        return response([
+            'paymentIntent' => $paymentIntent->client_secret,
+            'ephemeralKey' => $ephemeralKey->secret,
+            'customer' => $customer->id,
+        ]);
+    }
 
     public function show($id)
     {
